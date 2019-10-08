@@ -12,31 +12,22 @@ let rec print_list_s = function
   | h::t -> print_string h; print_string " "; print_list_s t;
 ;;
 
-let flatten l =
-  let rec inside r ll =
-    if ll = [] then r else List.append (List.hd ll) (inside r (List.tl ll));
-  in
-    inside [] l;
+let rec flatten ll =
+    if ll = [] then [] else (List.hd ll) @ (flatten (List.tl ll));
 ;;
 
-let rec count e l =
+let rec count (e, l) =
   if(l=[]) then 0 else
-    if((List.hd l)=e) then (1 + (count e (List.tl l))) else (0 + (count e (List.tl l)));
+    if((List.hd l)=e) then (1 + (count (e, (List.tl l)))) else (0 + (count (e, (List.tl l))));
 ;;
 
 
-let replicate o n =
-  let rec inside l n =
-      if(n>0) then (o::inside l (n-1)) else (l);
-  in
-    inside [] n;
+let rec replicate (o, n) =
+    if(n>0) then (o::replicate (o, n-1)) else ([]);
 ;;
 
-let sqrList l =
-  let rec inside r ll =
-    if ll = [] then r else ((List.hd ll) * (List.hd ll)) :: (inside r (List.tl ll));
-  in
-    inside [] l;
+let rec sqrList ll =
+  if ll = [] then [] else ((List.hd ll) * (List.hd ll)) :: (sqrList (List.tl ll));
 ;;
 
 let rec palindrome l =
@@ -53,7 +44,7 @@ print_list (flatten list);;
 
 print_string "\n";;
 
-print_list_s (replicate "test" 8);;
+print_list_s (replicate ("test", 8));;
 
 print_string "\n";;
 
@@ -69,4 +60,4 @@ print_int (listLength list2);;
 
 print_string "\n";;
 
-print_int (count 5 list2);;
+print_int (count (5, list2));;

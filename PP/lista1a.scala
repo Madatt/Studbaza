@@ -3,40 +3,42 @@ object lista1a {
     args.foreach(println)
   }
 
-  def flatten(l: List[List[Int]]): List[Int] = {
-    def inside(r: List[List[Int]], k: List[List[Int]]): List[Int] = {
-      if(k == Nil) Nil
-      else k.head ++ inside(r, k.tail)
-    }
-    inside(List(), l)
+  def flatten[A](l: List[List[A]]): List[A] = {
+    if(l == Nil) Nil
+    else l.head ++ flatten(l.tail)
   }
 
 
   def sqrList(l: List[Int]): List[Int] = {
-    def inside(r: List[Int], k: List[Int]): List[Int] = {
-      if(k == Nil) Nil
-      else (k.head * k.head) :: inside(r, k.tail)
+    if(l == Nil) Nil
+      else (l.head * l.head) :: sqrList(l.tail)
     }
-    inside(List(), l)
-  }
 
 
-  def count[E](e: E, l: List[Int]): Int = {
+  def count[A](e: A, l: List[A]): Int = {
     if(l == Nil) 0
       else if(e == l.head) 1 + count(e, l.tail) else count(e, l.tail)
   }
 
+  def replicate[A](x: A, n: Int): List[A] = {
+    if(n > 0) x :: replicate(x, n-1)
+      else Nil
+  }
 
-  def listLength(l: List[Int]): Int = {
+
+  def listLength[A](l: List[A]): Int = {
     if(l == Nil) 0
       else 1 + listLength(l.tail)
   }
 
-
+  def palindrome[A](l: List[A]): Boolean = {
+    l == l.reverse
+  }
 
   def main(args: Array[String]): Unit = {
     var list = List(List(5,6), List(1,2,3))
     var list2 = List(5, 6, 5, 6, 7, 3, 1, 2)
+    var list3 = List(1,2,3,2,1)
     println()
     printList(flatten(list))
     println()
@@ -45,5 +47,9 @@ object lista1a {
     printf(count(5, list2).toString)
     println()
     printList(sqrList(list2))
+    println()
+    printf(palindrome(list3).toString)
+    println()
+    printList(replicate("aa", 6))
   }
 }
