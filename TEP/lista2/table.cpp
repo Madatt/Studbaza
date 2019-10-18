@@ -13,7 +13,7 @@ CTable::CTable(std::string sName, int iTableLen)
   std::cout << "parametr: " << s_name << std::endl;
 }
 
-CTable::CTable(CTable &pcOther)
+CTable::CTable(const CTable &pcOther)
 :s_name(pcOther.s_name + "_copy"), pi_tab(new int[pcOther.i_len]), i_len(pcOther.i_len) {
   memcpy(pi_tab, pcOther.pi_tab, i_len);
   std::cout << "kopiuj: " << s_name << std::endl;

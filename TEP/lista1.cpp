@@ -1,20 +1,38 @@
 #include <iostream>
+#include "constants.h"
 
-void v_alloc_table_add_5(int iSize)
+void v_print_table(int *piTab, int iSize)
+{
+  for(int i = 0; i < iSize; i++)
+    std::cout << piTab[i] << " ";
+
+  std::cout << std::endl;
+}
+
+void v_print_table_2d(int **piTab, int iSizeX, int iSizeY)
+{
+  for(int i = 0; i < iSizeX; i++)
+  {
+    for(int j = 0; j < iSizeY; j++)
+    {
+      std::cout << piTab[i][j] << " ";
+    }
+    std::cout << std::endl;
+  }
+}
+
+
+void v_alloc_table_add_5(int **piTable, int iSize)
 {
   if(iSize <= 0)
     return;
 
-  int *tab = new int[iSize];
+
+  int *piTab = new int[iSize];
   for(int i = 0; i < iSize; i++)
-    tab[i] = i + 5;
+    piTab[i] = i + OFFSET;
 
-  for(int i = 0; i < iSize; i++)
-    std::cout << tab[i] << " ";
-
-  std::cout << std::endl;
-
-  delete [] tab;
+  *piTable = piTab;
 }
 
 bool b_alloc_table_2_dim(int ***piTable, int iSizeX, int iSizeY)
@@ -22,43 +40,42 @@ bool b_alloc_table_2_dim(int ***piTable, int iSizeX, int iSizeY)
   if (iSizeX <= 0 or iSizeY <= 0)
     return false;
 
-  int **tab = new int*[iSizeX];
+  int **piTab = new int*[iSizeX];
   for(int i = 0; i < iSizeX; ++i)
-    tab[i] = new int[iSizeY];
+    piTab[i] = new int[iSizeY];
 
-  *piTable = tab;
+  *piTable = piTab;
   return true;
 }
 
 
-bool b_dealloc_table_2_dim(int ***piTable, int iSizeX, int iSizeY)
+bool b_dealloc_table_2_dim(int **piTable, int iSizeX)
 {
-  if (iSizeX <= 0 or iSizeY <= 0)
+  if (iSizeX <= 0 or *piTable == NULL)
     return false;
 
   for(int j = 0; j < iSizeX; ++j)
-    delete [] (*piTable)[j];
+    if ((piTable)[j] != NULL) delete [] (piTable)[j]; else return false;
 
-  delete [] (*piTable);
+  delete [] (piTable);
   return true;
 }
 
 int main()
 {
-  v_alloc_table_add_5(10);
-
-  int **test;
+  int **test = NULL;
+  int *test2 = NULL;
   b_alloc_table_2_dim(&test, 5, 2);
+  v_alloc_table_add_5(&test2, 10);
 
-  for(int i = 0; i < 5; ++i)
-  {
-    for(int j = 0; j < 2; ++j)
-    {
-      test[i][j] = i + j;
-      std::cout << test[i][j] << " ";
-    }
-    std::cout << std::endl;
-  }
+  v_print_table(test2, 5);
 
-  b_dealloc_table_2_dim(&test, 5, 2);
+  test[1][1] = 22;
+  test[3][1] = 5;
+  test[4][0] = -12;
+
+  v_print_table_2d(test, 5, 2);
+
+  b_dealloc_table_2_dim(test, 5);
+  delete [] test2;
 }
