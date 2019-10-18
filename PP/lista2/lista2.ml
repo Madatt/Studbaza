@@ -1,3 +1,12 @@
+let reverse l =
+  let rec inside l nl =
+    match l with
+      | [] -> nl
+      | h::t -> inside t (h::nl)
+  in
+    inside l []
+;;
+
 
 let rec print_list_s = function
   | [] -> ()
@@ -45,12 +54,12 @@ let rec initSegment (f, s) =
 ;;
 
 let replaceNth (l, n, a) =
-  let rec inside (l, n, a, k) =
+  let rec inside (l, n, a, aa) =
     match l with
-      | h::t -> if k = 0 then a :: inside (t, n, a, k - 1) else h :: inside (t, n, a, k - 1)
-      | [] -> l
+      | h::t -> if n = 0 then inside (t, n - 1, a, a :: aa) else inside (t, n - 1, a, h :: aa)
+      | [] -> aa
   in
-    inside (l, n, a, n)
+    reverse (inside (l, n, a, []))
 ;;
 
 
@@ -65,3 +74,7 @@ Printf.printf "%b" (initSegment([1], [1;2;3;4]));;
 print_string "\n";;
 print_list_s (replaceNth(["a";"e";"d";"b"], 2, "c"));;
 print_string "\n";;
+
+
+let [_; _; x1; _; _] = [-2; -1; 0; 1; 2];;
+let [(_, _); (x, _)] = [(1, 2); (0, 1)];;
