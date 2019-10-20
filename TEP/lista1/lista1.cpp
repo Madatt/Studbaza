@@ -48,14 +48,6 @@ bool b_alloc_table_2_dim(int ***piTable, int iSizeX, int iSizeY)
   return true;
 }
 
-bool b_dealloc_table_1_dim(int *piTable, int iSize)
-{
-  if(iSize < 0) return false;
-  delete [] (piTable);
-  return true;
-}
-
-
 bool b_dealloc_table_2_dim(int **piTable, int iSizeX, int iSizeY)
 {
   if (iSizeX < 0 or iSizeY < 0)
@@ -70,24 +62,24 @@ bool b_dealloc_table_2_dim(int **piTable, int iSizeX, int iSizeY)
 
 int main()
 {
-  int **test = NULL;
-  int *test2 = NULL;
-  b_alloc_table_2_dim(&test, 5, 2);
-  b_alloc_table_add_5(&test2, 10);
+  int **pi_test = NULL;
+  int *pi_test2 = NULL;
+  b_alloc_table_2_dim(&pi_test, 5, 2);
+  b_alloc_table_add_5(&pi_test2, 10);
 
-  v_print_table(test2, 5);
+  v_print_table(pi_test2, 5);
 
-  test[1][1] = 22;
-  test[3][1] = 5;
-  test[4][0] = -12;
+  pi_test[1][1] = 22;
+  pi_test[3][1] = 5;
+  pi_test[4][0] = -12;
 
-  v_print_table_2d(test, 5, 2);
+  v_print_table_2d(pi_test, 5, 2);
 
-  b_dealloc_table_2_dim(test, 5, 2);
-  b_dealloc_table_1_dim(test2, 10);
+  b_dealloc_table_2_dim(pi_test, 5, 2);
+  delete [] pi_test2;
 
-  int *test3 = NULL;
+  int *pi_test3 = NULL;
 
-  b_alloc_table_add_5(&test3, 0);
-  b_dealloc_table_1_dim(test3, 0);
+  b_alloc_table_add_5(&pi_test3, 0);
+  delete [] pi_test3;
 }
