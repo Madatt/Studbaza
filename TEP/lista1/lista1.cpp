@@ -22,22 +22,22 @@ void v_print_table_2d(int **piTab, int iSizeX, int iSizeY)
 }
 
 
-void v_alloc_table_add_5(int **piTable, int iSize)
+bool b_alloc_table_add_5(int **piTable, int iSize)
 {
-  if(iSize <= 0)
-    return;
-
+  if(iSize < 0)
+    return false;
 
   int *piTab = new int[iSize];
   for(int i = 0; i < iSize; i++)
     piTab[i] = i + OFFSET;
 
   *piTable = piTab;
+  return true;
 }
 
 bool b_alloc_table_2_dim(int ***piTable, int iSizeX, int iSizeY)
 {
-  if (iSizeX <= 0 or iSizeY <= 0)
+  if (iSizeX < 0 or iSizeY < 0)
     return false;
 
   int **piTab = new int*[iSizeX];
@@ -48,14 +48,21 @@ bool b_alloc_table_2_dim(int ***piTable, int iSizeX, int iSizeY)
   return true;
 }
 
-
-bool b_dealloc_table_2_dim(int **piTable, int iSizeX)
+bool b_dealloc_table_1_dim(int *piTable, int iSize)
 {
-  if (iSizeX <= 0 or *piTable == NULL)
+  if(iSize < 0) return false;
+  delete [] (piTable);
+  return true;
+}
+
+
+bool b_dealloc_table_2_dim(int **piTable, int iSizeX, int iSizeY)
+{
+  if (iSizeX < 0 or iSizeY < 0)
     return false;
 
   for(int j = 0; j < iSizeX; ++j)
-    if ((piTable)[j] != NULL) delete [] (piTable)[j]; else return false;
+    delete [] (piTable)[j];
 
   delete [] (piTable);
   return true;
@@ -66,7 +73,7 @@ int main()
   int **test = NULL;
   int *test2 = NULL;
   b_alloc_table_2_dim(&test, 5, 2);
-  v_alloc_table_add_5(&test2, 10);
+  b_alloc_table_add_5(&test2, 10);
 
   v_print_table(test2, 5);
 
@@ -76,6 +83,11 @@ int main()
 
   v_print_table_2d(test, 5, 2);
 
-  b_dealloc_table_2_dim(test, 5);
-  delete [] test2;
+  b_dealloc_table_2_dim(test, 5, 2);
+  b_dealloc_table_1_dim(test2, 10);
+
+  int *test3 = NULL;
+
+  b_alloc_table_add_5(&test3, 0);
+  b_dealloc_table_1_dim(test3, 0);
 }
