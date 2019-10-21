@@ -24,7 +24,6 @@ let fib_t n =
   let rec ins n a b =
     match n with
       | 0 -> a
-      | 1 -> b
       | x -> (ins[@tailcall]) (n-1) b (a+b)
   in
     ins n 0 1
@@ -53,13 +52,10 @@ let rec initSegment (f, s) =
     | (h::t, []) -> false
 ;;
 
-let replaceNth (l, n, a) =
-  let rec inside (l, n, a, aa) =
-    match l with
-      | h::t -> if n = 0 then inside (t, n - 1, a, a :: aa) else inside (t, n - 1, a, h :: aa)
-      | [] -> aa
-  in
-    reverse (inside (l, n, a, []))
+let rec replaceNth (l, n, a) =
+  match l with
+    | h::t -> if n = 0 then a::replaceNth(t, n - 1, a) else h::replaceNth(t, n - 1, a)
+    | [] -> []
 ;;
 
 

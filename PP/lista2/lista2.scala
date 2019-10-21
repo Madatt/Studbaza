@@ -37,6 +37,11 @@ object lista2 {
   }
 
 
+  def replaceNth[A](l: List[A], n: Int, a: A): List[A] = l match {
+      case h::t => if (n == 0) a::replaceNth(t, n - 1, a) else h::replaceNth(t, n - 1, a)
+      case Nil => Nil
+  }
+
   def main(args: Array[String]): Unit = {
     var list = List(List(5,6), List(1,2,3))
     var list2 = List(5, 6, 5, 6, 7, 3, 1, 2)
@@ -52,5 +57,8 @@ object lista2 {
     println()
     printf(initSegment(list4, list3).toString)
     println()
-    printf(initSegment(list3, list4).toString)  }
+    printf(initSegment(list3, list4).toString)
+    println()
+    printList(replaceNth(list3, 3, 232))
+  }
 }
