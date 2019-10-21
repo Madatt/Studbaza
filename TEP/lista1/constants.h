@@ -1,1 +1,1 @@
-#define OFFSET 5
+const int OFFSET = 5;

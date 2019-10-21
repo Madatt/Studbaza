@@ -62,24 +62,24 @@ bool b_dealloc_table_2_dim(int **piTable, int iSizeX, int iSizeY)
 
 int main()
 {
-  int **pi_test = NULL;
-  int *pi_test2 = NULL;
-  b_alloc_table_2_dim(&pi_test, 5, 2);
-  b_alloc_table_add_5(&pi_test2, 10);
+  int **piTest = NULL;
+  int *piTest2 = NULL;
+  b_alloc_table_2_dim(&piTest, 5, 2);
+  b_alloc_table_add_5(&piTest2, 10);
 
-  v_print_table(pi_test2, 5);
+  v_print_table(piTest2, 5);
 
-  pi_test[1][1] = 22;
-  pi_test[3][1] = 5;
-  pi_test[4][0] = -12;
+  piTest[1][1] = 22;
+  piTest[3][1] = 5;
+  piTest[4][0] = -12;
 
-  v_print_table_2d(pi_test, 5, 2);
+  v_print_table_2d(piTest, 5, 2);
 
-  b_dealloc_table_2_dim(pi_test, 5, 2);
-  delete [] pi_test2;
+  b_dealloc_table_2_dim(piTest, 5, 2);
+  delete [] piTest2;
 
-  int *pi_test3 = NULL;
+  int *piTest3 = NULL;
 
-  b_alloc_table_add_5(&pi_test3, 0);
-  delete [] pi_test3;
+  b_alloc_table_add_5(&piTest3, 0);
+  delete [] piTest3;
 }
