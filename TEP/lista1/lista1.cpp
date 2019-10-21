@@ -48,9 +48,9 @@ bool b_alloc_table_2_dim(int ***piTable, int iSizeX, int iSizeY)
   return true;
 }
 
-bool b_dealloc_table_2_dim(int **piTable, int iSizeX, int iSizeY)
+bool b_dealloc_table_2_dim(int **piTable, int iSizeX)
 {
-  if (iSizeX < 0 or iSizeY < 0)
+  if (iSizeX < 0)
     return false;
 
   for(int j = 0; j < iSizeX; ++j)
@@ -62,24 +62,26 @@ bool b_dealloc_table_2_dim(int **piTable, int iSizeX, int iSizeY)
 
 int main()
 {
-  int **piTest = NULL;
-  int *piTest2 = NULL;
-  b_alloc_table_2_dim(&piTest, 5, 2);
-  b_alloc_table_add_5(&piTest2, 10);
+  int **piTabTest = NULL;
+  int *piTabTest2 = NULL;
+  b_alloc_table_2_dim(&piTabTest, 5, 2);
+  b_alloc_table_add_5(&piTabTest2, 10);
 
-  v_print_table(piTest2, 5);
+  v_print_table(piTabTest2, 5);
 
-  piTest[1][1] = 22;
-  piTest[3][1] = 5;
-  piTest[4][0] = -12;
+  piTabTest[1][1] = 22;
+  piTabTest[3][1] = 5;
+  piTabTest[4][0] = -12;
 
-  v_print_table_2d(piTest, 5, 2);
+  std::cout << std::endl;
 
-  b_dealloc_table_2_dim(piTest, 5, 2);
-  delete [] piTest2;
+  v_print_table_2d(piTabTest, 5, 2);
 
-  int *piTest3 = NULL;
+  b_dealloc_table_2_dim(piTabTest, 5);
+  delete [] piTabTest2;
 
-  b_alloc_table_add_5(&piTest3, 0);
-  delete [] piTest3;
+  int *piTabTest3 = NULL;
+
+  b_alloc_table_add_5(&piTabTest3, 0);
+  delete [] piTabTest3;
 }
