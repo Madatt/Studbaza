@@ -29,13 +29,13 @@ void CTable::vSetName(std::string sName) {
 }
 
 bool CTable::bSetNewSize(int iTableLen) {
-  if(iTableLen <= 0 or iTableLen < i_len)
+  if(iTableLen <= 0)
     return false;
 
   i_len = iTableLen;
 
   int* tab = new int[iTableLen];
-  memcpy(tab, pi_tab, i_len);
+  memcpy(tab, pi_tab, iTableLen < i_len ? iTableLen : i_len);
   delete [] pi_tab;
   pi_tab = tab;
 
