@@ -38,7 +38,7 @@ object lista2 {
 
 
   def replaceNth[A](l: List[A], n: Int, a: A): List[A] = l match {
-      case h::t => if (n == 0) a::replaceNth(t, n - 1, a) else h::replaceNth(t, n - 1, a)
+      case h::t => if (n == 0) a::t else h::replaceNth(t, n - 1, a)
       case Nil => Nil
   }
 

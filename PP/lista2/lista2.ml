@@ -54,7 +54,7 @@ let rec initSegment (f, s) =
 
 let rec replaceNth (l, n, a) =
   match l with
-    | h::t -> if n = 0 then a::replaceNth(t, n - 1, a) else h::replaceNth(t, n - 1, a)
+    | h::t -> if n = 0 then a::t else h::replaceNth(t, n - 1, a)
     | [] -> []
 ;;
 
