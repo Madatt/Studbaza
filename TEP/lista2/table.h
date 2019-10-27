@@ -1,7 +1,14 @@
 #include <string>
 
-#define C_D_TABLE_LEN 8
-#define C_D_TABLE_NAME "default"
+const int C_D_TABLE_LEN = 8;
+const std::string C_D_TABLE_NAME = "default";
+
+const std::string C_D_DEL_MSG = "usuwam: ";
+const std::string C_D_PARAM_MSG = "parametr: ";
+const std::string C_D_NOPARAM_MSG = "bezp: ";
+const std::string C_D_COPY_MSG = "kopiuje: ";
+
+const std::string C_D_COPY_PRE = "_kopia";
 
 class CTable {
 public:
@@ -15,6 +22,10 @@ public:
   bool bSetNewSize(int iTableLen);
   int iGetSize() {return i_len;};
 
+  bool bSetValue(int iN, int iVal);
+  int iGetValue(int iN);
+
+
   CTable *pcClone();
 
 private:
@@ -25,3 +36,4 @@ private:
 
 void v_mod_table(CTable* pcTab, int iNewSize);
 void v_mod_table(CTable pcTab, int iNewSize);
+void v_print_table(CTable &pcTab);
