@@ -23,9 +23,21 @@ int main() {
   v_print_table(*pc_tab3);
   std::cout << std::endl;
 
+
+  pc_tab3->bSetNewSize(C_T_TABLE_LEN3);
+
+  v_print_table(*pc_tab3);
+  std::cout << std::endl;
+
+  CTable* pc_tab3_c = pc_tab3->pcClone();
+
+  v_print_table(*pc_tab3);
+  std::cout << std::endl;
+
   delete pc_tab1;
   delete pc_tab2;
   delete pc_tab3;
+  delete pc_tab3_c;
 
   std::cout << std::endl;
 
@@ -48,4 +60,10 @@ int main() {
   std::cout  << pc_tab6->iGetSize() << std::endl;
 
   delete pc_tab6;
+
+
+  CTable c_tab_arr[C_T_ARR_LEN];
+  CTable* pc_tab_arr = new CTable[C_T_ARR_LEN];
+  delete [] pc_tab_arr;
+
 }

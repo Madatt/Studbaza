@@ -4,6 +4,8 @@ const int C_T_TABLE_LEN1A = 1;
 const int C_T_TABLE_LEN2 = 6;
 const int C_T_TABLE_LEN3 = 12;
 
+const int C_T_ARR_LEN = 10;
+
 const int C_T_VAL1 = 2336;
 const int C_T_VAL2 = -95;
 
