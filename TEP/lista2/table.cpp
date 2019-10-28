@@ -19,7 +19,9 @@ CTable::CTable(std::string sName, int iTableLen)
 
 CTable::CTable(const CTable &pcOther)
 :s_name(pcOther.s_name + C_D_COPY_PRE), pi_tab(new int[pcOther.i_len]), i_len(pcOther.i_len) {
-  std::copy(pcOther.pi_tab, pcOther.pi_tab + i_len, pi_tab);
+  for(int i = 0; i < i_len; i++)
+    pi_tab[i] = pcOther.pi_tab[i];
+  //std::copy(pcOther.pi_tab, pcOther.pi_tab + i_len, pi_tab);
   std::cout << C_D_COPY_MSG << s_name << std::endl;
 }
 
@@ -33,15 +35,19 @@ void CTable::vSetName(std::string sName) {
 }
 
 bool CTable::bSetNewSize(int iTableLen) {
-  if(iTableLen <= 0)
+  if(iTableLen < 0)
     return false;
 
-  i_len = iTableLen < i_len ? iTableLen : i_len;
+  int i_end = iTableLen < i_len ? iTableLen : i_len;
+  i_len = iTableLen;
 
-  int* tab = new int[iTableLen];
-  std::copy(pi_tab, pi_tab + i_len, tab);
+
+  int* pi_new_tab = new int[iTableLen];
+  for(int i = 0; i < i_end; i++)
+    pi_new_tab[i] = pi_tab[i];
+  //std::copy(pi_tab, pi_tab + i_len, tab);
   delete [] pi_tab;
-  pi_tab = tab;
+  pi_tab = pi_new_tab;
 
   return true;
 }
