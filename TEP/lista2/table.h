@@ -17,6 +17,9 @@ public:
   CTable(const CTable &pcOther);
   virtual ~CTable();
 
+  CTable operator+(CTable pcRight);
+  CTable& operator=(CTable pcRight);
+
   void vSetName(std::string sName);
 
   bool bSetNewSize(int iTableLen);
@@ -27,6 +30,9 @@ public:
 
 
   CTable *pcClone();
+  void vShow();
+  void vFillRising();
+  CTable cGetPairSumsTable();
 
 private:
   std::string s_name;

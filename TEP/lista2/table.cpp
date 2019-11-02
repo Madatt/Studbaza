@@ -19,15 +19,31 @@ CTable::CTable(std::string sName, int iTableLen)
 
 CTable::CTable(const CTable &pcOther)
 :s_name(pcOther.s_name + C_D_COPY_PRE), pi_tab(new int[pcOther.i_len]), i_len(pcOther.i_len) {
-  for(int i = 0; i < i_len; i++)
-    pi_tab[i] = pcOther.pi_tab[i];
-  //std::copy(pcOther.pi_tab, pcOther.pi_tab + i_len, pi_tab);
+  std::copy(pcOther.pi_tab, pcOther.pi_tab + i_len, pi_tab);
   std::cout << C_D_COPY_MSG << s_name << std::endl;
 }
 
 CTable::~CTable() {
   std::cout << C_D_DEL_MSG << s_name << std::endl;
   delete [] pi_tab;
+}
+
+CTable CTable::operator+(CTable pcRight)
+{
+  CTable pc_new_tab = CTable(s_name, i_len + pcRight.i_len);
+  std::copy(pi_tab, pi_tab + i_len, pc_new_tab.pi_tab);
+  std::copy(pcRight.pi_tab, pcRight.pi_tab + pcRight.i_len, pc_new_tab.pi_tab + i_len);
+  return pc_new_tab;
+}
+
+CTable& CTable::operator=(CTable pcRight)
+{
+  s_name = pcRight.s_name;
+  i_len = pcRight.i_len;
+  delete [] pi_tab;
+  pi_tab = new int[i_len];
+  std::copy(pcRight.pi_tab, pcRight.pi_tab + i_len, pi_tab);
+  return *this;
 }
 
 void CTable::vSetName(std::string sName) {
@@ -43,9 +59,7 @@ bool CTable::bSetNewSize(int iTableLen) {
 
 
   int* pi_new_tab = new int[iTableLen];
-  for(int i = 0; i < i_end; i++)
-    pi_new_tab[i] = pi_tab[i];
-  //std::copy(pi_tab, pi_tab + i_len, tab);
+  std::copy(pi_tab, pi_tab + i_len, pi_new_tab);
   delete [] pi_tab;
   pi_tab = pi_new_tab;
 
@@ -82,4 +96,34 @@ void v_mod_table(CTable pcTab, int iNewSize) {
 void v_print_table(CTable &pcTab) {
   for(int i = 0; i < pcTab.iGetSize(); i++)
     std::cout << pcTab.iGetValue(i) << " ";
+}
+
+void CTable::vShow() {
+  std::cout << s_name << ": ";
+  for(int i = 0; i < i_len; i++)
+  {
+    std::cout << pi_tab[i] <<";";
+    if(i != i_len - 1)
+      std::cout << " ";
+  }
+  std::cout <<std::endl;
+}
+
+void CTable::vFillRising() {
+  for(int i = 0; i < i_len; i++)
+    pi_tab[i] = i + 1;
+}
+
+CTable CTable::cGetPairSumsTable()
+{
+  int i_nlen = (i_len - 1 < 0) ? 0 : i_len - 1;
+
+  CTable c_new = CTable(s_name + "PairSums", i_nlen);
+
+  for(int i = 0; i < i_nlen; i++)
+  {
+    c_new.bSetValue(i, pi_tab[i] + pi_tab[i+1]);
+  }
+
+  return c_new;
 }
