@@ -28,7 +28,7 @@ CTable::~CTable() {
   delete [] pi_tab;
 }
 
-CTable CTable::operator+(CTable pcRight)
+CTable CTable::operator+(const CTable &pcRight)
 {
   CTable pc_new_tab = CTable(s_name, i_len + pcRight.i_len);
   std::copy(pi_tab, pi_tab + i_len, pc_new_tab.pi_tab);
@@ -36,7 +36,7 @@ CTable CTable::operator+(CTable pcRight)
   return pc_new_tab;
 }
 
-CTable& CTable::operator=(CTable pcRight)
+CTable& CTable::operator=(const CTable &pcRight)
 {
   s_name = pcRight.s_name;
   i_len = pcRight.i_len;

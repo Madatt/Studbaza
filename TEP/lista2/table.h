@@ -17,8 +17,8 @@ public:
   CTable(const CTable &pcOther);
   virtual ~CTable();
 
-  CTable operator+(CTable pcRight);
-  CTable& operator=(CTable pcRight);
+  CTable operator+(const CTable &pcRight);
+  CTable& operator=(const CTable &pcRight);
 
   void vSetName(std::string sName);
 
