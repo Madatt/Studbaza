@@ -33,27 +33,6 @@ object lista5 {
     inside(List(l))
   }
 
-/*
-let lfib =
-  let rec inside a b =
-    LCons(a, lazy(inside b (a+b) ))
-  in
-    inside 0 1
-;;
-
-  let lBreadth l =
-    let rec inside tl =
-      match tl with
-        | [] -> LNil
-        | [LEmpty] -> LNil
-        | LEmpty::t -> inside t
-        | LNode(v, f1, f2)::t -> LCons(v, lazy(inside (t @ (f1()::f2()::[]))))
-    in
-      inside [l]
-  ;;
-
-*/
-
   def main(args: Array[String]): Unit = {
 
   }

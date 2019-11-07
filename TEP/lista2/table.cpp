@@ -38,11 +38,24 @@ CTable CTable::operator+(const CTable &pcRight)
 
 CTable& CTable::operator=(const CTable &pcRight)
 {
+  if(&pcRight == this) return *this;
   s_name = pcRight.s_name;
   i_len = pcRight.i_len;
   delete [] pi_tab;
   pi_tab = new int[i_len];
   std::copy(pcRight.pi_tab, pcRight.pi_tab + i_len, pi_tab);
+  return *this;
+}
+
+CTable& CTable::operator/=(const int &iRight)
+{
+  if(iRight <= 1) return *this;
+
+  int i = 0;
+  for(i = 0; (i*iRight) < i_len; i++)
+    pi_tab[i] = pi_tab[i*iRight];
+
+  bSetNewSize(i);
   return *this;
 }
 
@@ -114,6 +127,10 @@ void CTable::vFillRising() {
     pi_tab[i] = i + 1;
 }
 
+void CTable::vFillRising(int iN) {
+  for(int i = 0; i < i_len; i++)
+    pi_tab[i] = iN + i;
+}
 CTable CTable::cGetPairSumsTable()
 {
   int i_nlen = (i_len - 1 < 0) ? 0 : i_len - 1;

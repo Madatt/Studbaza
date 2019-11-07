@@ -19,6 +19,7 @@ public:
 
   CTable operator+(const CTable &pcRight);
   CTable& operator=(const CTable &pcRight);
+  CTable& operator/=(const int &iRight);
 
   void vSetName(std::string sName);
 
@@ -32,6 +33,7 @@ public:
   CTable *pcClone();
   void vShow();
   void vFillRising();
+  void vFillRising(int iN);
   CTable cGetPairSumsTable();
 
 private:

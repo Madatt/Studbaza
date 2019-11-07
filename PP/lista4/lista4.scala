@@ -17,7 +17,6 @@ object lista4 {
         case Empty::t => inside(t)
         case Node(v, left, right)::t => v::(inside(t ++ List(left, right)))
     }
-
     inside(List(tt))
   }
 
