@@ -1,0 +1,3 @@
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/cmake-build-debug/CMakeFiles/lista4.dir
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/cmake-build-debug/CMakeFiles/rebuild_cache.dir

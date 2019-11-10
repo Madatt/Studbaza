@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/CFileLastError.cpp
+CFileLastError.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/CFileLastError.h
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/CFileLastError.h
+string
+-
+vector
+-
+cstdio
+-
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/main.cpp
+iostream
+-
+
