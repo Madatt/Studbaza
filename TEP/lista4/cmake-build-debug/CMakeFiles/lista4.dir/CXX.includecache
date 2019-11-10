@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/CFileLastError.cpp
-CFileLastError.h
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/CFileLastError.h
-
 C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/CFileLastError.h
 string
 -
@@ -21,4 +17,6 @@ cstdio
 C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/main.cpp
 iostream
 -
+CFileLastError.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/CFileLastError.h
 

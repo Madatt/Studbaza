@@ -48,7 +48,7 @@ void CFileLastError::vPrintLine(std::string sText) {
         return;
     }
 
-    fprintf(pf_file, (sText + "/n").c_str());
+    fprintf(pf_file, (sText + "\n").c_str());
 }
 
 void CFileLastError::vPrintManyLines(std::vector<std::string> sText) {
@@ -61,5 +61,5 @@ void CFileLastError::vPrintManyLines(std::vector<std::string> sText) {
     }
 
     for(std::vector<std::string>::iterator it = sText.begin(); it != sText.end(); ++it)
-        fprintf(pf_file, (*it + "/n").c_str());
+        fprintf(pf_file, (*it + "\n").c_str());
 }

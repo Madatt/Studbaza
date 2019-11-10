@@ -4,5 +4,6 @@
 CMakeFiles/lista4.dir/CFileLastError.cpp.obj: ../CFileLastError.cpp
 CMakeFiles/lista4.dir/CFileLastError.cpp.obj: ../CFileLastError.h
 
+CMakeFiles/lista4.dir/main.cpp.obj: ../CFileLastError.h
 CMakeFiles/lista4.dir/main.cpp.obj: ../main.cpp
 
