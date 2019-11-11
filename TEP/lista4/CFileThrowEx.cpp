@@ -2,59 +2,51 @@
 // Created by Madatt on 10.11.2019.
 //
 
-#include "CFileLastError.h"
+#include "CFileThrowEx.h"
 
-bool CFileLastError::b_last_error = false;
-
-CFileLastError::CFileLastError()
-:pf_file(NULL)
-{
+CFileThrowEx::CFileThrowEx()
+        : pf_file(NULL) {
 
 }
 
-CFileLastError::CFileLastError(std::string sFileName) {
+CFileThrowEx::CFileThrowEx(std::string sFileName) {
     vOpenFile(sFileName);
 }
 
-CFileLastError::~CFileLastError() {
+CFileThrowEx::~CFileThrowEx() {
     vCloseFile();
 }
 
-void CFileLastError::vOpenFile(std::string sFileName) {
-    vClear();
+void CFileThrowEx::vOpenFile(std::string sFileName) {
     vCloseFile();
 
     pf_file = fopen(sFileName.c_str(), "w+");
     if(!bIsOpen())
     {
         pf_file = NULL;
-        vErr();
+        throw 1;
     }
 }
 
-void CFileLastError::vCloseFile() {
+void CFileThrowEx::vCloseFile() {
     if(bIsOpen())
         fclose(pf_file);
 }
 
-void CFileLastError::vPrintLine(std::string sText) {
-    vClear();
-
+void CFileThrowEx::vPrintLine(std::string sText) {
     if(!bIsOpen())
     {
-        vErr();
+        throw 2;
         return;
     }
 
     fprintf(pf_file, (sText + "\n").c_str());
 }
 
-void CFileLastError::vPrintManyLines(std::vector<std::string> sText) {
-    vClear();
-
+void CFileThrowEx::vPrintManyLines(std::vector<std::string> sText) {
     if(!bIsOpen())
     {
-        vErr();
+        throw 3;
         return;
     }
 
