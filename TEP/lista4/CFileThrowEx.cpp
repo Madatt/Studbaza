@@ -14,11 +14,13 @@ CFileThrowEx::CFileThrowEx(std::string sFileName) {
 }
 
 CFileThrowEx::~CFileThrowEx() {
-    vCloseFile();
+    if(bIsOpen())
+        vCloseFile();
 }
 
 void CFileThrowEx::vOpenFile(std::string sFileName) {
-    vCloseFile();
+    if(bIsOpen())
+        throw 1;
 
     pf_file = fopen(sFileName.c_str(), "w+");
     if (!bIsOpen()) {
@@ -30,6 +32,8 @@ void CFileThrowEx::vOpenFile(std::string sFileName) {
 void CFileThrowEx::vCloseFile() {
     if (bIsOpen())
         fclose(pf_file);
+    else
+        throw 5;
 }
 
 void CFileThrowEx::vPrintLine(std::string sText) {

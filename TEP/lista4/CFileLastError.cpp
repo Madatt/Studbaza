@@ -22,7 +22,12 @@ CFileLastError::~CFileLastError() {
 
 void CFileLastError::vOpenFile(std::string sFileName) {
     b_last_error = false;
-    vCloseFile();
+
+    if(bIsOpen())
+    {
+        b_last_error = true;
+        return;
+    }
 
     pf_file = fopen(sFileName.c_str(), "w+");
     if(!bIsOpen())
@@ -33,8 +38,11 @@ void CFileLastError::vOpenFile(std::string sFileName) {
 }
 
 void CFileLastError::vCloseFile() {
+    b_last_error = false;
     if(bIsOpen())
         fclose(pf_file);
+    else
+        b_last_error = true;
 }
 
 void CFileLastError::vPrintLine(std::string sText) {
@@ -51,19 +59,12 @@ void CFileLastError::vPrintLine(std::string sText) {
 
 void CFileLastError::vPrintManyLines(std::vector<std::string> sText) {
     b_last_error = false;
-    bool b_tmp = false;
-
     if(!bIsOpen())
     {
         b_last_error = true;
         return;
     }
 
-    for(std::vector<std::string>::iterator it = sText.begin(); it != sText.end(); ++it)
-    {
+    for(std::vector<std::string>::iterator it = sText.begin(); it != sText.end() or !b_last_error; ++it)
         vPrintLine(*it);
-        b_tmp = !b_last_error ? b_tmp : true;
-    }
-
-    b_last_error = b_tmp;
 }
