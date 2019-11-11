@@ -21,35 +21,33 @@ void CFileThrowEx::vOpenFile(std::string sFileName) {
     vCloseFile();
 
     pf_file = fopen(sFileName.c_str(), "w+");
-    if(!bIsOpen())
-    {
+    if (!bIsOpen()) {
         pf_file = NULL;
         throw 1;
     }
 }
 
 void CFileThrowEx::vCloseFile() {
-    if(bIsOpen())
+    if (bIsOpen())
         fclose(pf_file);
 }
 
 void CFileThrowEx::vPrintLine(std::string sText) {
-    if(!bIsOpen())
-    {
+    if (!bIsOpen())
         throw 2;
-        return;
-    }
 
     fprintf(pf_file, (sText + "\n").c_str());
 }
 
 void CFileThrowEx::vPrintManyLines(std::vector<std::string> sText) {
-    if(!bIsOpen())
-    {
+    if (!bIsOpen())
         throw 3;
-        return;
-    }
 
-    for(std::vector<std::string>::iterator it = sText.begin(); it != sText.end(); ++it)
-        fprintf(pf_file, (*it + "\n").c_str());
+    for (std::vector<std::string>::iterator it = sText.begin(); it != sText.end(); ++it) {
+        try {
+            vPrintLine(*it);
+        } catch (int e) {
+            if (e == 2) throw 4;
+        }
+    }
 }

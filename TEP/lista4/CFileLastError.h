@@ -28,8 +28,6 @@ private:
     static bool b_last_error;
     FILE *pf_file;
 
-    static void vErr() {b_last_error = true;};
-    static void vClear() {b_last_error = false;};
 };
 
 
