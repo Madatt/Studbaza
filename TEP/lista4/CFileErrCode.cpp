@@ -54,7 +54,7 @@ bool CFileErrCode::bPrintManyLines(std::vector<std::string> sText) {
     if (!bIsOpen())
         return false;
 
-    for (std::vector<std::string>::iterator it = sText.begin(); it != sText.end() or !b_tmp; ++it) {
+    for (std::vector<std::string>::iterator it = sText.begin(); it != sText.end() and !b_tmp; ++it) {
         b_tmp = bPrintLine(*it);
     }
 

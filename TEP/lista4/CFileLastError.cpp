@@ -65,6 +65,6 @@ void CFileLastError::vPrintManyLines(std::vector<std::string> sText) {
         return;
     }
 
-    for(std::vector<std::string>::iterator it = sText.begin(); it != sText.end() or !b_last_error; ++it)
+    for(std::vector<std::string>::iterator it = sText.begin(); it != sText.end() and !b_last_error; ++it)
         vPrintLine(*it);
 }
