@@ -80,10 +80,22 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/CFileErrCode.cpp">
+			<Option target="lista4"/>
+		</Unit>
+		<Unit filename="C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/CFileErrCode.h">
+			<Option target="lista4"/>
+		</Unit>
 		<Unit filename="C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/CFileLastError.cpp">
 			<Option target="lista4"/>
 		</Unit>
 		<Unit filename="C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/CFileLastError.h">
+			<Option target="lista4"/>
+		</Unit>
+		<Unit filename="C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/CFileThrowEx.cpp">
+			<Option target="lista4"/>
+		</Unit>
+		<Unit filename="C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/CFileThrowEx.h">
 			<Option target="lista4"/>
 		</Unit>
 		<Unit filename="C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/main.cpp">

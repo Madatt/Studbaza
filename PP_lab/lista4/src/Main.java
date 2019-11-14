@@ -13,6 +13,8 @@ public class Main {
         wierz.add(3);
         wierz.add(4);
         wierz.add(5);
+        wierz.add(6);
+        wierz.add(7);
 
         pw.add(1);
         dr.add(2);
@@ -26,6 +28,15 @@ public class Main {
         dr.add(4);
         lb.add("Pomiedzy");
 
+        pw.add(5);
+        dr.add(6);
+        lb.add("Kot");
+
+        pw.add(5);
+        dr.add(7);
+        lb.add("Pies");
+
+
         Graf<Integer, String> graf = new Graf<>(wierz, pw, dr, lb);
         System.out.println(graf.wierzcholki().toString());
         System.out.println(graf.krawedz(1, 2));
@@ -34,6 +45,9 @@ public class Main {
         System.out.println(graf.krawedzie(2));
         System.out.println(graf.krawedzie(3));
         System.out.println(graf.krawedzie(4));
+        System.out.println(graf.krawedzie(5));
+        System.out.println(graf.krawedzie(6));
+        System.out.println(graf.krawedzie(7));
 
         System.out.println(GrafFunkcje.droga(graf, 1, 3).toString());
         System.out.println(GrafFunkcje.skladowe(graf).toString());

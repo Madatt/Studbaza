@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/CFileErrCode.h
+string
+-
+vector
+-
+cstdio
+-
+
 C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/CFileLastError.h
 string
 -
@@ -14,9 +22,25 @@ vector
 cstdio
 -
 
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/CFileThrowEx.h
+string
+-
+vector
+-
+cstdio
+-
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/constants.h
+
 C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/main.cpp
 iostream
 -
 CFileLastError.h
 C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/CFileLastError.h
+CFileThrowEx.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/CFileThrowEx.h
+CFileErrCode.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/CFileErrCode.h
+constants.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista4/constants.h
 

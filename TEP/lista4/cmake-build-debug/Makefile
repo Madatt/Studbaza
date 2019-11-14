@@ -122,6 +122,33 @@ lista4/fast:
 	$(MAKE) -f CMakeFiles\lista4.dir\build.make CMakeFiles/lista4.dir/build
 .PHONY : lista4/fast
 
+CFileErrCode.obj: CFileErrCode.cpp.obj
+
+.PHONY : CFileErrCode.obj
+
+# target to build an object file
+CFileErrCode.cpp.obj:
+	$(MAKE) -f CMakeFiles\lista4.dir\build.make CMakeFiles/lista4.dir/CFileErrCode.cpp.obj
+.PHONY : CFileErrCode.cpp.obj
+
+CFileErrCode.i: CFileErrCode.cpp.i
+
+.PHONY : CFileErrCode.i
+
+# target to preprocess a source file
+CFileErrCode.cpp.i:
+	$(MAKE) -f CMakeFiles\lista4.dir\build.make CMakeFiles/lista4.dir/CFileErrCode.cpp.i
+.PHONY : CFileErrCode.cpp.i
+
+CFileErrCode.s: CFileErrCode.cpp.s
+
+.PHONY : CFileErrCode.s
+
+# target to generate assembly for a file
+CFileErrCode.cpp.s:
+	$(MAKE) -f CMakeFiles\lista4.dir\build.make CMakeFiles/lista4.dir/CFileErrCode.cpp.s
+.PHONY : CFileErrCode.cpp.s
+
 CFileLastError.obj: CFileLastError.cpp.obj
 
 .PHONY : CFileLastError.obj
@@ -148,6 +175,33 @@ CFileLastError.s: CFileLastError.cpp.s
 CFileLastError.cpp.s:
 	$(MAKE) -f CMakeFiles\lista4.dir\build.make CMakeFiles/lista4.dir/CFileLastError.cpp.s
 .PHONY : CFileLastError.cpp.s
+
+CFileThrowEx.obj: CFileThrowEx.cpp.obj
+
+.PHONY : CFileThrowEx.obj
+
+# target to build an object file
+CFileThrowEx.cpp.obj:
+	$(MAKE) -f CMakeFiles\lista4.dir\build.make CMakeFiles/lista4.dir/CFileThrowEx.cpp.obj
+.PHONY : CFileThrowEx.cpp.obj
+
+CFileThrowEx.i: CFileThrowEx.cpp.i
+
+.PHONY : CFileThrowEx.i
+
+# target to preprocess a source file
+CFileThrowEx.cpp.i:
+	$(MAKE) -f CMakeFiles\lista4.dir\build.make CMakeFiles/lista4.dir/CFileThrowEx.cpp.i
+.PHONY : CFileThrowEx.cpp.i
+
+CFileThrowEx.s: CFileThrowEx.cpp.s
+
+.PHONY : CFileThrowEx.s
+
+# target to generate assembly for a file
+CFileThrowEx.cpp.s:
+	$(MAKE) -f CMakeFiles\lista4.dir\build.make CMakeFiles/lista4.dir/CFileThrowEx.cpp.s
+.PHONY : CFileThrowEx.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -185,9 +239,15 @@ help:
 	@echo ... lista4
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... CFileErrCode.obj
+	@echo ... CFileErrCode.i
+	@echo ... CFileErrCode.s
 	@echo ... CFileLastError.obj
 	@echo ... CFileLastError.i
 	@echo ... CFileLastError.s
+	@echo ... CFileThrowEx.obj
+	@echo ... CFileThrowEx.i
+	@echo ... CFileThrowEx.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

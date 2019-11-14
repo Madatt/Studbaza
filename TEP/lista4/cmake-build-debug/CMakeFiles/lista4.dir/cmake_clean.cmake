@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/lista4.dir/main.cpp.obj"
   "CMakeFiles/lista4.dir/CFileLastError.cpp.obj"
+  "CMakeFiles/lista4.dir/CFileThrowEx.cpp.obj"
+  "CMakeFiles/lista4.dir/CFileErrCode.cpp.obj"
   "lista4.pdb"
   "lista4.exe"
   "lista4.exe.manifest"
