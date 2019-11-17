@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/TreeDynamic.h
+iostream
+-
+vector
+-
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/TreeStatic.h
+vector
+-
+iostream
+-
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/main.cpp
+iostream
+-
+TreeStatic.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/TreeStatic.h
+TreeDynamic.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/TreeDynamic.h
+
