@@ -48,7 +48,7 @@ bool CTreeStatic::CNodeStatic::operator!=(const CTreeStatic::CNodeStatic &cNode)
     return !(*this == cNode);
 }
 
-bool CTreeStatic::CNodeStatic::operator==(const CNodeStatic &cNode) const{
+bool CTreeStatic::CNodeStatic::operator==(const CNodeStatic &cNode) const {
     return (i_val == cNode.i_val &&
             pc_parent_node == cNode.pc_parent_node &&
             v_children == cNode.v_children);
@@ -74,18 +74,20 @@ CTreeStatic::CNodeStatic *CTreeStatic::CNodeStatic::pcGetChild(int iChildOffset)
 
 CTreeStatic::CNodeStatic CTreeStatic::CNodeStatic::pcDisconnect() {
     if (pc_parent_node == NULL)
+        return *this;
+
+    std::vector<CTreeStatic::CNodeStatic>::iterator i_it = std::find(pc_parent_node->v_children.begin(),
+                                                                     pc_parent_node->v_children.end(),
+                                                                     *this);
+
+    if (i_it != v_children.end()) {
+        CNodeStatic c_tmp = *this;
+        c_tmp.pc_parent_node = NULL;
+        pc_parent_node->v_children.erase(i_it);
+        return c_tmp;
+    } else
         return CNodeStatic();
 
-    for (int i = 0; i < v_children.size(); i++) {
-        if (pc_parent_node->v_children[i] == *this) {
-            CNodeStatic pc_tmp = *this;
-            pc_parent_node->v_children.erase(v_children.begin() + i);
-            pc_tmp.pc_parent_node = NULL;
-            return pc_tmp;
-        }
-
-    }
-    return CNodeStatic();
 }
 
 CTreeStatic::CNodeStatic *CTreeStatic::CNodeStatic::pcGetRoot() {

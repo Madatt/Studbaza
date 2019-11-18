@@ -6,12 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/home/madatt/Studbaza/TEP/lista5/TreeDynamic.h
-iostream
--
-vector
--
-
 /home/madatt/Studbaza/TEP/lista5/TreeStatic.cpp
 algorithm
 -
@@ -23,12 +17,4 @@ vector
 -
 iostream
 -
-
-/home/madatt/Studbaza/TEP/lista5/main.cpp
-iostream
--
-TreeStatic.h
-/home/madatt/Studbaza/TEP/lista5/TreeStatic.h
-TreeDynamic.h
-/home/madatt/Studbaza/TEP/lista5/TreeDynamic.h
 

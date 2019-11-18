@@ -51,7 +51,7 @@ CTreeDynamic::CNodeDynamic *CTreeDynamic::CNodeDynamic::pcGetChild(int iChildOff
 
 CTreeDynamic::CNodeDynamic *CTreeDynamic::CNodeDynamic::pcDisconnect() {
     if (pc_parent_node == NULL)
-        return NULL;
+        return this;
 
     std::vector<CTreeDynamic::CNodeDynamic *>::iterator i_it = pc_parent_node->v_children.erase(
             std::remove(pc_parent_node->v_children.begin(), pc_parent_node->v_children.end(), this),
@@ -61,8 +61,6 @@ CTreeDynamic::CNodeDynamic *CTreeDynamic::CNodeDynamic::pcDisconnect() {
         return this;
     } else
         return NULL;
-
-
 }
 
 
