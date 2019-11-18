@@ -6,23 +6,29 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/TreeDynamic.h
+/home/madatt/Studbaza/TEP/lista5/TreeDynamic.h
 iostream
 -
 vector
 -
 
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/TreeStatic.h
+/home/madatt/Studbaza/TEP/lista5/TreeStatic.cpp
+algorithm
+-
+TreeStatic.h
+/home/madatt/Studbaza/TEP/lista5/TreeStatic.h
+
+/home/madatt/Studbaza/TEP/lista5/TreeStatic.h
 vector
 -
 iostream
 -
 
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/main.cpp
+/home/madatt/Studbaza/TEP/lista5/main.cpp
 iostream
 -
 TreeStatic.h
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/TreeStatic.h
+/home/madatt/Studbaza/TEP/lista5/TreeStatic.h
 TreeDynamic.h
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/TreeDynamic.h
+/home/madatt/Studbaza/TEP/lista5/TreeDynamic.h
 

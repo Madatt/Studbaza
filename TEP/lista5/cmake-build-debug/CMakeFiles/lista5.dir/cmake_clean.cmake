@@ -1,11 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/lista5.dir/main.cpp.obj"
-  "CMakeFiles/lista5.dir/TreeStatic.cpp.obj"
-  "CMakeFiles/lista5.dir/TreeDynamic.cpp.obj"
+  "CMakeFiles/lista5.dir/TreeDynamic.cpp.o"
+  "CMakeFiles/lista5.dir/TreeStatic.cpp.o"
+  "CMakeFiles/lista5.dir/main.cpp.o"
+  "lista5"
   "lista5.pdb"
-  "lista5.exe"
-  "lista5.exe.manifest"
-  "liblista5.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

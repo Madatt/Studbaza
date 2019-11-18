@@ -25,7 +25,7 @@ void v_tree_test()
     c_tree.pcGetRoot()->vPrintBetter(0);
     std::cout << std::endl;
     c_tree2.pcGetRoot()->vPrintBetter(0);
-    bMoveSubtree(c_tree2.pcGetRoot()->pcGetChild(0), c_tree.pcGetRoot()->pcGetChild(1));
+    c_tree2.bMoveSubtree(c_tree2.pcGetRoot()->pcGetChild(0), c_tree.pcGetRoot()->pcGetChild(1));
     std::cout << "---------------------------------------------------------" << std::endl;
     c_tree.pcGetRoot()->vPrintBetter(0);
     std::cout << std::endl;
@@ -63,7 +63,7 @@ void v_tree_test2()
     std::cout << std::endl;
     c_tree2.pcGetRoot()->vPrintBetter(0);
     std::cout << "---------------------------------------------------------" << std::endl;
-    bMoveSubtree(c_tree2.pcGetRoot()->pcGetChild(0), c_tree.pcGetRoot()->pcGetChild(0));
+    c_tree2.bMoveSubtree(c_tree2.pcGetRoot()->pcGetChild(0), c_tree.pcGetRoot()->pcGetChild(0));
     std::cout << std::endl;
     c_tree.pcGetRoot()->vPrintBetter(0);
     std::cout << std::endl;
