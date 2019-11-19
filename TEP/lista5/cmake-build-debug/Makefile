@@ -48,10 +48,17 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
+<<<<<<< HEAD
 CMAKE_SOURCE_DIR = /home/madatt/studbaza/TEP/lista5
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/madatt/studbaza/TEP/lista5/cmake-build-debug
+=======
+CMAKE_SOURCE_DIR = /home/madatt/Studbaza/TEP/lista5
+
+# The top-level build directory on which CMake was run.
+CMAKE_BINARY_DIR = /home/madatt/Studbaza/TEP/lista5/cmake-build-debug
+>>>>>>> c39a600e367a5e2e27cff570000e8904dd24acf2
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +87,15 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
+<<<<<<< HEAD
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/madatt/studbaza/TEP/lista5/cmake-build-debug/CMakeFiles /home/madatt/studbaza/TEP/lista5/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/madatt/studbaza/TEP/lista5/cmake-build-debug/CMakeFiles 0
+=======
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/madatt/Studbaza/TEP/lista5/cmake-build-debug/CMakeFiles /home/madatt/Studbaza/TEP/lista5/cmake-build-debug/CMakeFiles/progress.marks
+	$(MAKE) -f CMakeFiles/Makefile2 all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/madatt/Studbaza/TEP/lista5/cmake-build-debug/CMakeFiles 0
+>>>>>>> c39a600e367a5e2e27cff570000e8904dd24acf2
 .PHONY : all
 
 # The main clean target

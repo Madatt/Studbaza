@@ -24,17 +24,17 @@ void CTreeStatic::vPrintTree() {
     c_root.vPrintAllBelow();
 }
 
-CNodeStatic::CNodeStatic(const CNodeStatic &cNode)
+CTreeStatic::CNodeStatic::CNodeStatic(const CNodeStatic &cNode)
         : i_val(cNode.i_val), pc_parent_node(cNode.pc_parent_node), v_children(cNode.v_children) {
     for (int i = 0; i < v_children.size(); i++)
         v_children[i].pc_parent_node = this;
 }
 
-CNodeStatic::~CNodeStatic() {
+CTreeStatic::CNodeStatic::~CNodeStatic() {
     //std::vector sam usuwa swoje obiekty
 }
 
-CNodeStatic &CNodeStatic::operator=(const CNodeStatic &cNode) {
+CTreeStatic::CNodeStatic &CTreeStatic::CNodeStatic::operator=(const CNodeStatic &cNode) {
     pc_parent_node = cNode.pc_parent_node;
     i_val = cNode.i_val;
     v_children = cNode.v_children;
@@ -44,22 +44,27 @@ CNodeStatic &CNodeStatic::operator=(const CNodeStatic &cNode) {
     return *this;
 }
 
-bool CNodeStatic::operator==(const CNodeStatic &cNode) {
-    return (i_val == cNode.i_val &&
-            pc_parent_node == cNode.pc_parent_node);
+bool CTreeStatic::CNodeStatic::operator!=(const CTreeStatic::CNodeStatic &cNode) {
+    return !(*this == cNode);
 }
 
-void CNodeStatic::vAddNewChild() {
+bool CTreeStatic::CNodeStatic::operator==(const CNodeStatic &cNode) const {
+    return (i_val == cNode.i_val &&
+            pc_parent_node == cNode.pc_parent_node &&
+            v_children == cNode.v_children);
+}
+
+void CTreeStatic::CNodeStatic::vAddNewChild() {
     v_children.push_back(CNodeStatic());
     v_children[v_children.size() - 1].pc_parent_node = this;
 }
 
-void CNodeStatic::vAddNewChild(CNodeStatic pcNode) {
+void CTreeStatic::CNodeStatic::vAddNewChild(CNodeStatic pcNode) {
     v_children.push_back(pcNode);
     v_children[v_children.size() - 1].pc_parent_node = this;
 }
 
-CNodeStatic *CNodeStatic::pcGetChild(int iChildOffset) {
+CTreeStatic::CNodeStatic *CTreeStatic::CNodeStatic::pcGetChild(int iChildOffset) {
     if (iChildOffset < 0 or iChildOffset > v_children.size() - 1)
         return NULL;
 
@@ -67,41 +72,43 @@ CNodeStatic *CNodeStatic::pcGetChild(int iChildOffset) {
 }
 
 
-CNodeStatic CNodeStatic::pcDisconnect() {
+CTreeStatic::CNodeStatic CTreeStatic::CNodeStatic::pcDisconnect() {
     if (pc_parent_node == NULL)
+        return *this;
+
+    std::vector<CTreeStatic::CNodeStatic>::iterator i_it = std::find(pc_parent_node->v_children.begin(),
+                                                                     pc_parent_node->v_children.end(),
+                                                                     *this);
+
+    if (i_it != v_children.end()) {
+        CNodeStatic c_tmp = *this;
+        c_tmp.pc_parent_node = NULL;
+        pc_parent_node->v_children.erase(i_it);
+        return c_tmp;
+    } else
         return CNodeStatic();
 
-    for (int i = 0; i < v_children.size(); i++) {
-        if (pc_parent_node->v_children[i] == *this) {
-            CNodeStatic pc_tmp = *this;
-            pc_parent_node->v_children.erase(v_children.begin() + i);
-            pc_tmp.pc_parent_node = NULL;
-            return pc_tmp;
-        }
-
-    }
-    return CNodeStatic();
 }
 
-CNodeStatic *CNodeStatic::pcGetRoot() {
+CTreeStatic::CNodeStatic *CTreeStatic::CNodeStatic::pcGetRoot() {
     if (pc_parent_node == NULL)
         return this;
     else return pc_parent_node->pcGetRoot();
 }
 
-void CNodeStatic::vPrintAllBelow() {
+void CTreeStatic::CNodeStatic::vPrintAllBelow() {
     vPrint();
     for (int i = 0; i < v_children.size(); i++)
         v_children[i].vPrintAllBelow();
 }
 
-void CNodeStatic::vPrintUp() {
+void CTreeStatic::CNodeStatic::vPrintUp() {
     vPrint();
     if (pc_parent_node != NULL)
         pc_parent_node->vPrintUp();
 }
 
-void CNodeStatic::vPrintBetter(int iL) {
+void CTreeStatic::CNodeStatic::vPrintBetter(int iL) {
     for (int i = 0; i < iL; i++)
         std::cout << "  ";
     vPrintWithParent();
@@ -109,11 +116,10 @@ void CNodeStatic::vPrintBetter(int iL) {
         v_children[i].vPrintBetter(iL + 1);
 }
 
-bool bMoveSubtree(CNodeStatic *pcParentNode, CNodeStatic *pcNewChildNode) {
-    if (pcNewChildNode == NULL or pcParentNode == NULL)
-        return false;
-
-    if (pcParentNode->pcGetRoot() == pcNewChildNode->pcGetRoot())
+bool CTreeStatic::bMoveSubtree(CTreeStatic::CNodeStatic *pcParentNode, CTreeStatic::CNodeStatic *pcNewChildNode) {
+    if (pcNewChildNode == NULL or pcParentNode == NULL or
+        pcParentNode->pcGetRoot() == pcNewChildNode->pcGetRoot() or
+        *(pcParentNode->pcGetRoot()) != c_root)
         return false;
 
     pcParentNode->vAddNewChild(pcNewChildNode->pcDisconnect());

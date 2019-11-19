@@ -5,19 +5,19 @@
 #include "TreeDynamic.h"
 #include <algorithm>
 
-CNodeDynamic::CNodeDynamic(const CNodeDynamic &cNode)
+CTreeDynamic::CNodeDynamic::CNodeDynamic(const CTreeDynamic::CNodeDynamic &cNode)
         : i_val(cNode.i_val), pc_parent_node(cNode.pc_parent_node), v_children(cNode.v_children) {
     for (int i = 0; i < v_children.size(); i++) {
         v_children[i]->pc_parent_node = this;
     }
 }
 
-CNodeDynamic::~CNodeDynamic() {
+CTreeDynamic::CNodeDynamic::~CNodeDynamic() {
     for (int i = 0; i < v_children.size(); i++)
         delete v_children[i];
 }
 
-CNodeDynamic &CNodeDynamic::operator=(const CNodeDynamic &cNode) {
+CTreeDynamic::CNodeDynamic &CTreeDynamic::CNodeDynamic::operator=(const CTreeDynamic::CNodeDynamic &cNode) {
     i_val = cNode.i_val;
     pc_parent_node = cNode.pc_parent_node;
     v_children = cNode.v_children;
@@ -28,12 +28,12 @@ CNodeDynamic &CNodeDynamic::operator=(const CNodeDynamic &cNode) {
     return *this;
 }
 
-void CNodeDynamic::vAddNewChild() {
-    v_children.push_back(new CNodeDynamic());
+void CTreeDynamic::CNodeDynamic::vAddNewChild() {
+    v_children.push_back(new CTreeDynamic::CNodeDynamic());
     v_children[v_children.size() - 1]->pc_parent_node = this;
 }
 
-bool CNodeDynamic::bAddNewChild(CNodeDynamic *pcNode) {
+bool CTreeDynamic::CNodeDynamic::bAddNewChild(CTreeDynamic::CNodeDynamic *pcNode) {
     if (pcNode->pc_parent_node != NULL)
         return false;
     v_children.push_back(pcNode);
@@ -41,7 +41,7 @@ bool CNodeDynamic::bAddNewChild(CNodeDynamic *pcNode) {
     return true;
 }
 
-CNodeDynamic *CNodeDynamic::pcGetChild(int iChildOffset) {
+CTreeDynamic::CNodeDynamic *CTreeDynamic::CNodeDynamic::pcGetChild(int iChildOffset) {
     if (iChildOffset < 0 or iChildOffset > v_children.size() - 1)
         return NULL;
 
@@ -49,44 +49,41 @@ CNodeDynamic *CNodeDynamic::pcGetChild(int iChildOffset) {
 }
 
 
-CNodeDynamic *CNodeDynamic::pcDisconnect() {
+CTreeDynamic::CNodeDynamic *CTreeDynamic::CNodeDynamic::pcDisconnect() {
     if (pc_parent_node == NULL)
-        return NULL;
+        return this;
 
-    std::vector<CNodeDynamic *>::iterator i_it = pc_parent_node->v_children.erase(
-            std::remove(pc_parent_node->v_children.begin(), pc_parent_node->v_children.end(), this), pc_parent_node->v_children.end());
-    if (i_it != v_children.end())
-    {
+    std::vector<CTreeDynamic::CNodeDynamic *>::iterator i_it = pc_parent_node->v_children.erase(
+            std::remove(pc_parent_node->v_children.begin(), pc_parent_node->v_children.end(), this),
+            pc_parent_node->v_children.end());
+    if (i_it != v_children.end()) {
         pc_parent_node = NULL;
         return this;
-    }
-    else
+    } else
         return NULL;
-
-
 }
 
 
-CNodeDynamic *CNodeDynamic::pcGetRoot() {
+CTreeDynamic::CNodeDynamic *CTreeDynamic::CNodeDynamic::pcGetRoot() {
     if (pc_parent_node == NULL)
         return this;
     else return pc_parent_node->pcGetRoot();
 }
 
-void CNodeDynamic::vPrintUp() {
+void CTreeDynamic::CNodeDynamic::vPrintUp() {
     vPrint();
     if (pc_parent_node != NULL)
         pc_parent_node->vPrintUp();
 }
 
 
-void CNodeDynamic::vPrintAllBelow() {
+void CTreeDynamic::CNodeDynamic::vPrintAllBelow() {
     vPrint();
     for (int i = 0; i < v_children.size(); i++)
         v_children[i]->vPrintAllBelow();
 }
 
-void CNodeDynamic::vPrintBetter(int iL) {
+void CTreeDynamic::CNodeDynamic::vPrintBetter(int iL) {
     for (int i = 0; i < iL; i++)
         std::cout << "  ";
     vPrintWithParent();
@@ -96,7 +93,7 @@ void CNodeDynamic::vPrintBetter(int iL) {
 
 
 CTreeDynamic::CTreeDynamic()
-        : pc_root(new CNodeDynamic()) {
+        : pc_root(new CTreeDynamic::CNodeDynamic()) {
 
 }
 
@@ -109,11 +106,10 @@ void CTreeDynamic::vPrintTree() {
     pc_root->vPrintAllBelow();
 }
 
-bool bMoveSubtree(CNodeDynamic *pcParentNode, CNodeDynamic *pcNewChildNode) {
-    if (pcNewChildNode == NULL or pcParentNode == NULL)
-        return false;
-
-    if (pcParentNode->pcGetRoot() == pcNewChildNode->pcGetRoot())
+bool CTreeDynamic::bMoveSubtree(CTreeDynamic::CNodeDynamic *pcParentNode, CTreeDynamic::CNodeDynamic *pcNewChildNode) {
+    if (pcNewChildNode == NULL or pcParentNode == NULL or
+        pcParentNode->pcGetRoot() == pcNewChildNode->pcGetRoot() or
+        pcParentNode->pcGetRoot() != pc_root)
         return false;
 
     pcParentNode->bAddNewChild(pcNewChildNode->pcDisconnect());

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/madatt/studbaza/TEP/lista5
+=======
+/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/madatt/Studbaza/TEP/lista5
+>>>>>>> c39a600e367a5e2e27cff570000e8904dd24acf2
 -- The C compiler identification is GNU 9.2.0
 -- The CXX compiler identification is GNU 9.2.0
 -- Check for working C compiler: /usr/bin/cc
@@ -15,4 +19,8 @@
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
+<<<<<<< HEAD
 -- Build files have been written to: /home/madatt/studbaza/TEP/lista5/cmake-build-debug
+=======
+-- Build files have been written to: /home/madatt/Studbaza/TEP/lista5/cmake-build-debug
+>>>>>>> c39a600e367a5e2e27cff570000e8904dd24acf2
