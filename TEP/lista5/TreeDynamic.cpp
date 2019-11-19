@@ -89,7 +89,7 @@ void CNodeDynamic::vPrintAllBelow() {
 void CNodeDynamic::vPrintBetter(int iL) {
     for (int i = 0; i < iL; i++)
         std::cout << "  ";
-    vPrint();
+    vPrintWithParent();
     for (int i = 0; i < v_children.size(); i++)
         v_children[i]->vPrintBetter(iL + 1);
 }

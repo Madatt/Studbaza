@@ -26,7 +26,7 @@ public:
     CNodeDynamic* pcDisconnect();
     CNodeDynamic* pcGetRoot();
 
-    void vPrintWithParent() {std::cout << " " << i_val << " " << pc_parent_node << std::endl;};
+    void vPrintWithParent() {std::cout << " " << i_val << "|" << pc_parent_node << std::endl;};
     void vPrint() {std::cout << " " << i_val << std::endl;};
     void vPrintAllBelow();
     void vPrintUp();

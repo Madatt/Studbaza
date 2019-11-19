@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/TreeDynamic.cpp" "C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/cmake-build-debug/CMakeFiles/lista5.dir/TreeDynamic.cpp.obj"
-  "C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/TreeStatic.cpp" "C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/cmake-build-debug/CMakeFiles/lista5.dir/TreeStatic.cpp.obj"
-  "C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/main.cpp" "C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/cmake-build-debug/CMakeFiles/lista5.dir/main.cpp.obj"
+  "/home/madatt/studbaza/TEP/lista5/TreeDynamic.cpp" "/home/madatt/studbaza/TEP/lista5/cmake-build-debug/CMakeFiles/lista5.dir/TreeDynamic.cpp.o"
+  "/home/madatt/studbaza/TEP/lista5/TreeStatic.cpp" "/home/madatt/studbaza/TEP/lista5/cmake-build-debug/CMakeFiles/lista5.dir/TreeStatic.cpp.o"
+  "/home/madatt/studbaza/TEP/lista5/main.cpp" "/home/madatt/studbaza/TEP/lista5/cmake-build-debug/CMakeFiles/lista5.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
