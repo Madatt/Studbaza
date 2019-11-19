@@ -10,8 +10,11 @@
 
 class CTreeStatic
 {
+public:
     class CNodeStatic
     {
+        friend class CTreeStatic;
+
     public:
         CNodeStatic() {i_val = 0; pc_parent_node = NULL;};
         CNodeStatic(const CNodeStatic& cNode);
@@ -27,11 +30,10 @@ class CTreeStatic
         void vAddNewChild(CNodeStatic pcNode);
         CNodeStatic *pcGetChild(int iChildOffset);
         CNodeStatic *pcGetParent() {return pc_parent_node;};
-        CNodeStatic pcDisconnect();
         CNodeStatic* pcGetRoot();
 
         void vPrint() {std::cout << " " << i_val << std::endl;};
-        void vPrintWithParent() {std::cout << " " << i_val << " " << pc_parent_node << std::endl;};
+        void vPrintWithParent() {std::cout << " " << i_val << "       ->       " << pc_parent_node << std::endl;};
         void vPrintAllBelow();
         void vPrintUp();
         void vPrintBetter(int iL);
@@ -40,9 +42,11 @@ class CTreeStatic
         std::vector<CNodeStatic> v_children;
         CNodeStatic *pc_parent_node;
         int i_val;
+
+        CNodeStatic pcDisconnect();
     };
 
-public:
+
     CTreeStatic();
     CTreeStatic(CNodeStatic cNode);
     ~CTreeStatic();
@@ -54,5 +58,8 @@ public:
 private:
     CNodeStatic c_root;
 };
+
+
+bool b_same_tree(CTreeStatic::CNodeStatic *pcNode1, CTreeStatic::CNodeStatic *pcNode2);
 
 #endif //LISTA5_TREESTATIC_H

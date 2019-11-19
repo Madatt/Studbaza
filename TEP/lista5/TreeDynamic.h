@@ -11,8 +11,11 @@
 
 class CTreeDynamic
 {
+public:
     class CNodeDynamic
     {
+        friend class CTreeDynamic;
+
     public:
         CNodeDynamic() {i_val = 0; pc_parent_node = NULL;};
         CNodeDynamic(const CNodeDynamic& cNode);
@@ -26,10 +29,9 @@ class CTreeDynamic
         bool bAddNewChild(CNodeDynamic* pcNode);
         CNodeDynamic *pcGetChild(int iChildOffset);
         CNodeDynamic *pcGetParent() {return pc_parent_node;};
-        CNodeDynamic* pcDisconnect();
         CNodeDynamic* pcGetRoot();
 
-        void vPrintWithParent() {std::cout << " " << i_val << " " << pc_parent_node << std::endl;};
+        void vPrintWithParent() {std::cout << " " << i_val << "       ->       " << pc_parent_node << std::endl;};
         void vPrint() {std::cout << " " << i_val << std::endl;};
         void vPrintAllBelow();
         void vPrintUp();
@@ -38,9 +40,10 @@ class CTreeDynamic
         std::vector<CNodeDynamic *> v_children;
         CNodeDynamic *pc_parent_node;
         int i_val;
+
+        CNodeDynamic* pcDisconnect();
     };
 
-public:
     CTreeDynamic();;
     ~CTreeDynamic();
     CNodeDynamic *pcGetRoot() {return(pc_root);}
@@ -51,6 +54,8 @@ private:
 
     CNodeDynamic *pc_root;
 };
+
+bool b_same_tree(CTreeDynamic::CNodeDynamic* pcNode1, CTreeDynamic::CNodeDynamic* pcNode2);
 
 
 

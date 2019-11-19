@@ -86,14 +86,14 @@ void CTreeDynamic::CNodeDynamic::vPrintAllBelow() {
 void CTreeDynamic::CNodeDynamic::vPrintBetter(int iL) {
     for (int i = 0; i < iL; i++)
         std::cout << "  ";
-    vPrint();
+    vPrintWithParent();
     for (int i = 0; i < v_children.size(); i++)
         v_children[i]->vPrintBetter(iL + 1);
 }
 
 
 CTreeDynamic::CTreeDynamic()
-        : pc_root(new CTreeDynamic::CNodeDynamic()) {
+        : pc_root(new CNodeDynamic()) {
 
 }
 
@@ -102,16 +102,22 @@ CTreeDynamic::~CTreeDynamic() {
     delete pc_root;
 }
 
+
 void CTreeDynamic::vPrintTree() {
-    pc_root->vPrintAllBelow();
+    pc_root->vPrintBetter(0);
 }
 
 bool CTreeDynamic::bMoveSubtree(CTreeDynamic::CNodeDynamic *pcParentNode, CTreeDynamic::CNodeDynamic *pcNewChildNode) {
     if (pcNewChildNode == NULL or pcParentNode == NULL or
-        pcParentNode->pcGetRoot() == pcNewChildNode->pcGetRoot() or
-        pcParentNode->pcGetRoot() != pc_root)
+        b_same_tree(pcParentNode, pcNewChildNode) or
+        pcParentNode->pcGetRoot() != pc_root or
+        pcNewChildNode->pc_parent_node == NULL)
         return false;
 
     pcParentNode->bAddNewChild(pcNewChildNode->pcDisconnect());
     return true;
+}
+
+bool b_same_tree(CTreeDynamic::CNodeDynamic *pcNode1, CTreeDynamic::CNodeDynamic *pcNode2) {
+    return pcNode1->pcGetRoot() == pcNode2->pcGetRoot();
 }

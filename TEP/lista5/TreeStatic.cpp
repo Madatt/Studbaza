@@ -21,7 +21,7 @@ CTreeStatic::~CTreeStatic() {
 }
 
 void CTreeStatic::vPrintTree() {
-    c_root.vPrintAllBelow();
+    c_root.vPrintBetter(0);
 }
 
 CTreeStatic::CNodeStatic::CNodeStatic(const CNodeStatic &cNode)
@@ -111,18 +111,22 @@ void CTreeStatic::CNodeStatic::vPrintUp() {
 void CTreeStatic::CNodeStatic::vPrintBetter(int iL) {
     for (int i = 0; i < iL; i++)
         std::cout << "  ";
-    vPrint();
+    vPrintWithParent();
     for (int i = 0; i < v_children.size(); i++)
         v_children[i].vPrintBetter(iL + 1);
 }
 
 bool CTreeStatic::bMoveSubtree(CTreeStatic::CNodeStatic *pcParentNode, CTreeStatic::CNodeStatic *pcNewChildNode) {
     if (pcNewChildNode == NULL or pcParentNode == NULL or
-        pcParentNode->pcGetRoot() == pcNewChildNode->pcGetRoot() or
-        *(pcParentNode->pcGetRoot()) != c_root)
+        b_same_tree(pcParentNode, pcNewChildNode) or
+        *(pcParentNode->pcGetRoot()) != c_root or
+        pcNewChildNode->pcGetRoot() == NULL)
         return false;
 
     pcParentNode->vAddNewChild(pcNewChildNode->pcDisconnect());
     return true;
 }
 
+bool b_same_tree(CTreeStatic::CNodeStatic *pcNode1, CTreeStatic::CNodeStatic *pcNode2) {
+    return pcNode1->pcGetRoot() == pcNode2->pcGetRoot();
+}
