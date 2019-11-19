@@ -43,10 +43,17 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
+<<<<<<< HEAD
+CMAKE_SOURCE_DIR = /home/madatt/studbaza/TEP/lista5
+
+# The top-level build directory on which CMake was run.
+CMAKE_BINARY_DIR = /home/madatt/studbaza/TEP/lista5/cmake-build-debug
+=======
 CMAKE_SOURCE_DIR = /home/madatt/Studbaza/TEP/lista5
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/madatt/Studbaza/TEP/lista5/cmake-build-debug
+>>>>>>> c39a600e367a5e2e27cff570000e8904dd24acf2
 
 # Include any dependencies generated for this target.
 include CMakeFiles/lista5.dir/depend.make
@@ -59,6 +66,44 @@ include CMakeFiles/lista5.dir/flags.make
 
 CMakeFiles/lista5.dir/main.cpp.o: CMakeFiles/lista5.dir/flags.make
 CMakeFiles/lista5.dir/main.cpp.o: ../main.cpp
+<<<<<<< HEAD
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/madatt/studbaza/TEP/lista5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lista5.dir/main.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lista5.dir/main.cpp.o -c /home/madatt/studbaza/TEP/lista5/main.cpp
+
+CMakeFiles/lista5.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lista5.dir/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/madatt/studbaza/TEP/lista5/main.cpp > CMakeFiles/lista5.dir/main.cpp.i
+
+CMakeFiles/lista5.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lista5.dir/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/madatt/studbaza/TEP/lista5/main.cpp -o CMakeFiles/lista5.dir/main.cpp.s
+
+CMakeFiles/lista5.dir/TreeStatic.cpp.o: CMakeFiles/lista5.dir/flags.make
+CMakeFiles/lista5.dir/TreeStatic.cpp.o: ../TreeStatic.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/madatt/studbaza/TEP/lista5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lista5.dir/TreeStatic.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lista5.dir/TreeStatic.cpp.o -c /home/madatt/studbaza/TEP/lista5/TreeStatic.cpp
+
+CMakeFiles/lista5.dir/TreeStatic.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lista5.dir/TreeStatic.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/madatt/studbaza/TEP/lista5/TreeStatic.cpp > CMakeFiles/lista5.dir/TreeStatic.cpp.i
+
+CMakeFiles/lista5.dir/TreeStatic.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lista5.dir/TreeStatic.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/madatt/studbaza/TEP/lista5/TreeStatic.cpp -o CMakeFiles/lista5.dir/TreeStatic.cpp.s
+
+CMakeFiles/lista5.dir/TreeDynamic.cpp.o: CMakeFiles/lista5.dir/flags.make
+CMakeFiles/lista5.dir/TreeDynamic.cpp.o: ../TreeDynamic.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/madatt/studbaza/TEP/lista5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lista5.dir/TreeDynamic.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lista5.dir/TreeDynamic.cpp.o -c /home/madatt/studbaza/TEP/lista5/TreeDynamic.cpp
+
+CMakeFiles/lista5.dir/TreeDynamic.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lista5.dir/TreeDynamic.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/madatt/studbaza/TEP/lista5/TreeDynamic.cpp > CMakeFiles/lista5.dir/TreeDynamic.cpp.i
+
+CMakeFiles/lista5.dir/TreeDynamic.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lista5.dir/TreeDynamic.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/madatt/studbaza/TEP/lista5/TreeDynamic.cpp -o CMakeFiles/lista5.dir/TreeDynamic.cpp.s
+=======
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/madatt/Studbaza/TEP/lista5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lista5.dir/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lista5.dir/main.cpp.o -c /home/madatt/Studbaza/TEP/lista5/main.cpp
 
@@ -95,6 +140,7 @@ CMakeFiles/lista5.dir/TreeDynamic.cpp.i: cmake_force
 CMakeFiles/lista5.dir/TreeDynamic.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lista5.dir/TreeDynamic.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/madatt/Studbaza/TEP/lista5/TreeDynamic.cpp -o CMakeFiles/lista5.dir/TreeDynamic.cpp.s
+>>>>>>> c39a600e367a5e2e27cff570000e8904dd24acf2
 
 # Object files for target lista5
 lista5_OBJECTS = \
@@ -110,7 +156,11 @@ lista5: CMakeFiles/lista5.dir/TreeStatic.cpp.o
 lista5: CMakeFiles/lista5.dir/TreeDynamic.cpp.o
 lista5: CMakeFiles/lista5.dir/build.make
 lista5: CMakeFiles/lista5.dir/link.txt
+<<<<<<< HEAD
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/madatt/studbaza/TEP/lista5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable lista5"
+=======
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/madatt/Studbaza/TEP/lista5/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable lista5"
+>>>>>>> c39a600e367a5e2e27cff570000e8904dd24acf2
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lista5.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -123,6 +173,10 @@ CMakeFiles/lista5.dir/clean:
 .PHONY : CMakeFiles/lista5.dir/clean
 
 CMakeFiles/lista5.dir/depend:
+<<<<<<< HEAD
+	cd /home/madatt/studbaza/TEP/lista5/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/madatt/studbaza/TEP/lista5 /home/madatt/studbaza/TEP/lista5 /home/madatt/studbaza/TEP/lista5/cmake-build-debug /home/madatt/studbaza/TEP/lista5/cmake-build-debug /home/madatt/studbaza/TEP/lista5/cmake-build-debug/CMakeFiles/lista5.dir/DependInfo.cmake --color=$(COLOR)
+=======
 	cd /home/madatt/Studbaza/TEP/lista5/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/madatt/Studbaza/TEP/lista5 /home/madatt/Studbaza/TEP/lista5 /home/madatt/Studbaza/TEP/lista5/cmake-build-debug /home/madatt/Studbaza/TEP/lista5/cmake-build-debug /home/madatt/Studbaza/TEP/lista5/cmake-build-debug/CMakeFiles/lista5.dir/DependInfo.cmake --color=$(COLOR)
+>>>>>>> c39a600e367a5e2e27cff570000e8904dd24acf2
 .PHONY : CMakeFiles/lista5.dir/depend
 

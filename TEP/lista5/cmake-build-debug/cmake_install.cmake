@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+# Install script for directory: /home/madatt/studbaza/TEP/lista5
+=======
 # Install script for directory: /home/madatt/Studbaza/TEP/lista5
+>>>>>>> c39a600e367a5e2e27cff570000e8904dd24acf2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +49,9 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
+<<<<<<< HEAD
+file(WRITE "/home/madatt/studbaza/TEP/lista5/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+=======
 file(WRITE "/home/madatt/Studbaza/TEP/lista5/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+>>>>>>> c39a600e367a5e2e27cff570000e8904dd24acf2
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
