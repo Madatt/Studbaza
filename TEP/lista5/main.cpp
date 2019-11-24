@@ -68,6 +68,8 @@ void v_tree_test2()
     c_tree.pcGetRoot()->vPrintBetter(0);
     std::cout << std::endl;
     c_tree2.pcGetRoot()->vPrintBetter(0);
+    std::cout << std::endl;
+    c_tree2.pcGetRoot()->pcGetChild(0)->pcGetChild(2)->pcGetChild(0)->vPrintUp();
 
 
 
