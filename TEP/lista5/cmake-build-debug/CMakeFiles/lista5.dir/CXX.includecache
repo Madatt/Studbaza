@@ -6,23 +6,79 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/TreeDynamic.h
+<<<<<<< HEAD
+/home/madatt/Studbaza/TEP/lista5/TreeDynamic.cpp
+TreeDynamic.h
+/home/madatt/Studbaza/TEP/lista5/TreeDynamic.h
+algorithm
+-
+
+/home/madatt/Studbaza/TEP/lista5/TreeDynamic.h
 iostream
 -
 vector
 -
 
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/TreeStatic.h
+=======
+<<<<<<< HEAD
+/home/madatt/studbaza/TEP/lista5/TreeDynamic.cpp
+TreeDynamic.h
+/home/madatt/studbaza/TEP/lista5/TreeDynamic.h
+algorithm
+-
+
+/home/madatt/studbaza/TEP/lista5/TreeDynamic.h
+iostream
+-
+vector
+=======
+>>>>>>> 7595dc12a48df40465e51a28b39fdffb02acbad9
+/home/madatt/Studbaza/TEP/lista5/TreeStatic.cpp
+algorithm
+>>>>>>> c39a600e367a5e2e27cff570000e8904dd24acf2
+-
+TreeStatic.h
+/home/madatt/Studbaza/TEP/lista5/TreeStatic.h
+
+<<<<<<< HEAD
+/home/madatt/studbaza/TEP/lista5/TreeStatic.cpp
+algorithm
+-
+TreeStatic.h
+/home/madatt/studbaza/TEP/lista5/TreeStatic.h
+
+/home/madatt/studbaza/TEP/lista5/TreeStatic.h
+=======
+/home/madatt/Studbaza/TEP/lista5/TreeStatic.h
+>>>>>>> c39a600e367a5e2e27cff570000e8904dd24acf2
 vector
 -
 iostream
 -
 
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/main.cpp
+<<<<<<< HEAD
+/home/madatt/Studbaza/TEP/lista5/main.cpp
 iostream
 -
 TreeStatic.h
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/TreeStatic.h
+/home/madatt/Studbaza/TEP/lista5/TreeStatic.h
 TreeDynamic.h
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/TreeDynamic.h
+/home/madatt/Studbaza/TEP/lista5/TreeDynamic.h
+test_vals.h
+/home/madatt/Studbaza/TEP/lista5/test_vals.h
 
+/home/madatt/Studbaza/TEP/lista5/test_vals.h
+
+=======
+<<<<<<< HEAD
+/home/madatt/studbaza/TEP/lista5/main.cpp
+iostream
+-
+TreeStatic.h
+/home/madatt/studbaza/TEP/lista5/TreeStatic.h
+TreeDynamic.h
+/home/madatt/studbaza/TEP/lista5/TreeDynamic.h
+
+=======
+>>>>>>> c39a600e367a5e2e27cff570000e8904dd24acf2
+>>>>>>> 7595dc12a48df40465e51a28b39fdffb02acbad9

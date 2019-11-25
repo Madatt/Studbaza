@@ -1,8 +1,12 @@
-# Install script for directory: C:/Users/Madatt/Desktop/Studbaza/TEP/lista5
+<<<<<<< HEAD
+# Install script for directory: /home/madatt/studbaza/TEP/lista5
+=======
+# Install script for directory: /home/madatt/Studbaza/TEP/lista5
+>>>>>>> c39a600e367a5e2e27cff570000e8904dd24acf2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "C:/Program Files (x86)/lista5")
+  set(CMAKE_INSTALL_PREFIX "/usr/local")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -27,6 +31,11 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
+# Install shared libraries without execute permission?
+if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
+  set(CMAKE_INSTALL_SO_NO_EXE "0")
+endif()
+
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
@@ -40,5 +49,9 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+<<<<<<< HEAD
+file(WRITE "/home/madatt/studbaza/TEP/lista5/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+=======
+file(WRITE "/home/madatt/Studbaza/TEP/lista5/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+>>>>>>> c39a600e367a5e2e27cff570000e8904dd24acf2
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

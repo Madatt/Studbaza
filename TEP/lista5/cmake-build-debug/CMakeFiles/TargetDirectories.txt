@@ -1,3 +1,9 @@
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/cmake-build-debug/CMakeFiles/lista5.dir
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista5/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+<<<<<<< HEAD
+/home/madatt/studbaza/TEP/lista5/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/madatt/studbaza/TEP/lista5/cmake-build-debug/CMakeFiles/lista5.dir
+/home/madatt/studbaza/TEP/lista5/cmake-build-debug/CMakeFiles/edit_cache.dir
+=======
+/home/madatt/Studbaza/TEP/lista5/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/madatt/Studbaza/TEP/lista5/cmake-build-debug/CMakeFiles/lista5.dir
+/home/madatt/Studbaza/TEP/lista5/cmake-build-debug/CMakeFiles/edit_cache.dir
+>>>>>>> c39a600e367a5e2e27cff570000e8904dd24acf2
