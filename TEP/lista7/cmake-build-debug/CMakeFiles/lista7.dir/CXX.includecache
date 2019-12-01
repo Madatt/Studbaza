@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista7/CMySmartPointer.h
+iostream
+-
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista7/main.cpp
+iostream
+-
+CMySmartPointer.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista7/CMySmartPointer.h
+
