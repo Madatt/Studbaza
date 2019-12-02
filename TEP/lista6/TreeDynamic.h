@@ -2,8 +2,8 @@
 // Created by Madatt on 15.11.2019.
 //
 
-#ifndef LISTA5_TREEDYNAMIC_H
-#define LISTA5_TREEDYNAMIC_H
+#ifndef LISTA6_TREEDYNAMIC_H
+#define LISTA6_TREEDYNAMIC_H
 
 #include <iostream>
 #include <vector>
@@ -14,7 +14,7 @@ class CNodeDynamic
     template<typename U>
     friend class CTreeDynamic;
 public:
-    CNodeDynamic() {pc_parent_node = NULL;};
+    CNodeDynamic() {t_val = T(); pc_parent_node = NULL;};
     CNodeDynamic(const CNodeDynamic<T>& cNode);
     ~CNodeDynamic();
 
@@ -40,6 +40,7 @@ private:
     T t_val;
 
     CNodeDynamic<T>* pcDisconnect();
+    int iLeaf();
 };
 
 
@@ -53,6 +54,7 @@ public:
     void vPrintTree();
 
     bool bMoveSubtree(CNodeDynamic<T> *pcParentNode, CNodeDynamic<T> *pcNewChildNode);
+    int iLeaves();
 private:
 
     CNodeDynamic<T> *pc_root;
@@ -64,4 +66,4 @@ bool b_same_tree(CNodeDynamic<T>* pcNode1, CNodeDynamic<T>* pcNode2);
 #include "TreeDynamic.tpp"
 
 
-#endif //LISTA5_TREEDYNAMIC_H
+#endif //LISTA6_TREEDYNAMIC_H

@@ -1,7 +1,7 @@
 import java.lang.reflect.Field;
 
 public class Debug {
-    static void field(Object obj) throws IllegalAccessException {
+    static void fields(Object obj) throws IllegalAccessException {
         for(Field f : obj.getClass().getDeclaredFields())
         {
             f.setAccessible(true);
