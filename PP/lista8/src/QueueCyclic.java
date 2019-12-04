@@ -5,9 +5,11 @@ public class QueueCyclic<E> implements MyQueue<E> {
     private int r;
     private ArrayList<E> array;
     public QueueCyclic(int n) {
-        array = new ArrayList<>(n);
-        for(int i = 0; i < n; i++)
-            array.set(i, null);
+        array = new ArrayList<>(n + 1);
+        r = 0;
+        f = 0;
+        for(int i = 0; i <= n; i++)
+            array.add(null);
     }
 
     @Override
@@ -20,7 +22,7 @@ public class QueueCyclic<E> implements MyQueue<E> {
     @Override
     public void dequeue() {
         if(isEmpty()) return;
-        r = (f + 1) % array.size();
+        f = (f + 1) % array.size();
     }
 
     @Override
@@ -37,6 +39,6 @@ public class QueueCyclic<E> implements MyQueue<E> {
 
     @Override
     public boolean isFull() {
-        return ((r - f == -1) || (r - f == array.size() - 1));
+        return (((r - f) == -1) || ((r - f) == (array.size() - 1)));
     }
 }
