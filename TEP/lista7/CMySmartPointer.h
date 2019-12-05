@@ -7,8 +7,11 @@
 
 #include <iostream>
 
-const int C_TVAL1 = 123;
-const int C_TVAL2 = -1323;
+const int C_ITVAL1 = 123;
+const int C_ITVAL2 = -1323;
+const int C_ITVAL3 =  555;
+const std::string C_STVAL1 = "test1";
+const std::string C_STVAL2 = "test2";
 
 class CRefCounter {
 public:
@@ -60,8 +63,11 @@ public:
     }
 
     T &operator*() { return (*pc_pointer); }
-
     T *operator->() { return (pc_pointer); }
+
+    CMySmartPointer<T> cDuplicate() {
+        return CMySmartPointer(new T(*pc_pointer));
+    }
 
 private:
     CRefCounter *pc_counter;

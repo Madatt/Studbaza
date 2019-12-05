@@ -41,4 +41,10 @@ int main() {
 
     std::cout << name(b) << std::endl;
     std::cout << name(c) << std::endl;
+
+    B b2;
+    C c2;
+
+    std::cout << name(&b2) << std::endl;
+    std::cout << name(&c2) << std::endl;
 }
