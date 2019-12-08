@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista2/lista2.cpp
+table.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista2/table.h
+test_constants.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista2/test_constants.h
+iostream
+-
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista2/table.cpp
+table.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista2/table.h
+iostream
+-
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista2/table.h
+string
+-
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista2/test_constants.h
+

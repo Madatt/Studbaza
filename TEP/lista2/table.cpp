@@ -36,7 +36,7 @@ CTable CTable::operator+(const CTable &pcRight)
   return pc_new_tab;
 }
 
-CTable& CTable::operator=(const CTable &pcRight)
+CTable CTable::operator=(const CTable &pcRight)
 {
   if(&pcRight == this) return *this;
   s_name = pcRight.s_name;
@@ -47,7 +47,7 @@ CTable& CTable::operator=(const CTable &pcRight)
   return *this;
 }
 
-CTable& CTable::operator/=(const int &iRight)
+CTable CTable::operator/=(const int &iRight)
 {
   if(iRight <= 1) return *this;
 

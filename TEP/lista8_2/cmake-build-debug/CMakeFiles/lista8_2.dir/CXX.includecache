@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista8_2/table.cpp
+table.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista8_2/table.h
+iostream
+-
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista8_2/table.h
+string
+-
+

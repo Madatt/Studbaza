@@ -18,8 +18,8 @@ public:
   virtual ~CTable();
 
   CTable operator+(const CTable &pcRight);
-  CTable& operator=(const CTable &pcRight);
-  CTable& operator/=(const int &iRight);
+  CTable operator=(const CTable &pcRight);
+  CTable operator/=(const int &iRight);
 
   void vSetName(std::string sName);
 
