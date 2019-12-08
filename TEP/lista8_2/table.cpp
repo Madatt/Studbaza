@@ -23,8 +23,7 @@ CTable::CTable(const CTable &pcOther)
     std::cout << C_D_COPY_MSG << s_name << std::endl;
 }
 
-CTable::CTable(CTable &&pcOther)
-        : s_name(pcOther.s_name + C_D_COPY_PRE), pi_tab(new int[pcOther.i_len]), i_len(pcOther.i_len){
+CTable::CTable(CTable &&pcOther) {
     v_move(pcOther);
 }
 
@@ -117,6 +116,7 @@ void CTable::v_move(CTable &pcTable) {
     s_name = pcTable.s_name;
 
     pcTable.pi_tab = NULL;
+    std::cout << "MOVED" << std::endl;
 }
 
 void v_mod_table(CTable *pcTab, int iNewSize) {
