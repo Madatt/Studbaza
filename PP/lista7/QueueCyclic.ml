@@ -64,10 +64,19 @@ struct
 
 end;;
 
-let q = QueueCyclic.empty 4;;
+let q = QueueCyclic.empty 12;;
 QueueCyclic.enqueue(3, q);;
 QueueCyclic.enqueue(4, q);;
+QueueCyclic.enqueue(7, q);;
+QueueCyclic.enqueue(8, q);;
 
+print_int (QueueCyclic.first q);;
+QueueCyclic.dequeue q;;
+print_int (QueueCyclic.first q);;
+QueueCyclic.dequeue q;;
+print_int (QueueCyclic.first q);;
+QueueCyclic.enqueue(9, q);;
+QueueCyclic.dequeue q;;
 print_int (QueueCyclic.first q);;
 QueueCyclic.dequeue q;;
 print_int (QueueCyclic.first q);;

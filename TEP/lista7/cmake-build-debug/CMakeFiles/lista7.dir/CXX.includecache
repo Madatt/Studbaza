@@ -6,13 +6,19 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista7/CMySmartPointer.h
+/home/madatt/Studbaza/TEP/lista7/CMySmartPointer.cpp
+CMySmartPointer.h
+/home/madatt/Studbaza/TEP/lista7/CMySmartPointer.h
+
+/home/madatt/Studbaza/TEP/lista7/CMySmartPointer.h
 iostream
 -
 
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista7/main.cpp
+/home/madatt/Studbaza/TEP/lista7/main.cpp
 iostream
 -
+string
+-
 CMySmartPointer.h
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista7/CMySmartPointer.h
+/home/madatt/Studbaza/TEP/lista7/CMySmartPointer.h
 

@@ -1,9 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/lista6.dir/main.cpp.obj"
+  "CMakeFiles/lista6.dir/main.cpp.o"
+  "lista6"
   "lista6.pdb"
-  "lista6.exe"
-  "lista6.exe.manifest"
-  "liblista6.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

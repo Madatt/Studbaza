@@ -138,3 +138,22 @@ template <typename T>
 bool b_same_tree(CNodeDynamic<T> *pcNode1, CNodeDynamic<T> *pcNode2) {
     return pcNode1->pcGetRoot() == pcNode2->pcGetRoot();
 }
+
+template<typename T>
+int CNodeDynamic<T>::iLeaf() {
+    if(v_children.empty())
+        return 1;
+    else
+    {
+        int i_tmp = 0;
+        for(int i = 0; i < v_children.size(); i ++)
+            i_tmp += v_children[i]->iLeaf();
+
+        return i_tmp;
+    }
+}
+
+template<typename T>
+int CTreeDynamic<T>::iLeaves() {
+    return pc_root->iLeaf();
+}
