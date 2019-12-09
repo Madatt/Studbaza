@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista8/CTab.cpp
+/home/madatt/Studbaza/TEP/lista8/CTab.h
+
+/home/madatt/Studbaza/TEP/lista8/main.cpp
 iostream
 -
 CTab.h
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista8/CTab.h
-
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista8/CTab.h
+/home/madatt/Studbaza/TEP/lista8/CTab.h
 

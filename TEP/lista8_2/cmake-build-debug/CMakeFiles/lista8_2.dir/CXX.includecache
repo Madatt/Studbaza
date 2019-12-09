@@ -6,17 +6,23 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista8_2/main.cpp
+/home/madatt/Studbaza/TEP/lista8_2/main.cpp
 table.h
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista8_2/table.h
+/home/madatt/Studbaza/TEP/lista8_2/table.h
 test_constants.h
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista8_2/test_constants.h
+/home/madatt/Studbaza/TEP/lista8_2/test_constants.h
 iostream
 -
 
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista8_2/table.h
+/home/madatt/Studbaza/TEP/lista8_2/table.cpp
+table.h
+/home/madatt/Studbaza/TEP/lista8_2/table.h
+iostream
+-
+
+/home/madatt/Studbaza/TEP/lista8_2/table.h
 string
 -
 
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista8_2/test_constants.h
+/home/madatt/Studbaza/TEP/lista8_2/test_constants.h
 

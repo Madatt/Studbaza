@@ -29,18 +29,18 @@ CTable::CTable(CTable &&pcOther) {
 
 CTable::~CTable() {
     std::cout << C_D_DEL_MSG << s_name << std::endl;
-    delete[] pi_tab;
+    v_delete();
 }
 
 CTable CTable::operator+(const CTable &pcRight) {
     CTable pc_new_tab = CTable(s_name, i_len + pcRight.i_len);
     std::copy(pi_tab, pi_tab + i_len, pc_new_tab.pi_tab);
     std::copy(pcRight.pi_tab, pcRight.pi_tab + pcRight.i_len, pc_new_tab.pi_tab + i_len);
-    return  std::move(pc_new_tab);
+    return std::move(pc_new_tab);
 }
 
-CTable CTable::operator=(const CTable &pcRight) {
-    if (&pcRight == this) return *this;
+CTable& CTable::operator=(const CTable &pcRight) {
+    v_delete();
     s_name = pcRight.s_name;
     i_len = pcRight.i_len;
     delete[] pi_tab;
@@ -50,8 +50,8 @@ CTable CTable::operator=(const CTable &pcRight) {
 }
 
 
-CTable CTable::operator=(CTable &&pcRight) {
-    if(this != &pcRight) {
+CTable& CTable::operator=(CTable &&pcRight) {
+    if (this != &pcRight) {
         v_move(pcRight);
     }
 
@@ -110,7 +110,7 @@ int CTable::iGetValue(int iN) {
 
 
 void CTable::v_move(CTable &pcTable) {
-    delete[] pi_tab;
+    v_delete();
     pi_tab = pcTable.pi_tab;
     i_len = pcTable.i_len;
     s_name = pcTable.s_name;
@@ -162,4 +162,8 @@ CTable CTable::cGetPairSumsTable() {
     }
 
     return std::move(c_new);
+}
+
+void CTable::v_delete() {
+    if(pi_tab != NULL) delete[] pi_tab;
 }

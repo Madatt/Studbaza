@@ -19,8 +19,8 @@ public:
     virtual ~CTable();
 
     CTable operator+(const CTable &pcRight);
-    CTable operator=(const CTable &pcRight);
-    CTable operator=(CTable &&pcRight);
+    CTable& operator=(const CTable &pcRight);
+    CTable& operator=(CTable &&pcRight);
     CTable operator/=(const int &iRight);
 
     void vSetName(std::string sName);
@@ -45,6 +45,7 @@ private:
     int i_len;
 
     void v_move(CTable &pcTable);
+    void v_delete();
 };
 
 void v_mod_table(CTable *pcTab, int iNewSize);

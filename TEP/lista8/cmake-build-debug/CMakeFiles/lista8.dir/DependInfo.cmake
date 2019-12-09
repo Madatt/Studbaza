@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Madatt/Desktop/Studbaza/TEP/lista8/CTab.cpp" "C:/Users/Madatt/Desktop/Studbaza/TEP/lista8/cmake-build-debug/CMakeFiles/lista8.dir/CTab.cpp.obj"
-  "C:/Users/Madatt/Desktop/Studbaza/TEP/lista8/main.cpp" "C:/Users/Madatt/Desktop/Studbaza/TEP/lista8/cmake-build-debug/CMakeFiles/lista8.dir/main.cpp.obj"
+  "/home/madatt/Studbaza/TEP/lista8/CTab.cpp" "/home/madatt/Studbaza/TEP/lista8/cmake-build-debug/CMakeFiles/lista8.dir/CTab.cpp.o"
+  "/home/madatt/Studbaza/TEP/lista8/main.cpp" "/home/madatt/Studbaza/TEP/lista8/cmake-build-debug/CMakeFiles/lista8.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
