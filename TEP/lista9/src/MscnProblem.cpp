@@ -116,7 +116,7 @@ int MscnProblem::validateRange(int t_mx, int t_v) {
 }
 
 int MscnProblem::setAndValidateMat(Matrix &t_mat, int t_c, int t_r, double t_val, int t_mx1, int t_mx2) {
-    if (validateRange(t_mx1, t_r) or validateRange(t_mx2, t_c) or t_val < 0)
+    if (validateRange(t_mx1, t_c) or validateRange(t_mx2, t_r) or t_val < 0)
         return 1;
 
     t_mat.set(t_c, t_r, t_val);
@@ -128,7 +128,7 @@ int MscnProblem::setAndValidateVec(std::vector<double> &t_vec, int t_p, double t
         return 1;
 
     t_vec[t_p] = t_val;
-    return 1;
+    return 0;
 }
 
 int MscnProblem::setCdCell(int t_d, int t_f, double t_val) {
@@ -178,7 +178,7 @@ int MscnProblem::setPsCell(int t_s, double t_val) {
 
 double MscnProblem::getQuality(const MscnSolution &t_sol, int &t_err) {
     t_err = constraintsSatisfied(t_sol);
-    if(!t_err)
+    //if(!t_err)
         return calculateP(t_sol) - calculateKt(t_sol) - calculateKu(t_sol);
 
     return 0.0;
@@ -190,7 +190,7 @@ double MscnProblem::getQuality(double *t_sol, int t_s, int &t_err) {
     err = constraintsSatisfied(t_sol, t_s);
     if (err) {
         t_err = err;
-        return 0.0;
+        //return 0.0;
     }
 
     MscnSolution sol(t_sol, D, F, M, S, t_err);
@@ -238,6 +238,7 @@ int MscnProblem::constraintsSatisfied(double *t_sol, int t_s) {
     }
 
     int err = 0;
+
     MscnSolution sol(t_sol, D, F, M, S, err);
 
     for (int i = 0; i < D; i++) {

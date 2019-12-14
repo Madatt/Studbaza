@@ -11,6 +11,12 @@ Matrix::Matrix()
 
 }
 
+Matrix::Matrix(const Matrix &t_mat):
+columns(t_mat.columns), rows(t_mat.rows){
+    data = new double[t_mat.getTotalSize()];
+    std::copy(t_mat.data, t_mat.data + t_mat.getTotalSize(), data);
+}
+
 Matrix::Matrix(double *t_raw, int t_cols, int t_rows)
         : columns(t_cols), rows(t_rows), data(t_raw) {
 
@@ -30,6 +36,8 @@ Matrix::~Matrix() {
 }
 
 void Matrix::operator=(const Matrix &t_mat) {
+    if(this == &t_mat)
+        return;
     delete data;
 
     data = new double[t_mat.getTotalSize()];
@@ -46,9 +54,9 @@ double Matrix::get(int t_cols, int t_rows) const {
 }
 
 void Matrix::set(int t_cols, int t_rows, double t_val) {
-    if (t_cols >= 0 and t_rows >= 0 and t_cols < columns and t_rows < rows) {
+    //if (t_cols >= 0 and t_rows >= 0 and t_cols < columns and t_rows < rows) {
         data[t_cols + t_rows * columns] = t_val;
-    }
+    //}
 }
 
 void Matrix::resize(int t_cols, int t_rows) {
@@ -118,7 +126,8 @@ Matrix loadMatrixFromStream(std::ifstream &t_strm, int t_cols, int t_rows) {
 }
 
 std::vector<double> loadVectorFromStream(std::ifstream &t_strm, int t_size) {
-    std::vector<double> vec(t_size);
+    std::vector<double> vec;
+    vec.resize(t_size);
     for(int i = 0; i < vec.size(); i++) {
         t_strm >> vec[i];
     }

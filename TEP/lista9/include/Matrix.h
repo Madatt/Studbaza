@@ -14,6 +14,7 @@ const int MATRIX_DEF_SIZE = 4;
 class Matrix {
 public:
     Matrix();
+    Matrix(const Matrix& t_mat);
     Matrix(double* t_raw, int t_cols, int t_rows);
     Matrix(int t_cols, int t_rows);
     Matrix(int t_cols);

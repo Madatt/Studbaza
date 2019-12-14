@@ -26,9 +26,15 @@ vector
 Matrix.h
 C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Matrix.h
 
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/main.cpp
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/src/MscnProblem.cpp
+fstream
+-
+string
+-
 iostream
 -
-include/MscnProblem.h
+../include/MscnProblem.h
 C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/MscnProblem.h
+../include/MscnSolution.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/MscnSolution.h
 

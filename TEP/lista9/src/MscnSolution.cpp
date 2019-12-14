@@ -49,7 +49,7 @@ MscnSolution::MscnSolution(std::string t_path) {
     file >> ign;
     xf = loadMatrixFromStream(file, M, F);
     file >> ign;
-    xm = loadMatrixFromStream(file, S, F);
+    xm = loadMatrixFromStream(file, S, M);
 
     std::cout << xd.toStr() << xf.toStr() << xm.toStr()<< std::endl;
 }
