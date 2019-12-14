@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Matrix.h
+string
+-
+vector
+-
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/MscnProblem.h
+vector
+-
+Matrix.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Matrix.h
+MscnSolution.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/MscnSolution.h
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/MscnSolution.h
+vector
+-
+Matrix.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Matrix.h
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/main.cpp
+iostream
+-
+include/MscnProblem.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/MscnProblem.h
+
