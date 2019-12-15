@@ -95,25 +95,25 @@ CMakeFiles/lista9.dir/src/MscnProblem.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lista9.dir/src/MscnProblem.cpp.s"
 	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\MscnProblem.cpp -o CMakeFiles\lista9.dir\src\MscnProblem.cpp.s
 
-CMakeFiles/lista9.dir/src/MscnSolution.cpp.obj: CMakeFiles/lista9.dir/flags.make
-CMakeFiles/lista9.dir/src/MscnSolution.cpp.obj: ../src/MscnSolution.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/lista9.dir/src/MscnSolution.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\lista9.dir\src\MscnSolution.cpp.obj -c C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\MscnSolution.cpp
+CMakeFiles/lista9.dir/src/Utils.cpp.obj: CMakeFiles/lista9.dir/flags.make
+CMakeFiles/lista9.dir/src/Utils.cpp.obj: ../src/Utils.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/lista9.dir/src/Utils.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\lista9.dir\src\Utils.cpp.obj -c C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\Utils.cpp
 
-CMakeFiles/lista9.dir/src/MscnSolution.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lista9.dir/src/MscnSolution.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\MscnSolution.cpp > CMakeFiles\lista9.dir\src\MscnSolution.cpp.i
+CMakeFiles/lista9.dir/src/Utils.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lista9.dir/src/Utils.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\Utils.cpp > CMakeFiles\lista9.dir\src\Utils.cpp.i
 
-CMakeFiles/lista9.dir/src/MscnSolution.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lista9.dir/src/MscnSolution.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\MscnSolution.cpp -o CMakeFiles\lista9.dir\src\MscnSolution.cpp.s
+CMakeFiles/lista9.dir/src/Utils.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lista9.dir/src/Utils.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\Utils.cpp -o CMakeFiles\lista9.dir\src\Utils.cpp.s
 
 # Object files for target lista9
 lista9_OBJECTS = \
 "CMakeFiles/lista9.dir/main.cpp.obj" \
 "CMakeFiles/lista9.dir/src/Matrix.cpp.obj" \
 "CMakeFiles/lista9.dir/src/MscnProblem.cpp.obj" \
-"CMakeFiles/lista9.dir/src/MscnSolution.cpp.obj"
+"CMakeFiles/lista9.dir/src/Utils.cpp.obj"
 
 # External object files for target lista9
 lista9_EXTERNAL_OBJECTS =
@@ -121,7 +121,7 @@ lista9_EXTERNAL_OBJECTS =
 lista9.exe: CMakeFiles/lista9.dir/main.cpp.obj
 lista9.exe: CMakeFiles/lista9.dir/src/Matrix.cpp.obj
 lista9.exe: CMakeFiles/lista9.dir/src/MscnProblem.cpp.obj
-lista9.exe: CMakeFiles/lista9.dir/src/MscnSolution.cpp.obj
+lista9.exe: CMakeFiles/lista9.dir/src/Utils.cpp.obj
 lista9.exe: CMakeFiles/lista9.dir/build.make
 lista9.exe: CMakeFiles/lista9.dir/linklibs.rsp
 lista9.exe: CMakeFiles/lista9.dir/objects1.rsp

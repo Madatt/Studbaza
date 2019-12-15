@@ -89,7 +89,7 @@
 		<Unit filename="C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/src/MscnProblem.cpp">
 			<Option target="lista9"/>
 		</Unit>
-		<Unit filename="C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/src/MscnSolution.cpp">
+		<Unit filename="C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/src/Utils.cpp">
 			<Option target="lista9"/>
 		</Unit>
 		<Unit filename="C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/CMakeLists.txt">

@@ -17,7 +17,6 @@ public:
     Matrix(const Matrix& t_mat);
     Matrix(double* t_raw, int t_cols, int t_rows);
     Matrix(int t_cols, int t_rows);
-    Matrix(int t_cols);
     ~Matrix();
 
     void operator=(const Matrix& t_mat);
@@ -36,6 +35,9 @@ public:
     double rowSum(int t_row) const;
     double colSum(int t_col) const;
 
+    bool rowEmpty(int t_row) const;
+    bool hasNegative() const;
+
     std::string toStr();
 
 
@@ -46,7 +48,5 @@ private:
     int columns;
 };
 
-Matrix loadMatrixFromStream(std::ifstream& t_strm, int t_cols, int t_rows);
-std::vector<double> loadVectorFromStream(std::ifstream& t_strm, int t_size);
 
 #endif //LISTA9_MATRIX_H

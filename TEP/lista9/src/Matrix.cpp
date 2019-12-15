@@ -27,9 +27,6 @@ Matrix::Matrix(int t_cols, int t_rows)
     data = new double[t_cols * t_rows];
 }
 
-Matrix::Matrix(int t_cols)
-        : Matrix(t_cols, t_cols) {
-}
 
 Matrix::~Matrix() {
     delete data;
@@ -53,10 +50,12 @@ double Matrix::get(int t_cols, int t_rows) const {
     return 0.0;
 }
 
+
+
 void Matrix::set(int t_cols, int t_rows, double t_val) {
-    //if (t_cols >= 0 and t_rows >= 0 and t_cols < columns and t_rows < rows) {
+    if (t_cols >= 0 and t_rows >= 0 and t_cols < columns and t_rows < rows) {
         data[t_cols + t_rows * columns] = t_val;
-    //}
+    }
 }
 
 void Matrix::resize(int t_cols, int t_rows) {
@@ -64,10 +63,9 @@ void Matrix::resize(int t_cols, int t_rows) {
         return;
 
     double *new_data = new double[t_rows * t_cols];
-    columns = t_cols;
-    rows = t_rows;
 
-    /*int cols_inter = t_cols < columns ? t_cols : columns;
+
+    int cols_inter = t_cols < columns ? t_cols : columns;
     int rows_inter = t_rows < rows ? t_rows : rows;
 
     for (int i = 0; i < rows_inter; i++) {
@@ -76,8 +74,10 @@ void Matrix::resize(int t_cols, int t_rows) {
                 data + i * columns + cols_inter,
                 new_data + i * t_cols
         );
-    }*/
+    }
 
+    columns = t_cols;
+    rows = t_rows;
     delete data;
     data = new_data;
 }
@@ -116,20 +116,20 @@ std::string Matrix::toStr() {
     return res;
 };
 
-Matrix loadMatrixFromStream(std::ifstream &t_strm, int t_cols, int t_rows) {
-    Matrix mat(t_cols, t_rows);
-    for(int i = 0; i < mat.getTotalSize(); i++) {
-        t_strm >> mat.getData()[i];
+bool Matrix::rowEmpty(int t_row) const {
+    bool empty = true;
+    for (int i = 0; i < columns and empty; i++) {
+        if (data[t_row * columns + i] != 0.0) empty = false;
     }
 
-    return mat;
+    return empty;
 }
 
-std::vector<double> loadVectorFromStream(std::ifstream &t_strm, int t_size) {
-    std::vector<double> vec;
-    vec.resize(t_size);
-    for(int i = 0; i < vec.size(); i++) {
-        t_strm >> vec[i];
+bool Matrix::hasNegative() const {
+    bool nega = false;
+    for (int i = 0; i < getTotalSize() and !nega; i++) {
+        if (data[i] < 0) nega = true;
     }
-    return vec;
+
+    return nega;
 }

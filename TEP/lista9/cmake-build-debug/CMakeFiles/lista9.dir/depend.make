@@ -3,7 +3,6 @@
 
 CMakeFiles/lista9.dir/main.cpp.obj: ../include/Matrix.h
 CMakeFiles/lista9.dir/main.cpp.obj: ../include/MscnProblem.h
-CMakeFiles/lista9.dir/main.cpp.obj: ../include/MscnSolution.h
 CMakeFiles/lista9.dir/main.cpp.obj: ../main.cpp
 
 CMakeFiles/lista9.dir/src/Matrix.cpp.obj: ../include/Matrix.h
@@ -11,10 +10,10 @@ CMakeFiles/lista9.dir/src/Matrix.cpp.obj: ../src/Matrix.cpp
 
 CMakeFiles/lista9.dir/src/MscnProblem.cpp.obj: ../include/Matrix.h
 CMakeFiles/lista9.dir/src/MscnProblem.cpp.obj: ../include/MscnProblem.h
-CMakeFiles/lista9.dir/src/MscnProblem.cpp.obj: ../include/MscnSolution.h
+CMakeFiles/lista9.dir/src/MscnProblem.cpp.obj: ../include/Utils.h
 CMakeFiles/lista9.dir/src/MscnProblem.cpp.obj: ../src/MscnProblem.cpp
 
-CMakeFiles/lista9.dir/src/MscnSolution.cpp.obj: ../include/Matrix.h
-CMakeFiles/lista9.dir/src/MscnSolution.cpp.obj: ../include/MscnSolution.h
-CMakeFiles/lista9.dir/src/MscnSolution.cpp.obj: ../src/MscnSolution.cpp
+CMakeFiles/lista9.dir/src/Utils.cpp.obj: ../include/Matrix.h
+CMakeFiles/lista9.dir/src/Utils.cpp.obj: ../include/Utils.h
+CMakeFiles/lista9.dir/src/Utils.cpp.obj: ../src/Utils.cpp
 

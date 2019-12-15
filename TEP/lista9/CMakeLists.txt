@@ -9,5 +9,5 @@ add_executable(
 
         src/Matrix.cpp
         src/MscnProblem.cpp
-        src/MscnSolution.cpp
+        src/Utils.cpp
 )

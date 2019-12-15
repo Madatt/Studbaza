@@ -6,21 +6,36 @@
 #define LISTA9_MSCNPROBLEM_H
 
 #include <vector>
+#include <string>
 #include "Matrix.h"
-#include "MscnSolution.h"
 
 const int MSCN_DEF_SIZE = 4;
 
+const int MSCN_ERR_VALUE = 1;
+const int MSCN_ERR_RANGE = 2;
+const int MSCN_ERR_SOL_SIZE = 3;
+const int MSCN_ERR_SOL_NEG = 4;
+const int MSCN_ERR_FILE = 5;
+const int MSCN_ERR_SOL_MINMAX = -1;
+
 class MscnProblem {
+    struct MscnSolution {
+        MscnSolution(const std::vector<double> &t_sol, int t_d, int t_f, int t_m, int t_s);
+        Matrix xd;
+        Matrix xf;
+        Matrix xm;
+    };
+
+
 public:
     MscnProblem();
-    MscnProblem(std::string t_fname);
-    ~MscnProblem() = default;
+    MscnProblem(std::string t_fname, int &t_err);
+
 
     int setD(int t_d);
-    int setF(int t_d);
-    int setM(int t_d);
-    int setS(int t_d);
+    int setF(int t_f);
+    int setM(int t_m);
+    int setS(int t_s);
 
     int setCdCell(int t_d, int t_f, double t_val);
     int setCfCell(int t_f, int t_m, double t_val);
@@ -37,10 +52,15 @@ public:
 
     int setPsCell(int t_s, double t_val);
 
-    double getQuality(double* t_sol, int t_s, int& t_err);
-    double getQuality(const MscnSolution& t_sol, int& t_err);
-    int constraintsSatisfied(double* t_sol, int t_s);
-    int constraintsSatisfied(const MscnSolution& t_sol);
+    std::pair<double, double> getXdMinMax(int t_d, int t_f);
+    std::pair<double, double> getXfMinMax(int t_f, int t_m);
+    std::pair<double, double> getXmMinMax(int t_m, int t_s);
+
+
+    double getQuality(const std::vector<double> &t_sol, int &t_err);
+    bool constraintsSatisfied(const std::vector<double> &t_sol, int &t_err);
+
+    int saveToFile(std::string t_fname);
 
 private:
     Matrix cd;
@@ -58,25 +78,27 @@ private:
 
     std::vector<double> ps;
 
-    int D;
-    int F;
-    int M;
-    int S;
+    std::vector<double> xdMinMax;
+    std::vector<double> xfMinMax;
+    std::vector<double> xmMinMax;
 
-    int validateRange(int t_mx , int t_v);
-    int setAndValidateMat(Matrix& t_mat, int t_c, int t_r, double t_val, int t_mx1, int t_mx2);
-    int setAndValidateVec(std::vector<double>& t_vec, int t_p, double t_val, int t_mx1);
+    int d;
+    int f;
+    int m;
+    int s;
 
-    double calculateKt(const MscnSolution& t_sol);
-    double calculateKu(const MscnSolution& t_sol);
-    double calculateP(const MscnSolution& t_sol);
+    int validateRange(int t_mx, int t_v);
+    int setAndValidateMat(Matrix &t_mat, int t_c, int t_r, double t_val, int t_mx1, int t_mx2);
+    int setAndValidateVec(std::vector<double> &t_vec, int t_p, double t_val, int t_mx1);
+
+    double calculateKt(const MscnSolution &t_sol);
+    double calculateKu(const MscnSolution &t_sol);
+    double calculateP(const MscnSolution &t_sol);
+
+    int initialSatisfied(const std::vector<double> &t_sol);
 };
 
-/*
-    Matrix xd;
-    Matrix xf;
-    Matrix xm;
- */
+std::vector<double> loadSolution(std::string t_fname);
 
 
 #endif //LISTA9_MSCNPROBLEM_H

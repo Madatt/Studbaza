@@ -203,32 +203,32 @@ src/MscnProblem.cpp.s:
 	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/MscnProblem.cpp.s
 .PHONY : src/MscnProblem.cpp.s
 
-src/MscnSolution.obj: src/MscnSolution.cpp.obj
+src/Utils.obj: src/Utils.cpp.obj
 
-.PHONY : src/MscnSolution.obj
+.PHONY : src/Utils.obj
 
 # target to build an object file
-src/MscnSolution.cpp.obj:
-	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/MscnSolution.cpp.obj
-.PHONY : src/MscnSolution.cpp.obj
+src/Utils.cpp.obj:
+	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/Utils.cpp.obj
+.PHONY : src/Utils.cpp.obj
 
-src/MscnSolution.i: src/MscnSolution.cpp.i
+src/Utils.i: src/Utils.cpp.i
 
-.PHONY : src/MscnSolution.i
+.PHONY : src/Utils.i
 
 # target to preprocess a source file
-src/MscnSolution.cpp.i:
-	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/MscnSolution.cpp.i
-.PHONY : src/MscnSolution.cpp.i
+src/Utils.cpp.i:
+	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/Utils.cpp.i
+.PHONY : src/Utils.cpp.i
 
-src/MscnSolution.s: src/MscnSolution.cpp.s
+src/Utils.s: src/Utils.cpp.s
 
-.PHONY : src/MscnSolution.s
+.PHONY : src/Utils.s
 
 # target to generate assembly for a file
-src/MscnSolution.cpp.s:
-	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/MscnSolution.cpp.s
-.PHONY : src/MscnSolution.cpp.s
+src/Utils.cpp.s:
+	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/Utils.cpp.s
+.PHONY : src/Utils.cpp.s
 
 # Help Target
 help:
@@ -248,9 +248,9 @@ help:
 	@echo ... src/MscnProblem.obj
 	@echo ... src/MscnProblem.i
 	@echo ... src/MscnProblem.s
-	@echo ... src/MscnSolution.obj
-	@echo ... src/MscnSolution.i
-	@echo ... src/MscnSolution.s
+	@echo ... src/Utils.obj
+	@echo ... src/Utils.i
+	@echo ... src/Utils.s
 .PHONY : help
 
 
