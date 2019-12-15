@@ -6,8 +6,8 @@
 #include <sstream>
 #include "../include/Utils.h"
 
-Matrix loadMatrixFromStream(std::iostream &t_strm, int t_cols, int t_rows) {
-    Matrix mat(t_cols, t_rows);
+Matrix loadMatrixFromStream(std::iostream &t_strm, int t_rows, int t_cols) {
+    Matrix mat(t_rows, t_cols);
     for(int i = 0; i < mat.getTotalSize(); i++) {
         t_strm >> mat.getData()[i];
     }

@@ -17,12 +17,12 @@ columns(t_mat.columns), rows(t_mat.rows){
     std::copy(t_mat.data, t_mat.data + t_mat.getTotalSize(), data);
 }
 
-Matrix::Matrix(double *t_raw, int t_cols, int t_rows)
+Matrix::Matrix(double *t_raw, int t_rows, int t_cols)
         : columns(t_cols), rows(t_rows), data(t_raw) {
 
 }
 
-Matrix::Matrix(int t_cols, int t_rows)
+Matrix::Matrix(int t_rows, int t_cols)
         : columns(t_cols), rows(t_rows) {
     data = new double[t_cols * t_rows];
 }
@@ -43,7 +43,7 @@ void Matrix::operator=(const Matrix &t_mat) {
     columns = t_mat.columns;
 }
 
-double Matrix::get(int t_cols, int t_rows) const {
+double Matrix::get(int t_rows, int t_cols) const {
     if (t_cols >= 0 and t_rows >= 0 and t_cols < columns and t_rows < rows) {
         return data[t_cols + t_rows * columns];
     }
@@ -52,13 +52,13 @@ double Matrix::get(int t_cols, int t_rows) const {
 
 
 
-void Matrix::set(int t_cols, int t_rows, double t_val) {
+void Matrix::set(int t_rows, int t_cols, double t_val) {
     if (t_cols >= 0 and t_rows >= 0 and t_cols < columns and t_rows < rows) {
         data[t_cols + t_rows * columns] = t_val;
     }
 }
 
-void Matrix::resize(int t_cols, int t_rows) {
+void Matrix::resize(int t_rows, int t_cols) {
     if (t_cols < 0 or t_rows < 0)
         return;
 

@@ -15,16 +15,16 @@ class Matrix {
 public:
     Matrix();
     Matrix(const Matrix& t_mat);
-    Matrix(double* t_raw, int t_cols, int t_rows);
-    Matrix(int t_cols, int t_rows);
+    Matrix(double* t_raw, int t_rows, int t_cols);
+    Matrix(int t_rows, int t_cols);
     ~Matrix();
 
     void operator=(const Matrix& t_mat);
 
 
-    double get(int t_cols, int t_rows) const;
-    void set(int t_cols, int t_rows, double t_val);
-    void resize(int t_cols, int t_rows);
+    double get(int t_rows, int t_cols) const;
+    void set(int t_rows, int t_cols, double t_val);
+    void resize(int t_rows, int t_cols);
     void clear();
 
     double* getData(){return data;};

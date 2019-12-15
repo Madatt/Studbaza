@@ -12,17 +12,17 @@ string
 vector
 -
 
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/MscnProblem.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Utils.h
 vector
--
-string
 -
 Matrix.h
 C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Matrix.h
 
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/main.cpp
-iostream
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/src/Utils.cpp
+fstream
 -
-include/MscnProblem.h
-C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/MscnProblem.h
+sstream
+-
+../include/Utils.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Utils.h
 

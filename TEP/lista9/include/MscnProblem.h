@@ -88,7 +88,7 @@ private:
     int s;
 
     int validateRange(int t_mx, int t_v);
-    int setAndValidateMat(Matrix &t_mat, int t_c, int t_r, double t_val, int t_mx1, int t_mx2);
+    int setAndValidateMat(Matrix &t_mat, int t_row, int t_col, double t_val, int t_mx1, int t_mx2);
     int setAndValidateVec(std::vector<double> &t_vec, int t_p, double t_val, int t_mx1);
 
     double calculateKt(const MscnSolution &t_sol);

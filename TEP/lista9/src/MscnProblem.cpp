@@ -9,9 +9,9 @@
 #include "../include/Utils.h"
 
 MscnProblem::MscnSolution::MscnSolution(const std::vector<double> &t_sol, int t_d, int t_f, int t_m, int t_s) {
-    xd.resize(t_f, t_d);
-    xf.resize(t_m, t_f);
-    xm.resize(t_s, t_m);
+    xd.resize(t_d, t_f);
+    xf.resize(t_f, t_m);
+    xm.resize(t_m, t_s);
 
     int fd_s = t_f * t_d;
     int mf_s = t_m * t_f;
@@ -76,11 +76,11 @@ MscnProblem::MscnProblem(std::string t_fname, int& t_err) {
     file >> ign;
     ss = loadVectorFromStream(file, s);
     file >> ign;
-    cd = loadMatrixFromStream(file, f, d);
+    cd = loadMatrixFromStream(file, d, f);
     file >> ign;
-    cf = loadMatrixFromStream(file, m, f);
+    cf = loadMatrixFromStream(file, f, m);
     file >> ign;
-    cm = loadMatrixFromStream(file, s, m);
+    cm = loadMatrixFromStream(file, m, s);
     file >> ign;
     ud = loadVectorFromStream(file, d);
     file >> ign;
@@ -161,7 +161,7 @@ int MscnProblem::setD(int t_d) {
         return MSCN_ERR_VALUE;
 
     d = t_d;
-    cd.resize(f, d);
+    cd.resize(d, f);
     sd.resize(d);
     ud.resize(d);
     xdMinMax.resize(d * f * 2);
@@ -173,8 +173,8 @@ int MscnProblem::setF(int t_f) {
         return MSCN_ERR_VALUE;
 
     f = t_f;
-    cd.resize(f, d);
-    cf.resize(m, f);
+    cd.resize(d, f);
+    cf.resize(f, m);
     sf.resize(f);
     uf.resize(f);
     xdMinMax.resize(d * f * 2);
@@ -187,8 +187,8 @@ int MscnProblem::setM(int t_m) {
         return MSCN_ERR_VALUE;
 
     m = t_m;
-    cf.resize(m, f);
-    cm.resize(s, m);
+    cf.resize(f, m);
+    cm.resize(m, s);
     sm.resize(m);
     um.resize(m);
     xfMinMax.resize(f * m * 2);
@@ -200,7 +200,7 @@ int MscnProblem::setS(int t_s) {
     if (t_s < 0)
         return MSCN_ERR_VALUE;
     s = t_s;
-    cm.resize(s, m);
+    cm.resize(m, s);
     ss.resize(s);
     ps.resize(s);
     xmMinMax.resize(s * m * 2);
@@ -214,11 +214,11 @@ int MscnProblem::validateRange(int t_mx, int t_v) {
     return 0;
 }
 
-int MscnProblem::setAndValidateMat(Matrix &t_mat, int t_c, int t_r, double t_val, int t_mx1, int t_mx2) {
-    if (validateRange(t_mx1, t_c) or validateRange(t_mx2, t_r) or t_val < 0)
+int MscnProblem::setAndValidateMat(Matrix &t_mat, int t_row, int t_col, double t_val, int t_mx1, int t_mx2) {
+    if (validateRange(t_mx1, t_row) or validateRange(t_mx2, t_col) or t_val < 0)
         return MSCN_ERR_RANGE;
 
-    t_mat.set(t_c, t_r, t_val);
+    t_mat.set(t_row, t_col, t_val);
     return 0;
 }
 
@@ -231,15 +231,15 @@ int MscnProblem::setAndValidateVec(std::vector<double> &t_vec, int t_p, double t
 }
 
 int MscnProblem::setCdCell(int t_d, int t_f, double t_val) {
-    return setAndValidateMat(cd, t_f, t_d, t_val, d, f);
+    return setAndValidateMat(cd, t_d, t_f, t_val, f, d);
 }
 
 int MscnProblem::setCfCell(int t_f, int t_m, double t_val) {
-    return setAndValidateMat(cf, t_m, t_f, t_val, f, m);
+    return setAndValidateMat(cf, t_f, t_m, t_val, m, f);
 }
 
 int MscnProblem::setCmCell(int t_m, int t_s, double t_val) {
-    return setAndValidateMat(cm, t_s, t_m, t_val, m, s);
+    return setAndValidateMat(cm, t_m, t_s, t_val, s, m);
 }
 
 int MscnProblem::setSdCell(int t_d, double t_val) {
@@ -358,26 +358,25 @@ bool MscnProblem::constraintsSatisfied(const std::vector<double> &t_sol, int &t_
         if (sol.xf.colSum(i) < sol.xm.rowSum(i)) ok = 0;
     }
 
-    for (int i = 0; i < f; i++) {
-        for (int j = 0; j < d; j++) {
-            if(sol.xd.get(i, j) < getXdMinMax(j, i).first or sol.xd.get(i, j) > getXdMinMax(j, i).second) {
+    for (int i = 0; i < d; i++) {
+        for (int j = 0; j < f; j++) {
+            if(sol.xd.get(i, j) < getXdMinMax(i, j).first or sol.xd.get(i, j) > getXdMinMax(i, j).second) {
                 ok = 0;
-                //std::cout << getXdMinMax(j, i).first << " < " << sol.xd.get(i, j) << " < " << getXdMinMax(j, i).second << std::endl;
+            }
+        }
+    }
+
+    for (int i = 0; i < f; i++) {
+        for (int j = 0; j < m; j++) {
+            if(sol.xf.get(i, j) < getXfMinMax(i, j).first or sol.xf.get(i, j) > getXfMinMax(i, j).second) {
+                ok = 0;
             }
         }
     }
 
     for (int i = 0; i < m; i++) {
-        for (int j = 0; j < f; j++) {
-            if(sol.xf.get(i, j) < getXfMinMax(j, i).first or sol.xf.get(i, j) > getXfMinMax(j, i).second) {
-                ok = 0;
-            }
-        }
-    }
-
-    for (int i = 0; i < s; i++) {
-        for (int j = 0; j < m; j++) {
-            if(sol.xm.get(i, j) < getXmMinMax(j, i).first or sol.xm.get(i, j) > getXmMinMax(j, i).second) {
+        for (int j = 0; j < s; j++) {
+            if(sol.xm.get(i, j) < getXmMinMax(i, j).first or sol.xm.get(i, j) > getXmMinMax(i, j).second) {
                 ok = 0;
             }
         }
@@ -389,20 +388,20 @@ bool MscnProblem::constraintsSatisfied(const std::vector<double> &t_sol, int &t_
 double MscnProblem::calculateKt(const MscnSolution &t_sol) {
     double kt = 0;
 
-    for (int i = 0; i < f; i++) {
-        for (int j = 0; j < d; j++) {
+    for (int i = 0; i < d; i++) {
+        for (int j = 0; j < f; j++) {
             kt += cd.get(i, j) * t_sol.xd.get(i, j);
         }
     }
 
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < f; j++) {
+    for (int i = 0; i < f; i++) {
+        for (int j = 0; j < m; j++) {
             kt += cf.get(i, j) * t_sol.xf.get(i, j);
         }
     }
 
-    for (int i = 0; i < s; i++) {
-        for (int j = 0; j < m; j++) {
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < s; j++) {
             kt += cm.get(i, j) * t_sol.xm.get(i, j);
         }
     }
@@ -431,9 +430,9 @@ double MscnProblem::calculateKu(const MscnSolution &t_sol) {
 double MscnProblem::calculateP(const MscnSolution &t_sol) {
     double p = 0;
 
-    for (int i = 0; i < s; i++) {
-        for (int j = 0; j < m; j++) {
-            p += ps[i] * t_sol.xm.get(i, j);
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < s; j++) {
+            p += ps[j] * t_sol.xm.get(i, j);
         }
     }
 
