@@ -1,3 +1,0 @@
-C:/Users/Madatt/Desktop/Studbaza/TEP/testtest/cmake-build-debug/CMakeFiles/Lab9.dir
-C:/Users/Madatt/Desktop/Studbaza/TEP/testtest/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Madatt/Desktop/Studbaza/TEP/testtest/cmake-build-debug/CMakeFiles/rebuild_cache.dir
