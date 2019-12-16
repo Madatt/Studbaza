@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Matrix.h
+string
+-
+vector
+-
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Utils.h
+vector
+-
+Matrix.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Matrix.h
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/src/Utils.cpp
+fstream
+-
+sstream
+-
+../include/Utils.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Utils.h
+
