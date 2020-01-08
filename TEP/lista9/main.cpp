@@ -1,28 +1,24 @@
 #include <iostream>
 #include "include/MscnProblem.h"
+#include "include/constants.h"
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
 
     int err = 0;
-    MscnProblem problem("test.txt", err);
-    std::cout << "Error code constructor: " << err  << std::endl;
-    std::vector<double> solution = loadSolution("test_s.txt");
-    std::cout << "CS: "<<problem.constraintsSatisfied(solution , err)  << std::endl;
-    std::cout << "Error code: " << err  << std::endl<< std::endl;
+    MscnProblem problem(FILE_PROB, err);
+    std::cout << STR_ERROR_CON << errorToString(err) << std::endl;
+    MscnSolution solution = loadSolution(FILE_SOL, err);
+    std::cout << STR_ERROR << errorToString(err) << std::endl ;
+    std::cout << STR_CS << problem.constraintsSatisfied(solution, err) << std::endl;
+    std::cout << STR_ERROR << errorToString(err) << std::endl << std::endl;
     err = 0;
-    std::cout << "Quality: " << problem.getQuality(solution , err) << std::endl;
-    std::cout <<  "Error code: " << err  << std::endl<< std::endl;
+    std::cout << STR_QUALITY << problem.getQuality(solution, err) << std::endl;
+    std::cout << STR_ERROR << errorToString(err) << std::endl << std::endl;
 
 
-    problem.saveToFile("test_save.txt");
+    problem.saveToFile(FILE_SAVE);
 
-    MscnProblem problem2("test_save.txt", err);
-    std::cout << "Error code constructor: " << err  << std::endl;
-    err = 0;
-    std::cout << "CS: "<<problem2.constraintsSatisfied(solution , err)  << std::endl;
-    std::cout << "Error code: " << err  << std::endl<< std::endl;
-    err = 0;
-    std::cout << "Quality: " << problem2.getQuality(solution , err) << std::endl;
-    std::cout <<  "Error code: " << err  << std::endl;
-
+    MscnProblem problem3;
+    problem3.generateInstance(123);
+    problem3.saveToFile("random.txt");
 }

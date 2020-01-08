@@ -7,8 +7,14 @@
 #include <iostream>
 #include "../include/MscnProblem.h"
 #include "../include/Utils.h"
+#include "../include/Random.h"
 
-MscnProblem::MscnSolution::MscnSolution(const std::vector<double> &t_sol, int t_d, int t_f, int t_m, int t_s) {
+MscnSolution::MscnSolution(const std::vector<double> &t_sol, int t_d, int t_f, int t_m, int t_s) {
+    d = t_d;
+    f = t_f;
+    m = t_m;
+    s = t_s;
+
     xd.resize(t_d, t_f);
     xf.resize(t_f, t_m);
     xm.resize(t_m, t_s);
@@ -32,20 +38,24 @@ MscnProblem::MscnSolution::MscnSolution(const std::vector<double> &t_sol, int t_
 }
 
 
-MscnProblem::MscnProblem(){
+MscnProblem::MscnProblem() {
+    d = MSCN_DEF_SIZE;
+    f = MSCN_DEF_SIZE;
+    m = MSCN_DEF_SIZE;
+    s = MSCN_DEF_SIZE;
+
     setD(MSCN_DEF_SIZE);
     setF(MSCN_DEF_SIZE);
     setM(MSCN_DEF_SIZE);
     setS(MSCN_DEF_SIZE);
 }
 
-MscnProblem::MscnProblem(std::string t_fname, int& t_err) {
+MscnProblem::MscnProblem(std::string t_fname, int &t_err) {
     std::string ign;
     std::fstream file;
     file.open(t_fname);
 
-    if(!file.is_open())
-    {
+    if (!file.is_open()) {
         t_err = MSCN_ERR_FILE;
         return;
     }
@@ -99,14 +109,15 @@ MscnProblem::MscnProblem(std::string t_fname, int& t_err) {
 
     file.close();
     t_err = 0;
+
+    //std::cout << cd.toStr() << cf.toStr() << cm.toStr();
 }
 
 int MscnProblem::saveToFile(std::string t_fname) {
     std::fstream file;
     file.open(t_fname, std::ofstream::out | std::ofstream::trunc);
 
-    if(!file.is_open())
-    {
+    if (!file.is_open()) {
         return MSCN_ERR_FILE;
     }
 
@@ -274,93 +285,113 @@ int MscnProblem::setPsCell(int t_s, double t_val) {
     return setAndValidateVec(ps, t_s, t_val, s);
 }
 
-std::pair<double, double> MscnProblem::getXdMinMax(int t_d, int t_f) {
-    if (validateRange(d, t_d) or validateRange(f, t_f))
-    {
+std::pair<double, double>
+MscnProblem::getAndValidateVec(std::vector<double> &t_vec, int t_row, int t_col, int t_mx1, int t_mx2) {
+    if (validateRange(t_mx1, t_row) or validateRange(t_mx2, t_col)) {
         return std::make_pair(MSCN_ERR_SOL_MINMAX, MSCN_ERR_SOL_MINMAX);
     }
 
-    return std::make_pair(xdMinMax[(t_f + t_d * f) * 2], xdMinMax[(t_f + t_d * f) * 2 + 1]);
+    return std::make_pair(t_vec[(t_col + t_row * f) * 2], t_vec[(t_col + t_row * f) * 2 + 1]);
+}
+
+std::pair<double, double> MscnProblem::getXdMinMax(int t_d, int t_f) {
+    return getAndValidateVec(xdMinMax, t_d, t_f, d, f);
 }
 
 std::pair<double, double> MscnProblem::getXfMinMax(int t_f, int t_m) {
-    if (validateRange(f, t_f) or validateRange(m, t_m))
-    {
-        return std::make_pair(MSCN_ERR_SOL_MINMAX, MSCN_ERR_SOL_MINMAX);
-    }
-
-    return std::make_pair(xfMinMax[(t_m + t_f * m) * 2], xfMinMax[(t_m + t_f * m) * 2 + 1]);
+    return getAndValidateVec(xfMinMax, t_f, t_m, f, m);
 }
 
 std::pair<double, double> MscnProblem::getXmMinMax(int t_m, int t_s) {
-    if (validateRange(s, t_s) or validateRange(m, t_m))
-    {
-        return std::make_pair(MSCN_ERR_SOL_MINMAX, MSCN_ERR_SOL_MINMAX);
-    }
-
-    return std::make_pair(xmMinMax[(t_s + t_m * s) * 2], xmMinMax[(t_s + t_m * s) * 2 + 1]);
+    return getAndValidateVec(xmMinMax, t_m, t_s, m, s);
 }
 
-double MscnProblem::getQuality(const std::vector<double> &t_sol, int &t_err) {
+std::pair<double, double> MscnProblem::getSolutionMinMax(int t_pos) {
+    int df = d * f;
+    int fm = f * m;
+    int ms = m * s;
+    if (t_pos < 0 or t_pos > df + fm + ms)
+        return std::make_pair(MSCN_ERR_SOL_MINMAX, MSCN_ERR_SOL_MINMAX);
+
+    if (t_pos < df) {
+        return getXdMinMax(t_pos / d, t_pos % f);
+    } else if (t_pos < fm + df) {
+        return getXfMinMax(t_pos / f, t_pos % m);
+    }
+    if (t_pos < fm + df + ms) {
+        return getXmMinMax(t_pos / m, t_pos % s);
+    }
+}
+
+double MscnProblem::getQuality(MscnSolution &t_sol, int &t_err) {
     t_err = initialSatisfied(t_sol);
     if (t_err)
         return 0.0;
 
-    MscnSolution sol(t_sol, d, f, m, s);
 
-    return calculateP(sol) - calculateKu(sol) - calculateKt(sol);
+    return calculateP(t_sol) - calculateKu(t_sol) - calculateKt(t_sol);
 }
 
 
-int MscnProblem::initialSatisfied(const std::vector<double> &t_sol) {
-    if (t_sol.size() != cd.getTotalSize() + cf.getTotalSize() + cm.getTotalSize())
+int MscnProblem::initialSatisfied(MscnSolution &t_sol) {
+    if (t_sol.d != d or t_sol.f != f or t_sol.m != m or t_sol.s != s)
         return MSCN_ERR_SOL_SIZE;
 
 
-    for (int i = 0; i < t_sol.size(); i++) {
-        if (t_sol[i] < 0)
+    for (int i = 0; i < t_sol.xd.getTotalSize(); i++) {
+        if (t_sol.xd.getData()[i] < 0)
+            return MSCN_ERR_SOL_NEG;
+    }
+
+
+    for (int i = 0; i < t_sol.xf.getTotalSize(); i++) {
+        if (t_sol.xf.getData()[i] < 0)
+            return MSCN_ERR_SOL_NEG;
+    }
+
+
+    for (int i = 0; i < t_sol.xm.getTotalSize(); i++) {
+        if (t_sol.xm.getData()[i] < 0)
             return MSCN_ERR_SOL_NEG;
     }
 
     return 0;
 }
 
-bool MscnProblem::constraintsSatisfied(const std::vector<double> &t_sol, int &t_err) {
+bool MscnProblem::constraintsSatisfied(MscnSolution &t_sol, int &t_err) {
     t_err = initialSatisfied(t_sol);
     if (t_err)
         return 0;
 
-
-    MscnSolution sol(t_sol, d, f, m, s);
     int ok = 1;
 
     for (int i = 0; i < d; i++) {
-        if (sol.xd.rowSum(i) > sd[i]) ok = 0;
+        if (t_sol.xd.rowSum(i) > sd[i]) ok = 0;
     }
 
     for (int i = 0; i < f; i++) {
-        if (sol.xf.rowSum(i) > sf[i]) ok = 0;
+        if (t_sol.xf.rowSum(i) > sf[i]) ok = 0;
     }
 
     for (int i = 0; i < m; i++) {
-        if (sol.xm.rowSum(i) > sm[i]) ok = 0;
+        if (t_sol.xm.rowSum(i) > sm[i]) ok = 0;
     }
 
     for (int i = 0; i < s; i++) {
-        if (sol.xm.colSum(i) > ss[i]) ok = 0;
+        if (t_sol.xm.colSum(i) > ss[i]) ok = 0;
     }
 
     for (int i = 0; i < f; i++) {
-        if (sol.xd.colSum(i) < sol.xf.rowSum(i)) ok = 0;
+        if (t_sol.xd.colSum(i) < t_sol.xf.rowSum(i)) ok = 0;
     }
 
     for (int i = 0; i < m; i++) {
-        if (sol.xf.colSum(i) < sol.xm.rowSum(i)) ok = 0;
+        if (t_sol.xf.colSum(i) < t_sol.xm.rowSum(i)) ok = 0;
     }
 
     for (int i = 0; i < d; i++) {
         for (int j = 0; j < f; j++) {
-            if(sol.xd.get(i, j) < getXdMinMax(i, j).first or sol.xd.get(i, j) > getXdMinMax(i, j).second) {
+            if (t_sol.xd.get(i, j) < getXdMinMax(i, j).first or t_sol.xd.get(i, j) > getXdMinMax(i, j).second) {
                 ok = 0;
             }
         }
@@ -368,7 +399,7 @@ bool MscnProblem::constraintsSatisfied(const std::vector<double> &t_sol, int &t_
 
     for (int i = 0; i < f; i++) {
         for (int j = 0; j < m; j++) {
-            if(sol.xf.get(i, j) < getXfMinMax(i, j).first or sol.xf.get(i, j) > getXfMinMax(i, j).second) {
+            if (t_sol.xf.get(i, j) < getXfMinMax(i, j).first or t_sol.xf.get(i, j) > getXfMinMax(i, j).second) {
                 ok = 0;
             }
         }
@@ -376,7 +407,7 @@ bool MscnProblem::constraintsSatisfied(const std::vector<double> &t_sol, int &t_
 
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < s; j++) {
-            if(sol.xm.get(i, j) < getXmMinMax(i, j).first or sol.xm.get(i, j) > getXmMinMax(i, j).second) {
+            if (t_sol.xm.get(i, j) < getXmMinMax(i, j).first or t_sol.xm.get(i, j) > getXmMinMax(i, j).second) {
                 ok = 0;
             }
         }
@@ -439,12 +470,15 @@ double MscnProblem::calculateP(const MscnSolution &t_sol) {
     return p;
 }
 
-std::vector<double> loadSolution(std::string t_fname) {
+MscnSolution loadSolution(std::string t_fname, int &t_err) {
     std::string ign;
     std::ifstream file(t_fname);
+    t_err = 0;
 
-    if(!file.is_open())
-        return std::vector<double>();
+    if (!file.is_open()) {
+        t_err = MSCN_ERR_FILE;
+        return MscnSolution();
+    }
 
     int d, f, m, s;
 
@@ -460,16 +494,105 @@ std::vector<double> loadSolution(std::string t_fname) {
 
     int df = d * f;
     int fm = f * m;
-    int ms = m *s;
+    int ms = m * s;
     int size = df + fm + ms;
     std::vector<double> solution(size);
 
-    for(int i = 0; i < size; i++) {
-        if(i == df or i == df + fm)
+    for (int i = 0; i < size; i++) {
+        if (i == df or i == df + fm)
             file >> ign;
         file >> solution[i];
     }
 
+    MscnSolution sol(solution, d, f, m, s);
+
+    file.close();
+    return sol;
+}
+
+std::vector<double> loadSolutionSemicolon(std::string t_fname, int &t_err) {
+    std::string ign;
+    std::string line;
+    std::ifstream file(t_fname);
+    t_err = 0;
+
+    if (!file.is_open()) {
+        t_err = MSCN_ERR_FILE;
+        return std::vector<double>();
+    }
+
+    int d, f, m, s;
+
+    file >> ign;
+    file >> d;
+    file >> ign;
+    file >> f;
+    file >> ign;
+    file >> m;
+    file >> ign;
+    file >> s;
+    file >> ign;
+
+    int df = d * f;
+    int fm = f * m;
+    int ms = m * s;
+    int size = df + fm + ms;
+    std::vector<double> solution(size);
+
+    for (int i = 0; i < size; i++) {
+        if (i == df or i == df + fm)
+            file >> ign;
+
+        std::getline(file, line, ';');
+        if (file.fail()) {
+            t_err = MSCN_ERR_FILE;
+            return std::vector<double>();
+        }
+        solution[i] = std::atof(line.c_str());
+
+    }
+
     file.close();
     return solution;
+}
+
+void MscnProblem::generateInstance(int t_seed) {
+    Random rand(t_seed);
+
+    for (int i = 0; i < d; i++) {
+        for (int j = 0; j < f; j++) {
+            cd.set(i, j, rand.randomReal<double>(MSCN_C_MIN, MSCN_C_MAX));
+        }
+        ud[i] = rand.randomReal<double>(MSCN_U_MIN, MSCN_U_MAX);
+        sd[i] = rand.randomReal<double>(MSCN_S_MIN, MSCN_S_MAX);
+    }
+
+    for (int i = 0; i < f; i++) {
+        for (int j = 0; j < m; j++) {
+            cf.set(i, j, rand.randomReal<double>(MSCN_C_MIN, MSCN_C_MAX));
+        }
+
+        uf[i] = rand.randomReal<double>(MSCN_U_MIN, MSCN_U_MAX);
+        sf[i] = rand.randomReal<double>(MSCN_S_MIN, MSCN_S_MAX);
+    }
+
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < s; j++) {
+            cm.set(i, j, rand.randomReal<double>(MSCN_C_MIN, MSCN_C_MAX));
+            ps[j] = rand.randomReal<double>(MSCN_P_MIN, MSCN_P_MAX);
+            ss[j] = rand.randomReal<double>(MSCN_S_MIN, MSCN_S_MAX);
+        }
+        um[i] = rand.randomReal<double>(MSCN_U_MIN, MSCN_U_MAX);
+        sm[i] = rand.randomReal<double>(MSCN_S_MIN, MSCN_S_MAX);
+    }
+}
+
+std::string errorToString(int t_err) {
+    if (t_err == MSCN_ERR_VALUE) return "MSCN_ERR_VALUE";
+    if (t_err == MSCN_ERR_RANGE) return "MSCN_ERR_RANGE";
+    if (t_err == MSCN_ERR_SOL_SIZE) return "MSCN_ERR_SOL_SIZE";
+    if (t_err == MSCN_ERR_SOL_NEG) return "MSCN_ERR_SOL_NEG";
+    if (t_err == MSCN_ERR_FILE) return "MSCN_ERR_FILE";
+    if (t_err == MSCN_ERR_SOL_MINMAX) return "MSCN_ERR_SOL_MINMAX";
+    return "MSCN_NO_ERR";
 }

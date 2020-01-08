@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+int CTable::i_debug_copy = 0;
+int CTable::i_debug_move = 0;
 
 CTable::CTable()
         : s_name(C_D_TABLE_NAME), pi_tab(new int[C_D_TABLE_LEN]), i_len(C_D_TABLE_LEN) {
@@ -21,6 +23,8 @@ CTable::CTable(const CTable &pcOther)
         : s_name(pcOther.s_name + C_D_COPY_PRE), pi_tab(new int[pcOther.i_len]), i_len(pcOther.i_len) {
     std::copy(pcOther.pi_tab, pcOther.pi_tab + i_len, pi_tab);
     std::cout << C_D_COPY_MSG << s_name << std::endl;
+
+    i_debug_copy++;
 }
 
 CTable::CTable(CTable &&pcOther) {
@@ -40,12 +44,14 @@ CTable CTable::operator+(const CTable &pcRight) {
 }
 
 CTable& CTable::operator=(const CTable &pcRight) {
+    if(this == &pcRight)
+        return *this;
     v_delete();
     s_name = pcRight.s_name;
     i_len = pcRight.i_len;
-    delete[] pi_tab;
     pi_tab = new int[i_len];
     std::copy(pcRight.pi_tab, pcRight.pi_tab + i_len, pi_tab);
+    i_debug_copy++;
     return *this;
 }
 
@@ -117,6 +123,7 @@ void CTable::v_move(CTable &pcTable) {
 
     pcTable.pi_tab = NULL;
     std::cout << "MOVED" << std::endl;
+    i_debug_move++;
 }
 
 void v_mod_table(CTable *pcTab, int iNewSize) {

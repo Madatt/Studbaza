@@ -18,19 +18,47 @@ const int MSCN_ERR_SOL_NEG = 4;
 const int MSCN_ERR_FILE = 5;
 const int MSCN_ERR_SOL_MINMAX = -1;
 
+const double MSCN_C_MIN = 100.0;
+const double MSCN_C_MAX = 4000.0;
+
+const double MSCN_S_MIN = 500.0;
+const double MSCN_S_MAX = 10000.0;
+
+const double MSCN_U_MIN = 50.0;
+const double MSCN_U_MAX = 550.0;
+
+const double MSCN_P_MIN = 700.0;
+const double MSCN_P_MAX = 3000.0;
+
+
+class MscnSolution {
+    friend class MscnProblem;
+public:
+    MscnSolution() = default;
+    MscnSolution(const std::vector<double> &t_sol, int t_d, int t_f, int t_m, int t_s);
+
+private:
+    Matrix xd;
+    Matrix xf;
+    Matrix xm;
+
+    int d;
+    int f;
+    int m;
+    int s;
+};
+
+
 class MscnProblem {
-    struct MscnSolution {
-        MscnSolution(const std::vector<double> &t_sol, int t_d, int t_f, int t_m, int t_s);
-        Matrix xd;
-        Matrix xf;
-        Matrix xm;
-    };
-
-
 public:
     MscnProblem();
     MscnProblem(std::string t_fname, int &t_err);
 
+
+    int getD(){return d;};
+    int getF(){return f;};
+    int getM(){return m;};
+    int getS(){return s;};
 
     int setD(int t_d);
     int setF(int t_f);
@@ -52,15 +80,19 @@ public:
 
     int setPsCell(int t_s, double t_val);
 
+    std::pair<double, double> getSolutionMinMax(int t_pos);
+
     std::pair<double, double> getXdMinMax(int t_d, int t_f);
     std::pair<double, double> getXfMinMax(int t_f, int t_m);
     std::pair<double, double> getXmMinMax(int t_m, int t_s);
 
 
-    double getQuality(const std::vector<double> &t_sol, int &t_err);
-    bool constraintsSatisfied(const std::vector<double> &t_sol, int &t_err);
+    double getQuality(MscnSolution &t_sol, int &t_err);
+    bool constraintsSatisfied(MscnSolution &t_sol, int &t_err);
 
     int saveToFile(std::string t_fname);
+
+    void generateInstance(int t_seed);
 
 private:
     Matrix cd;
@@ -95,10 +127,15 @@ private:
     double calculateKu(const MscnSolution &t_sol);
     double calculateP(const MscnSolution &t_sol);
 
-    int initialSatisfied(const std::vector<double> &t_sol);
+    int initialSatisfied(MscnSolution &t_sol);
+
+    std::pair<double, double> getAndValidateVec(std::vector<double> &t_vec,  int t_row, int t_col, int t_mx1, int t_mx2);
 };
 
-std::vector<double> loadSolution(std::string t_fname);
+std::string errorToString(int t_err);
+
+MscnSolution loadSolution(std::string t_fname, int &t_err);
+std::vector<double> loadSolutionSemicolon(std::string t_fname, int &t_err);
 
 
 #endif //LISTA9_MSCNPROBLEM_H

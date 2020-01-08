@@ -10,4 +10,5 @@ add_executable(
         src/Matrix.cpp
         src/MscnProblem.cpp
         src/Utils.cpp
-)
+        src/Random.cpp
+        src/RandomSearch.cpp include/RandomSearch.h)

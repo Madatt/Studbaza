@@ -12,6 +12,9 @@ int main() {
 
     std::cout << std::endl;
     c_tab_2 = c_tab_0 + c_tab_1;
+    c_tab_2 = c_tab_2 + c_tab_2;
     c_tab_2.vShow();
+
+    std::cout << "Copies: " << CTable::i_debug_copy << std::endl;
 
 }

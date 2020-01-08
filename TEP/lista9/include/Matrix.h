@@ -28,8 +28,8 @@ public:
     void clear();
 
     double* getData(){return data;};
-    int getRows(){return rows;};
-    int getColumns(){return columns;};
+    int getRows() const{return rows;};
+    int getColumns() const{return columns;};
     int getTotalSize() const {return columns * rows;};
 
     double rowSum(int t_row) const;

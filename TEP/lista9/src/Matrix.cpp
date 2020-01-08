@@ -11,9 +11,8 @@ Matrix::Matrix()
 
 }
 
-Matrix::Matrix(const Matrix &t_mat):
-columns(t_mat.columns), rows(t_mat.rows){
-    data = new double[t_mat.getTotalSize()];
+Matrix::Matrix(const Matrix &t_mat) :
+        columns(t_mat.columns), rows(t_mat.rows), data(new double[t_mat.getTotalSize()]) {
     std::copy(t_mat.data, t_mat.data + t_mat.getTotalSize(), data);
 }
 
@@ -29,13 +28,13 @@ Matrix::Matrix(int t_rows, int t_cols)
 
 
 Matrix::~Matrix() {
-    delete data;
+    delete[] data;
 }
 
 void Matrix::operator=(const Matrix &t_mat) {
-    if(this == &t_mat)
+    if (this == &t_mat)
         return;
-    delete data;
+    delete[] data;
 
     data = new double[t_mat.getTotalSize()];
     std::copy(t_mat.data, t_mat.data + t_mat.getTotalSize(), data);
@@ -49,7 +48,6 @@ double Matrix::get(int t_rows, int t_cols) const {
     }
     return 0.0;
 }
-
 
 
 void Matrix::set(int t_rows, int t_cols, double t_val) {
@@ -78,7 +76,7 @@ void Matrix::resize(int t_rows, int t_cols) {
 
     columns = t_cols;
     rows = t_rows;
-    delete data;
+    delete[] data;
     data = new_data;
 }
 
@@ -108,8 +106,11 @@ double Matrix::colSum(int t_col) const {
 
 std::string Matrix::toStr() {
     std::string res = "[";
-    for(int i = 0; i < getTotalSize(); i++)
-        res += std::to_string(data[i]) + ", ";
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < columns; j++)
+            res += std::to_string(get(i, j)) + ", ";
+        res += "\n";
+    }
 
     res = res.substr(0, res.size() - 2);
     res += "]\n";

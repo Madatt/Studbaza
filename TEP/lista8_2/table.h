@@ -12,6 +12,10 @@ const std::string C_D_COPY_PRE = "_kopia";
 
 class CTable {
 public:
+
+    static int i_debug_copy;
+    static int i_debug_move;
+
     CTable();
     CTable(std::string sName, int iTableLen);
     CTable(const CTable &pcOther);

@@ -12,36 +12,51 @@ const std::string C_D_COPY_PRE = "_kopia";
 
 class CTable {
 public:
-  CTable();
-  CTable(std::string sName, int iTableLen);
-  CTable(const CTable &pcOther);
-  virtual ~CTable();
+    CTable();
 
-  CTable operator+(const CTable &pcRight);
-  CTable operator=(const CTable &pcRight);
-  CTable operator/=(const int &iRight);
+    CTable(std::string sName, int iTableLen);
 
-  void vSetName(std::string sName);
+    CTable(const CTable &pcOther);
 
-  bool bSetNewSize(int iTableLen);
-  int iGetSize() {return i_len;};
+    virtual ~CTable();
 
-  bool bSetValue(int iN, int iVal);
-  int iGetValue(int iN);
+    static int i_debug_copy;
+
+    CTable operator+(const CTable &pcRight);
+
+    CTable& operator=(const CTable &pcRight);
+
+    CTable& operator/=(const int &iRight);
+
+    void vSetName(std::string sName);
+
+    bool bSetNewSize(int iTableLen);
+
+    int iGetSize() { return i_len; };
+
+    bool bSetValue(int iN, int iVal);
+
+    int iGetValue(int iN);
 
 
-  CTable *pcClone();
-  void vShow();
-  void vFillRising();
-  void vFillRising(int iN);
-  CTable cGetPairSumsTable();
+    CTable *pcClone();
+
+    void vShow();
+
+    void vFillRising();
+
+    void vFillRising(int iN);
+
+    CTable cGetPairSumsTable();
 
 private:
-  std::string s_name;
-  int* pi_tab;
-  int i_len;
+    std::string s_name;
+    int *pi_tab;
+    int i_len;
 };
 
-void v_mod_table(CTable* pcTab, int iNewSize);
+void v_mod_table(CTable *pcTab, int iNewSize);
+
 void v_mod_table(CTable pcTab, int iNewSize);
+
 void v_print_table(CTable &pcTab);
