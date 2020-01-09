@@ -9,7 +9,7 @@
 #include <string>
 #include "Matrix.h"
 
-const int MSCN_DEF_SIZE = 4;
+const int MSCN_DEF_SIZE = 3;
 
 const int MSCN_ERR_VALUE = 1;
 const int MSCN_ERR_RANGE = 2;
@@ -18,17 +18,17 @@ const int MSCN_ERR_SOL_NEG = 4;
 const int MSCN_ERR_FILE = 5;
 const int MSCN_ERR_SOL_MINMAX = -1;
 
-const double MSCN_C_MIN = 100.0;
-const double MSCN_C_MAX = 4000.0;
+const double MSCN_C_MIN = 1.0;
+const double MSCN_C_MAX = 40.0;
 
-const double MSCN_S_MIN = 500.0;
-const double MSCN_S_MAX = 10000.0;
+const double MSCN_S_MIN = 1.0;
+const double MSCN_S_MAX = 1000.0;
 
-const double MSCN_U_MIN = 50.0;
-const double MSCN_U_MAX = 550.0;
+const double MSCN_U_MIN = 1.0;
+const double MSCN_U_MAX = 3.0;
 
-const double MSCN_P_MIN = 700.0;
-const double MSCN_P_MAX = 3000.0;
+const double MSCN_P_MIN = 60.0;
+const double MSCN_P_MAX = 500.0;
 
 
 class MscnSolution {
@@ -36,6 +36,7 @@ class MscnSolution {
 public:
     MscnSolution() = default;
     MscnSolution(const std::vector<double> &t_sol, int t_d, int t_f, int t_m, int t_s);
+    int saveToFile(std::string t_fname);
 
 private:
     Matrix xd;

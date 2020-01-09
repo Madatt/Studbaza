@@ -8,9 +8,6 @@
 #include "MscnSolve.h"
 #include "Random.h"
 
-const double MSCN_SOLVE_MIN = 1.0;
-const double MSCN_SOLVE_MAX = 1000.0;
-
 class RandomSearch : public MscnSolve {
 public:
     RandomSearch(int t_seed)
@@ -21,6 +18,12 @@ public:
     ~RandomSearch(){};
 
     MscnSolution generateSolution() override;
+    MscnSolution generateValidSolution() override;
+
+    MscnSolution bestSolutionFromN(int t_n);
+    MscnSolution bestValidSolutionFromN(int t_n);
+
+    MscnSolution bestSolutionTimed(double t_t);
 
 private:
     Random rand;

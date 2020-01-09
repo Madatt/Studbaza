@@ -9,11 +9,12 @@
 
 class MscnSolve {
 public:
-    virtual ~MscnSolve() = 0;
+    virtual ~MscnSolve() {};
 
-    void setProblem(MscnProblem* t_prob){problem = t_prob;};
+    void setProblem(MscnProblem &t_prob){problem = &t_prob;};
 
     virtual MscnSolution generateSolution() = 0;
+    virtual MscnSolution generateValidSolution() = 0;
 
 
 protected:

@@ -37,3 +37,15 @@ void saveVectorToStream(std::iostream &t_strm, std::vector<double> &t_vec) {
     }
     t_strm << "\n";
 }
+
+void fillRandom(std::vector<double> &t_vec, Random &t_ran, double t_min, double t_max) {
+    for(int i = 0; i < t_vec.size(); i++) {
+        t_vec[i] = t_ran.randomReal(t_min, t_max);
+    }
+}
+
+void fillRandom(Matrix &t_mat, Random &t_ran, double t_min, double t_max) {
+    for(int i = 0; i < t_mat.getTotalSize(); i++) {
+        t_mat.getData()[i] = t_ran.randomReal(t_min, t_max);
+    }
+}

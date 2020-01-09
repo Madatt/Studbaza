@@ -113,6 +113,36 @@ MscnProblem::MscnProblem(std::string t_fname, int &t_err) {
     //std::cout << cd.toStr() << cf.toStr() << cm.toStr();
 }
 
+int MscnSolution::saveToFile(std::string t_fname) {
+    std::fstream file;
+    file.open(t_fname, std::ofstream::out | std::ofstream::trunc);
+
+    if (!file.is_open()) {
+        return MSCN_ERR_FILE;
+    }
+
+    file << "D ";
+    file << d << "\n";
+    file << "F ";
+    file << f << "\n";
+    file << "M ";
+    file << m << "\n";
+    file << "S ";
+    file << s << "\n";
+
+    file << "xd ";
+    saveMatrixToStream(file, xd);
+    file << "xf ";
+    saveMatrixToStream(file, xf);
+    file << "xm ";
+    saveMatrixToStream(file, xm);
+
+
+    file.close();
+
+    return 0;
+}
+
 int MscnProblem::saveToFile(std::string t_fname) {
     std::fstream file;
     file.open(t_fname, std::ofstream::out | std::ofstream::trunc);
@@ -559,32 +589,48 @@ std::vector<double> loadSolutionSemicolon(std::string t_fname, int &t_err) {
 void MscnProblem::generateInstance(int t_seed) {
     Random rand(t_seed);
 
+    fillRandom(cd, rand, MSCN_C_MIN, MSCN_C_MAX);
+    fillRandom(cf, rand, MSCN_C_MIN, MSCN_C_MAX);
+    fillRandom(cm, rand, MSCN_C_MIN, MSCN_C_MAX);
+
+    fillRandom(ud, rand, MSCN_U_MIN, MSCN_U_MAX);
+    fillRandom(uf, rand, MSCN_U_MIN, MSCN_U_MAX);
+    fillRandom(um, rand, MSCN_U_MIN, MSCN_U_MAX);
+
+    fillRandom(sd, rand, MSCN_S_MIN, MSCN_S_MAX);
+    fillRandom(sf, rand, MSCN_S_MIN, MSCN_S_MAX);
+    fillRandom(sm, rand, MSCN_S_MIN, MSCN_S_MAX);
+    fillRandom(ss, rand, MSCN_S_MIN, MSCN_S_MAX);
+
+    fillRandom(ps, rand, MSCN_P_MIN, MSCN_P_MAX);
+
+    int c = 0;
     for (int i = 0; i < d; i++) {
         for (int j = 0; j < f; j++) {
-            cd.set(i, j, rand.randomReal<double>(MSCN_C_MIN, MSCN_C_MAX));
+            xdMinMax[c] = 0;
+            xdMinMax[c + 1] = sd[i];
+            c += 2;
         }
-        ud[i] = rand.randomReal<double>(MSCN_U_MIN, MSCN_U_MAX);
-        sd[i] = rand.randomReal<double>(MSCN_S_MIN, MSCN_S_MAX);
     }
 
+    c = 0;
     for (int i = 0; i < f; i++) {
         for (int j = 0; j < m; j++) {
-            cf.set(i, j, rand.randomReal<double>(MSCN_C_MIN, MSCN_C_MAX));
+            xfMinMax[c] = 0;
+            xfMinMax[c + 1] = sf[i];
+            c += 2;
         }
-
-        uf[i] = rand.randomReal<double>(MSCN_U_MIN, MSCN_U_MAX);
-        sf[i] = rand.randomReal<double>(MSCN_S_MIN, MSCN_S_MAX);
     }
 
+    c = 0;
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < s; j++) {
-            cm.set(i, j, rand.randomReal<double>(MSCN_C_MIN, MSCN_C_MAX));
-            ps[j] = rand.randomReal<double>(MSCN_P_MIN, MSCN_P_MAX);
-            ss[j] = rand.randomReal<double>(MSCN_S_MIN, MSCN_S_MAX);
+            xmMinMax[c] = 0;
+            xmMinMax[c + 1] = sm[i];
+            c += 2;
         }
-        um[i] = rand.randomReal<double>(MSCN_U_MIN, MSCN_U_MAX);
-        sm[i] = rand.randomReal<double>(MSCN_S_MIN, MSCN_S_MAX);
     }
+
 }
 
 std::string errorToString(int t_err) {
