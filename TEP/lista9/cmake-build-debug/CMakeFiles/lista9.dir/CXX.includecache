@@ -6,41 +6,43 @@
 
 #IncludeRegexTransform: 
 
-/home/madatt/Studbaza/TEP/lista9/include/Matrix.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Matrix.h
 string
 -
 vector
 -
 
-/home/madatt/Studbaza/TEP/lista9/include/MscnProblem.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/MscnProblem.h
 vector
 -
 string
 -
 Matrix.h
-/home/madatt/Studbaza/TEP/lista9/include/Matrix.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Matrix.h
 
-/home/madatt/Studbaza/TEP/lista9/include/Random.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/MscnSolve.h
+MscnProblem.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/MscnProblem.h
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Random.h
 random
 -
 
-/home/madatt/Studbaza/TEP/lista9/include/Utils.h
-vector
--
-Matrix.h
-/home/madatt/Studbaza/TEP/lista9/include/Matrix.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/RandomSearch.h
+MscnSolve.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/MscnSolve.h
+Random.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Random.h
 
-/home/madatt/Studbaza/TEP/lista9/src/MscnProblem.cpp
-fstream
--
-string
--
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/constants.h
+
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/main.cpp
 iostream
 -
-../include/MscnProblem.h
-/home/madatt/Studbaza/TEP/lista9/include/MscnProblem.h
-../include/Utils.h
-/home/madatt/Studbaza/TEP/lista9/include/Utils.h
-../include/Random.h
-/home/madatt/Studbaza/TEP/lista9/include/Random.h
+include/MscnProblem.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/MscnProblem.h
+include/constants.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/constants.h
+include/RandomSearch.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/RandomSearch.h
 
