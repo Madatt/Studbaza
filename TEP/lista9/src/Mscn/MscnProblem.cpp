@@ -5,9 +5,9 @@
 #include <fstream>
 #include <string>
 #include <iostream>
-#include "../include/MscnProblem.h"
-#include "../include/Utils.h"
-#include "../include/Random.h"
+#include "../../include/Mscn/MscnProblem.h"
+#include "../../include/Utils.h"
+#include "../../include/Abstract/Random.h"
 
 MscnSolution::MscnSolution(const std::vector<double> &t_sol, int t_d, int t_f, int t_m, int t_s) {
     d = t_d;
@@ -321,7 +321,7 @@ MscnProblem::getAndValidateVec(std::vector<double> &t_vec, int t_row, int t_col,
         return std::make_pair(MSCN_ERR_SOL_MINMAX, MSCN_ERR_SOL_MINMAX);
     }
 
-    return std::make_pair(t_vec[(t_col + t_row * f) * 2], t_vec[(t_col + t_row * f) * 2 + 1]);
+    return std::make_pair(t_vec[(t_col + t_row * t_mx2) * 2], t_vec[(t_col + t_row * t_mx2) * 2 + 1]);
 }
 
 std::pair<double, double> MscnProblem::getXdMinMax(int t_d, int t_f) {
@@ -344,12 +344,16 @@ std::pair<double, double> MscnProblem::getSolutionMinMax(int t_pos) {
         return std::make_pair(MSCN_ERR_SOL_MINMAX, MSCN_ERR_SOL_MINMAX);
 
     if (t_pos < df) {
-        return getXdMinMax(t_pos / d, t_pos % f);
+        //std::cout << "D: " << t_pos / f << ", F: " << t_pos % f << std::endl;
+        return getXdMinMax(t_pos / f, t_pos % f);
     } else if (t_pos < fm + df) {
-        return getXfMinMax(t_pos / f, t_pos % m);
-    }
-    if (t_pos < fm + df + ms) {
-        return getXmMinMax(t_pos / m, t_pos % s);
+        //std::cout << "F: " << t_pos / m << ", M: " << t_pos % m << std::endl;
+        t_pos -= df;
+        return getXfMinMax(t_pos / m, t_pos % m);
+    } else if (t_pos < fm + df + ms) {
+        //std::cout << "M: " << t_pos / s << ", S: " << t_pos % s << std::endl;
+        t_pos -= df + fm;
+        return getXmMinMax(t_pos / s, t_pos % s);
     }
 }
 
@@ -386,6 +390,12 @@ int MscnProblem::initialSatisfied(MscnSolution &t_sol) {
     }
 
     return 0;
+}
+
+bool MscnProblem::constraintsSatisfied(Solution &t_sol) {
+    MscnSolution sol(t_sol.data, d, f, m, s);
+    int err;
+    return constraintsSatisfied(sol, err);
 }
 
 bool MscnProblem::constraintsSatisfied(MscnSolution &t_sol, int &t_err) {
@@ -608,7 +618,7 @@ void MscnProblem::generateInstance(int t_seed) {
     for (int i = 0; i < d; i++) {
         for (int j = 0; j < f; j++) {
             xdMinMax[c] = 0;
-            xdMinMax[c + 1] = sd[i];
+            xdMinMax[c + 1] = sd[i] / d;
             c += 2;
         }
     }
@@ -617,7 +627,7 @@ void MscnProblem::generateInstance(int t_seed) {
     for (int i = 0; i < f; i++) {
         for (int j = 0; j < m; j++) {
             xfMinMax[c] = 0;
-            xfMinMax[c + 1] = sf[i];
+            xfMinMax[c + 1] = sf[i] / f;
             c += 2;
         }
     }
@@ -626,11 +636,21 @@ void MscnProblem::generateInstance(int t_seed) {
     for (int i = 0; i < m; i++) {
         for (int j = 0; j < s; j++) {
             xmMinMax[c] = 0;
-            xmMinMax[c + 1] = sm[i];
+            xmMinMax[c + 1] = sm[i] / m;
             c += 2;
         }
     }
 
+}
+
+int MscnProblem::getSize() {
+    return d*f + f*m + m*s;
+}
+
+double MscnProblem::getQuality(Solution &solution) {
+    MscnSolution sol(solution.data, d, f, m, s);
+    int err;
+    return getQuality(sol, err);
 }
 
 std::string errorToString(int t_err) {

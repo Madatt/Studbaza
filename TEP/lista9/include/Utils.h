@@ -8,7 +8,7 @@
 
 #include <vector>
 #include "Matrix.h"
-#include "Random.h"
+#include "Abstract/Random.h"
 
 Matrix loadMatrixFromStream(std::iostream &t_strm, int t_rows, int t_cols);
 std::vector<double> loadVectorFromStream(std::iostream &t_strm, int t_size);

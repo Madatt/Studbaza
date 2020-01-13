@@ -8,7 +8,7 @@ add_executable(
         main.cpp
 
         src/Matrix.cpp
-        src/MscnProblem.cpp
+        src/Mscn/MscnProblem.cpp
         src/Utils.cpp
-        src/Random.cpp
-        src/RandomSearch.cpp include/RandomSearch.h)
+        src/Solvers/RandomSearch.cpp
+        src/Solvers/DEvolution.cpp)

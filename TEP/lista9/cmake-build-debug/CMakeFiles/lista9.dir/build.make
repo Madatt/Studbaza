@@ -82,18 +82,18 @@ CMakeFiles/lista9.dir/src/Matrix.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lista9.dir/src/Matrix.cpp.s"
 	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\Matrix.cpp -o CMakeFiles\lista9.dir\src\Matrix.cpp.s
 
-CMakeFiles/lista9.dir/src/MscnProblem.cpp.obj: CMakeFiles/lista9.dir/flags.make
-CMakeFiles/lista9.dir/src/MscnProblem.cpp.obj: ../src/MscnProblem.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lista9.dir/src/MscnProblem.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\lista9.dir\src\MscnProblem.cpp.obj -c C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\MscnProblem.cpp
+CMakeFiles/lista9.dir/src/Mscn/MscnProblem.cpp.obj: CMakeFiles/lista9.dir/flags.make
+CMakeFiles/lista9.dir/src/Mscn/MscnProblem.cpp.obj: ../src/Mscn/MscnProblem.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/lista9.dir/src/Mscn/MscnProblem.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\lista9.dir\src\Mscn\MscnProblem.cpp.obj -c C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\Mscn\MscnProblem.cpp
 
-CMakeFiles/lista9.dir/src/MscnProblem.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lista9.dir/src/MscnProblem.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\MscnProblem.cpp > CMakeFiles\lista9.dir\src\MscnProblem.cpp.i
+CMakeFiles/lista9.dir/src/Mscn/MscnProblem.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lista9.dir/src/Mscn/MscnProblem.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\Mscn\MscnProblem.cpp > CMakeFiles\lista9.dir\src\Mscn\MscnProblem.cpp.i
 
-CMakeFiles/lista9.dir/src/MscnProblem.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lista9.dir/src/MscnProblem.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\MscnProblem.cpp -o CMakeFiles\lista9.dir\src\MscnProblem.cpp.s
+CMakeFiles/lista9.dir/src/Mscn/MscnProblem.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lista9.dir/src/Mscn/MscnProblem.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\Mscn\MscnProblem.cpp -o CMakeFiles\lista9.dir\src\Mscn\MscnProblem.cpp.s
 
 CMakeFiles/lista9.dir/src/Utils.cpp.obj: CMakeFiles/lista9.dir/flags.make
 CMakeFiles/lista9.dir/src/Utils.cpp.obj: ../src/Utils.cpp
@@ -108,50 +108,50 @@ CMakeFiles/lista9.dir/src/Utils.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lista9.dir/src/Utils.cpp.s"
 	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\Utils.cpp -o CMakeFiles\lista9.dir\src\Utils.cpp.s
 
-CMakeFiles/lista9.dir/src/Random.cpp.obj: CMakeFiles/lista9.dir/flags.make
-CMakeFiles/lista9.dir/src/Random.cpp.obj: ../src/Random.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/lista9.dir/src/Random.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\lista9.dir\src\Random.cpp.obj -c C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\Random.cpp
+CMakeFiles/lista9.dir/src/Solvers/RandomSearch.cpp.obj: CMakeFiles/lista9.dir/flags.make
+CMakeFiles/lista9.dir/src/Solvers/RandomSearch.cpp.obj: ../src/Solvers/RandomSearch.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/lista9.dir/src/Solvers/RandomSearch.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\lista9.dir\src\Solvers\RandomSearch.cpp.obj -c C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\Solvers\RandomSearch.cpp
 
-CMakeFiles/lista9.dir/src/Random.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lista9.dir/src/Random.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\Random.cpp > CMakeFiles\lista9.dir\src\Random.cpp.i
+CMakeFiles/lista9.dir/src/Solvers/RandomSearch.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lista9.dir/src/Solvers/RandomSearch.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\Solvers\RandomSearch.cpp > CMakeFiles\lista9.dir\src\Solvers\RandomSearch.cpp.i
 
-CMakeFiles/lista9.dir/src/Random.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lista9.dir/src/Random.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\Random.cpp -o CMakeFiles\lista9.dir\src\Random.cpp.s
+CMakeFiles/lista9.dir/src/Solvers/RandomSearch.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lista9.dir/src/Solvers/RandomSearch.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\Solvers\RandomSearch.cpp -o CMakeFiles\lista9.dir\src\Solvers\RandomSearch.cpp.s
 
-CMakeFiles/lista9.dir/src/RandomSearch.cpp.obj: CMakeFiles/lista9.dir/flags.make
-CMakeFiles/lista9.dir/src/RandomSearch.cpp.obj: ../src/RandomSearch.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/lista9.dir/src/RandomSearch.cpp.obj"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\lista9.dir\src\RandomSearch.cpp.obj -c C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\RandomSearch.cpp
+CMakeFiles/lista9.dir/src/Solvers/DEvolution.cpp.obj: CMakeFiles/lista9.dir/flags.make
+CMakeFiles/lista9.dir/src/Solvers/DEvolution.cpp.obj: ../src/Solvers/DEvolution.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/lista9.dir/src/Solvers/DEvolution.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\lista9.dir\src\Solvers\DEvolution.cpp.obj -c C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\Solvers\DEvolution.cpp
 
-CMakeFiles/lista9.dir/src/RandomSearch.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lista9.dir/src/RandomSearch.cpp.i"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\RandomSearch.cpp > CMakeFiles\lista9.dir\src\RandomSearch.cpp.i
+CMakeFiles/lista9.dir/src/Solvers/DEvolution.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lista9.dir/src/Solvers/DEvolution.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\Solvers\DEvolution.cpp > CMakeFiles\lista9.dir\src\Solvers\DEvolution.cpp.i
 
-CMakeFiles/lista9.dir/src/RandomSearch.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lista9.dir/src/RandomSearch.cpp.s"
-	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\RandomSearch.cpp -o CMakeFiles\lista9.dir\src\RandomSearch.cpp.s
+CMakeFiles/lista9.dir/src/Solvers/DEvolution.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lista9.dir/src/Solvers/DEvolution.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Madatt\Desktop\Studbaza\TEP\lista9\src\Solvers\DEvolution.cpp -o CMakeFiles\lista9.dir\src\Solvers\DEvolution.cpp.s
 
 # Object files for target lista9
 lista9_OBJECTS = \
 "CMakeFiles/lista9.dir/main.cpp.obj" \
 "CMakeFiles/lista9.dir/src/Matrix.cpp.obj" \
-"CMakeFiles/lista9.dir/src/MscnProblem.cpp.obj" \
+"CMakeFiles/lista9.dir/src/Mscn/MscnProblem.cpp.obj" \
 "CMakeFiles/lista9.dir/src/Utils.cpp.obj" \
-"CMakeFiles/lista9.dir/src/Random.cpp.obj" \
-"CMakeFiles/lista9.dir/src/RandomSearch.cpp.obj"
+"CMakeFiles/lista9.dir/src/Solvers/RandomSearch.cpp.obj" \
+"CMakeFiles/lista9.dir/src/Solvers/DEvolution.cpp.obj"
 
 # External object files for target lista9
 lista9_EXTERNAL_OBJECTS =
 
 lista9.exe: CMakeFiles/lista9.dir/main.cpp.obj
 lista9.exe: CMakeFiles/lista9.dir/src/Matrix.cpp.obj
-lista9.exe: CMakeFiles/lista9.dir/src/MscnProblem.cpp.obj
+lista9.exe: CMakeFiles/lista9.dir/src/Mscn/MscnProblem.cpp.obj
 lista9.exe: CMakeFiles/lista9.dir/src/Utils.cpp.obj
-lista9.exe: CMakeFiles/lista9.dir/src/Random.cpp.obj
-lista9.exe: CMakeFiles/lista9.dir/src/RandomSearch.cpp.obj
+lista9.exe: CMakeFiles/lista9.dir/src/Solvers/RandomSearch.cpp.obj
+lista9.exe: CMakeFiles/lista9.dir/src/Solvers/DEvolution.cpp.obj
 lista9.exe: CMakeFiles/lista9.dir/build.make
 lista9.exe: CMakeFiles/lista9.dir/linklibs.rsp
 lista9.exe: CMakeFiles/lista9.dir/objects1.rsp

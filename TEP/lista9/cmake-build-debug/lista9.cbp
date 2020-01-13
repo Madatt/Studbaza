@@ -80,22 +80,19 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/RandomSearch.h">
-			<Option target="lista9"/>
-		</Unit>
 		<Unit filename="C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/main.cpp">
 			<Option target="lista9"/>
 		</Unit>
 		<Unit filename="C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/src/Matrix.cpp">
 			<Option target="lista9"/>
 		</Unit>
-		<Unit filename="C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/src/MscnProblem.cpp">
+		<Unit filename="C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/src/Mscn/MscnProblem.cpp">
 			<Option target="lista9"/>
 		</Unit>
-		<Unit filename="C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/src/Random.cpp">
+		<Unit filename="C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/src/Solvers/DEvolution.cpp">
 			<Option target="lista9"/>
 		</Unit>
-		<Unit filename="C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/src/RandomSearch.cpp">
+		<Unit filename="C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/src/Solvers/RandomSearch.cpp">
 			<Option target="lista9"/>
 		</Unit>
 		<Unit filename="C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/src/Utils.cpp">

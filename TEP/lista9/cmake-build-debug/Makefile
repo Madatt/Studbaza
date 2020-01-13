@@ -176,86 +176,86 @@ src/Matrix.cpp.s:
 	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/Matrix.cpp.s
 .PHONY : src/Matrix.cpp.s
 
-src/MscnProblem.obj: src/MscnProblem.cpp.obj
+src/Mscn/MscnProblem.obj: src/Mscn/MscnProblem.cpp.obj
 
-.PHONY : src/MscnProblem.obj
-
-# target to build an object file
-src/MscnProblem.cpp.obj:
-	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/MscnProblem.cpp.obj
-.PHONY : src/MscnProblem.cpp.obj
-
-src/MscnProblem.i: src/MscnProblem.cpp.i
-
-.PHONY : src/MscnProblem.i
-
-# target to preprocess a source file
-src/MscnProblem.cpp.i:
-	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/MscnProblem.cpp.i
-.PHONY : src/MscnProblem.cpp.i
-
-src/MscnProblem.s: src/MscnProblem.cpp.s
-
-.PHONY : src/MscnProblem.s
-
-# target to generate assembly for a file
-src/MscnProblem.cpp.s:
-	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/MscnProblem.cpp.s
-.PHONY : src/MscnProblem.cpp.s
-
-src/Random.obj: src/Random.cpp.obj
-
-.PHONY : src/Random.obj
+.PHONY : src/Mscn/MscnProblem.obj
 
 # target to build an object file
-src/Random.cpp.obj:
-	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/Random.cpp.obj
-.PHONY : src/Random.cpp.obj
+src/Mscn/MscnProblem.cpp.obj:
+	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/Mscn/MscnProblem.cpp.obj
+.PHONY : src/Mscn/MscnProblem.cpp.obj
 
-src/Random.i: src/Random.cpp.i
+src/Mscn/MscnProblem.i: src/Mscn/MscnProblem.cpp.i
 
-.PHONY : src/Random.i
+.PHONY : src/Mscn/MscnProblem.i
 
 # target to preprocess a source file
-src/Random.cpp.i:
-	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/Random.cpp.i
-.PHONY : src/Random.cpp.i
+src/Mscn/MscnProblem.cpp.i:
+	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/Mscn/MscnProblem.cpp.i
+.PHONY : src/Mscn/MscnProblem.cpp.i
 
-src/Random.s: src/Random.cpp.s
+src/Mscn/MscnProblem.s: src/Mscn/MscnProblem.cpp.s
 
-.PHONY : src/Random.s
+.PHONY : src/Mscn/MscnProblem.s
 
 # target to generate assembly for a file
-src/Random.cpp.s:
-	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/Random.cpp.s
-.PHONY : src/Random.cpp.s
+src/Mscn/MscnProblem.cpp.s:
+	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/Mscn/MscnProblem.cpp.s
+.PHONY : src/Mscn/MscnProblem.cpp.s
 
-src/RandomSearch.obj: src/RandomSearch.cpp.obj
+src/Solvers/DEvolution.obj: src/Solvers/DEvolution.cpp.obj
 
-.PHONY : src/RandomSearch.obj
+.PHONY : src/Solvers/DEvolution.obj
 
 # target to build an object file
-src/RandomSearch.cpp.obj:
-	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/RandomSearch.cpp.obj
-.PHONY : src/RandomSearch.cpp.obj
+src/Solvers/DEvolution.cpp.obj:
+	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/Solvers/DEvolution.cpp.obj
+.PHONY : src/Solvers/DEvolution.cpp.obj
 
-src/RandomSearch.i: src/RandomSearch.cpp.i
+src/Solvers/DEvolution.i: src/Solvers/DEvolution.cpp.i
 
-.PHONY : src/RandomSearch.i
+.PHONY : src/Solvers/DEvolution.i
 
 # target to preprocess a source file
-src/RandomSearch.cpp.i:
-	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/RandomSearch.cpp.i
-.PHONY : src/RandomSearch.cpp.i
+src/Solvers/DEvolution.cpp.i:
+	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/Solvers/DEvolution.cpp.i
+.PHONY : src/Solvers/DEvolution.cpp.i
 
-src/RandomSearch.s: src/RandomSearch.cpp.s
+src/Solvers/DEvolution.s: src/Solvers/DEvolution.cpp.s
 
-.PHONY : src/RandomSearch.s
+.PHONY : src/Solvers/DEvolution.s
 
 # target to generate assembly for a file
-src/RandomSearch.cpp.s:
-	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/RandomSearch.cpp.s
-.PHONY : src/RandomSearch.cpp.s
+src/Solvers/DEvolution.cpp.s:
+	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/Solvers/DEvolution.cpp.s
+.PHONY : src/Solvers/DEvolution.cpp.s
+
+src/Solvers/RandomSearch.obj: src/Solvers/RandomSearch.cpp.obj
+
+.PHONY : src/Solvers/RandomSearch.obj
+
+# target to build an object file
+src/Solvers/RandomSearch.cpp.obj:
+	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/Solvers/RandomSearch.cpp.obj
+.PHONY : src/Solvers/RandomSearch.cpp.obj
+
+src/Solvers/RandomSearch.i: src/Solvers/RandomSearch.cpp.i
+
+.PHONY : src/Solvers/RandomSearch.i
+
+# target to preprocess a source file
+src/Solvers/RandomSearch.cpp.i:
+	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/Solvers/RandomSearch.cpp.i
+.PHONY : src/Solvers/RandomSearch.cpp.i
+
+src/Solvers/RandomSearch.s: src/Solvers/RandomSearch.cpp.s
+
+.PHONY : src/Solvers/RandomSearch.s
+
+# target to generate assembly for a file
+src/Solvers/RandomSearch.cpp.s:
+	$(MAKE) -f CMakeFiles\lista9.dir\build.make CMakeFiles/lista9.dir/src/Solvers/RandomSearch.cpp.s
+.PHONY : src/Solvers/RandomSearch.cpp.s
 
 src/Utils.obj: src/Utils.cpp.obj
 
@@ -299,15 +299,15 @@ help:
 	@echo ... src/Matrix.obj
 	@echo ... src/Matrix.i
 	@echo ... src/Matrix.s
-	@echo ... src/MscnProblem.obj
-	@echo ... src/MscnProblem.i
-	@echo ... src/MscnProblem.s
-	@echo ... src/Random.obj
-	@echo ... src/Random.i
-	@echo ... src/Random.s
-	@echo ... src/RandomSearch.obj
-	@echo ... src/RandomSearch.i
-	@echo ... src/RandomSearch.s
+	@echo ... src/Mscn/MscnProblem.obj
+	@echo ... src/Mscn/MscnProblem.i
+	@echo ... src/Mscn/MscnProblem.s
+	@echo ... src/Solvers/DEvolution.obj
+	@echo ... src/Solvers/DEvolution.i
+	@echo ... src/Solvers/DEvolution.s
+	@echo ... src/Solvers/RandomSearch.obj
+	@echo ... src/Solvers/RandomSearch.i
+	@echo ... src/Solvers/RandomSearch.s
 	@echo ... src/Utils.obj
 	@echo ... src/Utils.i
 	@echo ... src/Utils.s

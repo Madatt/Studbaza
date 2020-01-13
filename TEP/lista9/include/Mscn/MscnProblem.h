@@ -7,7 +7,9 @@
 
 #include <vector>
 #include <string>
-#include "Matrix.h"
+#include "../Matrix.h"
+#include "../Abstract/Problem.h"
+#include "../Abstract/Solution.h"
 
 const int MSCN_DEF_SIZE = 3;
 
@@ -50,7 +52,7 @@ private:
 };
 
 
-class MscnProblem {
+class MscnProblem : public Problem {
 public:
     MscnProblem();
     MscnProblem(std::string t_fname, int &t_err);
@@ -82,14 +84,17 @@ public:
     int setPsCell(int t_s, double t_val);
 
     std::pair<double, double> getSolutionMinMax(int t_pos);
+    double getQuality(Solution &solution) override;
 
     std::pair<double, double> getXdMinMax(int t_d, int t_f);
     std::pair<double, double> getXfMinMax(int t_f, int t_m);
     std::pair<double, double> getXmMinMax(int t_m, int t_s);
 
 
+    int getSize() override;
     double getQuality(MscnSolution &t_sol, int &t_err);
     bool constraintsSatisfied(MscnSolution &t_sol, int &t_err);
+    bool constraintsSatisfied(Solution &t_sol);
 
     int saveToFile(std::string t_fname);
 
