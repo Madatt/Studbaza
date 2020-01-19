@@ -15,4 +15,12 @@ const std::string FILE_SOL = "test_s.txt";
 const std::string FILE_SOL2 = "test_s2.txt";
 const std::string FILE_SAVE = "test_save.txt";
 
+const int NN = 10000;
+const int NN2 = 1000;
+const int NN3 = 100;
+const int NN4 = 10;
+const int POOL_S = 10;
+const int POOL_S2 = 20;
+const int SEED = 123;
+
 #endif //LISTA9_CONSTANTS_H

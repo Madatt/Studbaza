@@ -10,11 +10,11 @@
 #include "RandomSearch.h"
 
 const double DE_CROSS_PROB = 0.5;
-const double DE_DIFF_W = 0.1;
+const double DE_DIFF_W = 2;
 
 class DEvolution : public Solve{
 public:
-    DEvolution(int t_seed, int t_n);
+    DEvolution(int t_seed, double t_crossP = DE_CROSS_PROB, double t_diffW = DE_DIFF_W);
     ~DEvolution() override;
 
     void changePool(int t_n);
@@ -23,6 +23,8 @@ public:
 private:
     Random rand;
     RandomSearch rs;
+    double crossP;
+    double diffW;
     std::vector<Solution> pool;
 
     Solution& randInd();

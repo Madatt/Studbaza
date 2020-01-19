@@ -53,6 +53,7 @@ private:
 
 
 class MscnProblem : public Problem {
+    friend class MscnRandomProblem;
 public:
     MscnProblem();
     MscnProblem(std::string t_fname, int &t_err);
@@ -97,9 +98,6 @@ public:
     bool constraintsSatisfied(Solution &t_sol);
 
     int saveToFile(std::string t_fname);
-
-    void generateInstance(int t_seed);
-
 private:
     Matrix cd;
     Matrix cf;

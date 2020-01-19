@@ -13,6 +13,7 @@ public:
     RandomSearch(int t_seed)
             : rand(t_seed) {
         problem = nullptr;
+
     }
 
     ~RandomSearch(){};
@@ -25,6 +26,8 @@ public:
 
 private:
     Random rand;
+    Timer timer;
+
 };
 
 

@@ -5,8 +5,11 @@
 #include <ctime>
 #include "../../include/Solvers/DEvolution.h"
 
-DEvolution::DEvolution(int t_seed, int t_n)
+DEvolution::DEvolution(int t_seed, double t_crossP, double t_diffW)
         : rs(t_seed), rand(t_seed) {
+    crossP = t_crossP;
+    diffW = t_diffW;
+    problem = nullptr;
 }
 
 DEvolution::~DEvolution() {
@@ -16,6 +19,9 @@ DEvolution::~DEvolution() {
 void DEvolution::changePool(int t_n) {
     if(t_n <= 0)
         t_n = 1;
+
+    if(problem == nullptr)
+        return;
 
     pool.clear();
     rs.setProblem(problem);
@@ -38,13 +44,14 @@ bool DEvolution::diffInd(Solution &t_i1, Solution &t_i2, Solution &t_i3, Solutio
 }
 
 Solution DEvolution::bestValidSolutionFromN(int t_n) {
-    int err;
-    const clock_t start = clock();
+    if(pool.size() <= 0 or problem == nullptr)
+        return Solution();
+
     Solution best = pool[0];
     int c = 0;
     while (c < t_n) {
-        for (int i = 0; i < pool.size(); i++) {
-            Solution &fI = pool[i];
+        for (int i = 0; i < pool.size() and c < t_n; i++) {
+            Solution& fI = pool[i];
             Solution bI = randInd();
             Solution aI0 = randInd();
             Solution aI1 = randInd();
@@ -53,8 +60,8 @@ Solution DEvolution::bestValidSolutionFromN(int t_n) {
                 Solution nI;
                 nI.data.resize(problem->getSize());
                 for(int g = 0; g < problem->getSize(); g++) {
-                    if(rand.randomReal<double>(0, 1) < DE_CROSS_PROB) {
-                        nI.data[g] = bI.data[g] + DE_DIFF_W * (aI0.data[g] - aI1.data[g]);
+                    if(rand.randomReal<double>(0, 1) < crossP) {
+                        nI.data[g] = bI.data[g] + diffW * (aI0.data[g] - aI1.data[g]);
                     }
                     else {
                         nI.data[g] = fI.data[g];
@@ -65,13 +72,14 @@ Solution DEvolution::bestValidSolutionFromN(int t_n) {
                 }
 
                 double q = problem->getQuality(nI);
+                int cs = problem->constraintsSatisfied(nI);
                 c++;
 
-                if((q > problem->getQuality(fI)) and problem->constraintsSatisfied(nI)) {
+                if((q > problem->getQuality(fI)) and cs) {
                     fI.data = nI.data;
                 }
 
-                if((q > problem->getQuality(best)) and problem->constraintsSatisfied(nI)) {
+                if((q > problem->getQuality(best)) and cs) {
                     best.data = nI.data;
                 }
             }

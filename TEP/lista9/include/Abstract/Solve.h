@@ -6,6 +6,7 @@
 #define LISTA9_SOLVE_H
 
 #include "../Mscn/MscnProblem.h"
+#include "../Timer.h"
 
 class Solve {
 public:

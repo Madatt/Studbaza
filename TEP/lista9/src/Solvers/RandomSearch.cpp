@@ -56,9 +56,9 @@ Solution RandomSearch::bestValidSolutionTimed(double t_t) {
         return Solution();
 
     int err;
-    const clock_t start = clock();
+    timer.reset();
     Solution sol = generateValidSolution();
-    while(double(clock() - start)/CLOCKS_PER_SEC <= t_t) {
+    while(timer.getElapsedTime() <= t_t) {
         Solution sol2 = generateSolution();
 
         if ((problem->getQuality(sol2) > problem->getQuality(sol)) and problem->constraintsSatisfied(sol2))

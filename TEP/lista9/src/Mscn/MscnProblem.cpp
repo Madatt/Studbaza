@@ -596,53 +596,6 @@ std::vector<double> loadSolutionSemicolon(std::string t_fname, int &t_err) {
     return solution;
 }
 
-void MscnProblem::generateInstance(int t_seed) {
-    Random rand(t_seed);
-
-    fillRandom(cd, rand, MSCN_C_MIN, MSCN_C_MAX);
-    fillRandom(cf, rand, MSCN_C_MIN, MSCN_C_MAX);
-    fillRandom(cm, rand, MSCN_C_MIN, MSCN_C_MAX);
-
-    fillRandom(ud, rand, MSCN_U_MIN, MSCN_U_MAX);
-    fillRandom(uf, rand, MSCN_U_MIN, MSCN_U_MAX);
-    fillRandom(um, rand, MSCN_U_MIN, MSCN_U_MAX);
-
-    fillRandom(sd, rand, MSCN_S_MIN, MSCN_S_MAX);
-    fillRandom(sf, rand, MSCN_S_MIN, MSCN_S_MAX);
-    fillRandom(sm, rand, MSCN_S_MIN, MSCN_S_MAX);
-    fillRandom(ss, rand, MSCN_S_MIN, MSCN_S_MAX);
-
-    fillRandom(ps, rand, MSCN_P_MIN, MSCN_P_MAX);
-
-    int c = 0;
-    for (int i = 0; i < d; i++) {
-        for (int j = 0; j < f; j++) {
-            xdMinMax[c] = 0;
-            xdMinMax[c + 1] = sd[i] / d;
-            c += 2;
-        }
-    }
-
-    c = 0;
-    for (int i = 0; i < f; i++) {
-        for (int j = 0; j < m; j++) {
-            xfMinMax[c] = 0;
-            xfMinMax[c + 1] = sf[i] / f;
-            c += 2;
-        }
-    }
-
-    c = 0;
-    for (int i = 0; i < m; i++) {
-        for (int j = 0; j < s; j++) {
-            xmMinMax[c] = 0;
-            xmMinMax[c + 1] = sm[i] / m;
-            c += 2;
-        }
-    }
-
-}
-
 int MscnProblem::getSize() {
     return d*f + f*m + m*s;
 }
