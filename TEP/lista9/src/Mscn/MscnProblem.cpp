@@ -9,6 +9,7 @@
 #include "../../include/Utils.h"
 #include "../../include/Abstract/Random.h"
 
+
 MscnSolution::MscnSolution(const std::vector<double> &t_sol, int t_d, int t_f, int t_m, int t_s) {
     d = t_d;
     f = t_f;
@@ -35,6 +36,28 @@ MscnSolution::MscnSolution(const std::vector<double> &t_sol, int t_d, int t_f, i
         xm.getData()[i] = t_sol[i + fd_s + mf_s];
     }
     //std::cout << xd.toStr() << xf.toStr() << xm.toStr();
+}
+
+Solution MscnSolution::toSolution() {
+    Solution sol;
+
+    int fd_s = f * d;
+    int mf_s = m * f;
+    int sm_s = s * m;
+
+    for (int i = 0; i < fd_s; i++) {
+        sol.data.push_back(xd.getData()[i]);
+    }
+
+    for (int i = 0; i < mf_s; i++) {
+        sol.data.push_back(xf.getData()[i]);
+    }
+
+    for (int i = 0; i < sm_s; i++) {
+        sol.data.push_back(xm.getData()[i]);
+    }
+
+    return sol;
 }
 
 
@@ -409,25 +432,31 @@ bool MscnProblem::constraintsSatisfied(MscnSolution &t_sol, int &t_err) {
         if (t_sol.xd.rowSum(i) > sd[i]) ok = 0;
     }
 
+
     for (int i = 0; i < f; i++) {
         if (t_sol.xf.rowSum(i) > sf[i]) ok = 0;
     }
+
 
     for (int i = 0; i < m; i++) {
         if (t_sol.xm.rowSum(i) > sm[i]) ok = 0;
     }
 
+
     for (int i = 0; i < s; i++) {
         if (t_sol.xm.colSum(i) > ss[i]) ok = 0;
     }
+
 
     for (int i = 0; i < f; i++) {
         if (t_sol.xd.colSum(i) < t_sol.xf.rowSum(i)) ok = 0;
     }
 
+
     for (int i = 0; i < m; i++) {
         if (t_sol.xf.colSum(i) < t_sol.xm.rowSum(i)) ok = 0;
     }
+
 
     for (int i = 0; i < d; i++) {
         for (int j = 0; j < f; j++) {
@@ -600,8 +629,88 @@ int MscnProblem::getSize() {
     return d*f + f*m + m*s;
 }
 
-double MscnProblem::getQuality(Solution &solution) {
-    MscnSolution sol(solution.data, d, f, m, s);
+void MscnProblem::fixSolution(MscnSolution &t_sol) {
+    double sum, sum2;
+
+    for(int i = 0; i < d; i++) {
+        for(int j = 0; j < f; j++) {
+            t_sol.xd.setMinMax(i, j, getXdMinMax(i, j).first, getXdMinMax(i, j).second);
+        }
+    }
+
+    for(int i = 0; i < f; i++) {
+        for(int j = 0; j < m; j++) {
+            t_sol.xf.setMinMax(i, j, getXfMinMax(i, j).first, getXfMinMax(i, j).second);
+        }
+    }
+
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < s; j++) {
+            t_sol.xm.setMinMax(i, j, getXmMinMax(i, j).first, getXmMinMax(i, j).second);
+        }
+    }
+
+    for (int i = 0; i < d; i++) {
+        sum = t_sol.xd.rowSum(i);
+        if (sum > sd[i]) {
+            t_sol.xd.rowMult(i, (sd[i]/(1.0+sum)));
+        }
+    }
+
+    for (int i = 0; i < f; i++) {
+        sum = t_sol.xf.rowSum(i);
+        if (sum > sf[i]) {
+            t_sol.xf.rowMult(i, (sf[i]/(1.0+sum)));
+        }
+    }
+
+    for (int i = 0; i < m; i++) {
+        sum = t_sol.xm.rowSum(i);
+        if (sum > sm[i]) {
+            t_sol.xm.rowMult(i, (sm[i]/(1.0+sum)));
+        }
+    }
+
+    for (int i = 0; i < s; i++) {
+        sum = t_sol.xm.colSum(i);
+        if (sum > ss[i]) {
+            t_sol.xm.colMult(i, (ss[i]/(1.0+sum)));
+        }
+    }
+
+    for (int i = 0; i < f; i++) {
+        sum = t_sol.xd.colSum(i);
+        sum2 = t_sol.xf.rowSum(i);
+        if (sum < sum2){
+            t_sol.xf.rowMult(i, (sum/(1.0+sum2)));
+        }
+    }
+
+    for (int i = 0; i < m; i++) {
+        sum = t_sol.xf.colSum(i);
+        sum2 = t_sol.xm.rowSum(i);
+        if (sum < sum2) {
+            t_sol.xm.rowMult(i, (sum/(1.0+sum2)));
+        }
+    }
+
+
+}
+
+double MscnProblem::getQualityAndFix(Solution &t_sol) {
+    MscnSolution sol(t_sol.data, d, f, m, s);
+    int err;
+    if(!constraintsSatisfied(sol, err))
+    {
+        fixSolution(sol);
+    }
+
+    t_sol.data = sol.toSolution().data;
+    return getQuality(t_sol);
+}
+
+double MscnProblem::getQuality(Solution &t_sol) {
+    MscnSolution sol(t_sol.data, d, f, m, s);
     int err;
     return getQuality(sol, err);
 }

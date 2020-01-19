@@ -18,6 +18,18 @@ int main(int argc, char *argv[]) {
 
     RandomSearch rndS(SEED);
     rndS.setProblem(&problem3);
+
+    /*Solution sol = rndS.generateSolution();
+    MscnSolution mSol(sol.data, problem3.getD(), problem3.getF(), problem3.getM(), problem3.getS());
+    mSol.saveToFile("fix_before.txt");
+    std::cout << STR_CS << problem3.constraintsSatisfied(sol) << std::endl << std::endl;
+    problem3.getQualityAndFix(sol);
+    MscnSolution mSol2(sol.data, problem3.getD(), problem3.getF(), problem3.getM(), problem3.getS());
+    mSol2.saveToFile("fix_after.txt");
+    std::cout  << std::endl << std::endl;
+    std::cout << STR_CS << problem3.constraintsSatisfied(sol) << std::endl << std::endl;*/
+
+
     Solution sol = rndS.bestValidSolutionFromN(NN);
     std::cout << STR_QUALITY << problem3.getQuality(sol) << std::endl;
     std::cout << STR_CS << problem3.constraintsSatisfied(sol) << std::endl << std::endl;

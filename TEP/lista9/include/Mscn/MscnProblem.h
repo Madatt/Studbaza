@@ -39,6 +39,7 @@ public:
     MscnSolution() = default;
     MscnSolution(const std::vector<double> &t_sol, int t_d, int t_f, int t_m, int t_s);
     int saveToFile(std::string t_fname);
+    Solution toSolution();
 
 private:
     Matrix xd;
@@ -86,6 +87,8 @@ public:
 
     std::pair<double, double> getSolutionMinMax(int t_pos);
     double getQuality(Solution &solution) override;
+    double getQualityAndFix(Solution &t_sol);
+
 
     std::pair<double, double> getXdMinMax(int t_d, int t_f);
     std::pair<double, double> getXfMinMax(int t_f, int t_m);
@@ -98,6 +101,7 @@ public:
     bool constraintsSatisfied(Solution &t_sol);
 
     int saveToFile(std::string t_fname);
+
 private:
     Matrix cd;
     Matrix cf;
@@ -132,6 +136,7 @@ private:
     double calculateP(const MscnSolution &t_sol);
 
     int initialSatisfied(MscnSolution &t_sol);
+    void fixSolution(MscnSolution &t_sol);
 
     std::pair<double, double> getAndValidateVec(std::vector<double> &t_vec,  int t_row, int t_col, int t_mx1, int t_mx2);
 };

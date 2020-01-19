@@ -17,6 +17,7 @@ public:
     virtual std::pair<double, double> getSolutionMinMax(int) = 0;
     virtual int getSize() = 0;
     virtual double getQuality(Solution&) = 0;
+    virtual double getQualityAndFix(Solution&) = 0;
     virtual bool constraintsSatisfied(Solution&) = 0;
 };
 

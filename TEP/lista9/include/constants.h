@@ -21,6 +21,6 @@ const int NN3 = 100;
 const int NN4 = 10;
 const int POOL_S = 10;
 const int POOL_S2 = 20;
-const int SEED = 123;
+const int SEED = 5854;
 
 #endif //LISTA9_CONSTANTS_H

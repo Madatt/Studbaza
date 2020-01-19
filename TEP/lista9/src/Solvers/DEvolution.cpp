@@ -3,6 +3,7 @@
 //
 
 #include <ctime>
+#include <iostream>
 #include "../../include/Solvers/DEvolution.h"
 
 DEvolution::DEvolution(int t_seed, double t_crossP, double t_diffW)
@@ -66,13 +67,14 @@ Solution DEvolution::bestValidSolutionFromN(int t_n) {
                     else {
                         nI.data[g] = fI.data[g];
                     }
-
-                    nI.data[g] = std::max<double>(problem->getSolutionMinMax(g).first, nI.data[g]);
-                    nI.data[g] = std::min<double>(nI.data[g], problem->getSolutionMinMax(g).second);
                 }
 
-                double q = problem->getQuality(nI);
+                double q = problem->getQualityAndFix(nI);
                 int cs = problem->constraintsSatisfied(nI);
+
+                if(!cs)
+                    std::cout << "ERROR" << std::endl;
+
                 c++;
 
                 if((q > problem->getQuality(fI)) and cs) {

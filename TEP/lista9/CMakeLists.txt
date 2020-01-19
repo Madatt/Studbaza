@@ -12,5 +12,6 @@ add_executable(
         src/Matrix.cpp
         src/Mscn/MscnProblem.cpp
         src/Utils.cpp
+        src/Timer.cpp
         src/Solvers/RandomSearch.cpp
         src/Solvers/DEvolution.cpp src/Timer.cpp include/Timer.h src/Mscn/MscnRandomProblem.cpp)

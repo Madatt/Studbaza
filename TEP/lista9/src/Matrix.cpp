@@ -104,6 +104,25 @@ double Matrix::colSum(int t_col) const {
     return res;
 }
 
+void Matrix::setMinMax(int t_rows, int t_cols, double t_min, double t_max) {
+    if(get(t_rows, t_cols) < t_min)
+        set(t_rows, t_cols, t_min);
+    else if(get(t_rows, t_cols) > t_max)
+        set(t_rows, t_cols, t_max);
+}
+
+void Matrix::rowMult(int t_row, double t_val) {
+    for (int i = 0; i < columns; i++) {
+        data[t_row * columns + i] *= t_val;
+    }
+}
+
+void Matrix::colMult(int t_col, double t_val) {
+    for (int i = 0; i < rows; i++) {
+        data[i * columns + t_col] *= t_val;
+    }
+}
+
 std::string Matrix::toStr() {
     std::string res = "[";
     for (int i = 0; i < rows; i++) {
@@ -115,7 +134,7 @@ std::string Matrix::toStr() {
     res = res.substr(0, res.size() - 2);
     res += "]\n";
     return res;
-};
+}
 
 bool Matrix::rowEmpty(int t_row) const {
     bool empty = true;

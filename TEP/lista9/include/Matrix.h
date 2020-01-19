@@ -32,6 +32,9 @@ public:
     int getColumns() const{return columns;};
     int getTotalSize() const {return columns * rows;};
 
+    void setMinMax(int t_rows, int t_cols, double t_min, double t_max);
+    void rowMult(int t_row, double t_val);
+    void colMult(int t_col, double t_val);
     double rowSum(int t_row) const;
     double colSum(int t_col) const;
 

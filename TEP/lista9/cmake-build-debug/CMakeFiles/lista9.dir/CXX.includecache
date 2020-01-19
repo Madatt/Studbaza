@@ -6,99 +6,59 @@
 
 #IncludeRegexTransform: 
 
-../include/Abstract/Random.h
-random
--
-
-../include/Mscn/MscnProblem.h
-vector
--
-string
--
-../Matrix.h
-../include/Matrix.h
-../Abstract/Problem.h
-../include/Abstract/Problem.h
-../Abstract/Solution.h
-../include/Abstract/Solution.h
-
-../include/Mscn/MscnRandomProblem.h
-Abstract/Random.h
-../include/Mscn/Abstract/Random.h
-Mscn/MscnProblem.h
-../include/Mscn/Mscn/MscnProblem.h
-
-/home/madatt/Studbaza/TEP/lista9/include/Abstract/Problem.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Abstract/Problem.h
 Solution.h
-/home/madatt/Studbaza/TEP/lista9/include/Abstract/Solution.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Abstract/Solution.h
 
-/home/madatt/Studbaza/TEP/lista9/include/Abstract/Random.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Abstract/Random.h
 random
 -
 
-/home/madatt/Studbaza/TEP/lista9/include/Abstract/Solution.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Abstract/Solution.h
 
-/home/madatt/Studbaza/TEP/lista9/include/Abstract/Solve.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Abstract/Solve.h
 ../Mscn/MscnProblem.h
-/home/madatt/Studbaza/TEP/lista9/include/Mscn/MscnProblem.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Mscn/MscnProblem.h
 ../Timer.h
-/home/madatt/Studbaza/TEP/lista9/include/Timer.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Timer.h
 
-/home/madatt/Studbaza/TEP/lista9/include/Matrix.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Matrix.h
 string
 -
 vector
 -
 
-/home/madatt/Studbaza/TEP/lista9/include/Mscn/MscnProblem.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Mscn/MscnProblem.h
 vector
 -
 string
 -
 ../Matrix.h
-/home/madatt/Studbaza/TEP/lista9/include/Matrix.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Matrix.h
 ../Abstract/Problem.h
-/home/madatt/Studbaza/TEP/lista9/include/Abstract/Problem.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Abstract/Problem.h
 ../Abstract/Solution.h
-/home/madatt/Studbaza/TEP/lista9/include/Abstract/Solution.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Abstract/Solution.h
 
-/home/madatt/Studbaza/TEP/lista9/include/Solvers/DEvolution.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Solvers/DEvolution.h
 ../Abstract/Solve.h
-/home/madatt/Studbaza/TEP/lista9/include/Abstract/Solve.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Abstract/Solve.h
 RandomSearch.h
-/home/madatt/Studbaza/TEP/lista9/include/Solvers/RandomSearch.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Solvers/RandomSearch.h
 
-/home/madatt/Studbaza/TEP/lista9/include/Solvers/RandomSearch.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Solvers/RandomSearch.h
 ../Abstract/Solve.h
-/home/madatt/Studbaza/TEP/lista9/include/Abstract/Solve.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Abstract/Solve.h
 ../Abstract/Random.h
-/home/madatt/Studbaza/TEP/lista9/include/Abstract/Random.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Abstract/Random.h
 
-/home/madatt/Studbaza/TEP/lista9/include/Timer.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Timer.h
 
-/home/madatt/Studbaza/TEP/lista9/include/constants.h
-
-/home/madatt/Studbaza/TEP/lista9/main.cpp
-iostream
--
-Mscn/MscnRandomProblem.h
--
-include/Mscn/MscnProblem.h
-/home/madatt/Studbaza/TEP/lista9/include/Mscn/MscnProblem.h
-include/constants.h
-/home/madatt/Studbaza/TEP/lista9/include/constants.h
-include/Solvers/RandomSearch.h
-/home/madatt/Studbaza/TEP/lista9/include/Solvers/RandomSearch.h
-include/Solvers/DEvolution.h
-/home/madatt/Studbaza/TEP/lista9/include/Solvers/DEvolution.h
-
-/home/madatt/Studbaza/TEP/lista9/src/Solvers/RandomSearch.cpp
-iostream
--
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/src/Solvers/DEvolution.cpp
 ctime
 -
-../../include/Solvers/RandomSearch.h
-/home/madatt/Studbaza/TEP/lista9/include/Solvers/RandomSearch.h
-../../include/constants.h
-/home/madatt/Studbaza/TEP/lista9/include/constants.h
+iostream
+-
+../../include/Solvers/DEvolution.h
+C:/Users/Madatt/Desktop/Studbaza/TEP/lista9/include/Solvers/DEvolution.h
 
